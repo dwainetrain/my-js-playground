@@ -94,6 +94,8 @@ console.log(11, isEven(11));
 console.log(39876, isEven(3987));
 
 let name = "dwaine"
+name[3] = 'f';
+console.log(name)
 console.log(name[name.length-1]);
 
 function countBs(string) {
@@ -116,3 +118,19 @@ function countChars(string, character) {
     }
     console.log(counter);
 }
+
+let objectTest = {
+    squirrel: 'Im not a squirrel today',
+    events: ["work", "touched tree", "pizza", "running"]
+};
+
+
+console.log(objectTest.squirrel);
+console.log(objectTest.wolf);
+
+name[3] = 'f';
+console.log(name)
+
+let object1 = {value: 10};
+let object2 = object1;
+let object3 = {value: 10};
