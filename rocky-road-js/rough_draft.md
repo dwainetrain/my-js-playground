@@ -1,0 +1,1 @@
+Ok, so I want to collect thoughts here on different concepts in Javascript so I can practive my technical communication. The goal is to understand the language deeply, and to gain a better grasp of computer science as it relates to web development. 
