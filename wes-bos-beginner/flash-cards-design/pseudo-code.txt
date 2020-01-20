@@ -1,3 +1,0 @@
-This is just to gather ideas about my first flash card app.
-
-- How to store data in vanilla javascript?
