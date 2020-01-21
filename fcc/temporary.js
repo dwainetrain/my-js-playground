@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+//Only change code below this line
+function countdown(n){
+    if (n < 1) {
+        return [];
+    } else {
+        const arr = countdown(n-1);
+        arr.unshift(n);
+        return arr;
+    };
+}
+// console.log(countdown(5)); // [5, 4, 3, 2, 1]
+// console.log(countdown(10)); // [5, 4, 3, 2, 1]
+// console.log(countdown(-10)); // [5, 4, 3, 2, 1]
+
+function rangeOfNumbers(startNum, endNum) {
+    if (startNum === endNum) {
+        return [startNum];
+    } else if (endNum > startNum) {
+        const arr = rangeOfNumbers(startNum, endNum - 1);
+        arr.push(endNum);
+        return arr;
+    }
+  };
+
+console.log(rangeOfNumbers(4, 4))
+=======
 // //Only change code below this line
 // function countdown(n){
 //     if (n < 1) {
@@ -48,3 +75,4 @@ const thermos = new Thermostat(76); // setting in Fahrenheit scale
 let temp = thermos.temperature; // 24.44 in C
 thermos.temperature = 26;
 temp = thermos.temperature; // 26 in C
+>>>>>>> f32384b8670c27639a88ebbef7aa38948d7f5bc8
