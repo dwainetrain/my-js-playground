@@ -39,6 +39,26 @@ a:link {
     background-color: orange;
 }
 
+.padding {
+    font-size: 16px;
+    padding: 1em;
+    border: 1px dashed #000;
+}
+
+.box {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: lightgrey;
+}
+
+.box-large {
+    font-size: 18px;
+}
+
+.box-small {
+    font-size: 10px;
+}
+
 .footer {
     color: #666666;
     background-color: #cccccc;
