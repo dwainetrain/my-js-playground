@@ -1,3 +1,21 @@
+:root {
+    /* Takes the root browser font size, typically 16px
+    you can base relative measurements off of it with rem */
+    font-size: 0.75em;
+}
+
+@media (min-width: 800px) {
+    :root {
+        font-size: 0.875em;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        font-size: 1em;
+    }
+}
+
 body {
     font-family: sans-serif;
 }
@@ -39,24 +57,17 @@ a:link {
     background-color: orange;
 }
 
-.padding {
-    font-size: 16px;
+.panel {
     padding: 1em;
-    border: 1px dashed #000;
+    border-radius: 0.5em;
+    border: 1px solid #999;
 }
 
-.box {
-    padding: 1em;
-    border-radius: 1em;
-    background-color: lightgrey;
-}
-
-.box-large {
-    font-size: 18px;
-}
-
-.box-small {
-    font-size: 10px;
+.panel > h2 {
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .footer {
