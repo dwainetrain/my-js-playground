@@ -1,14 +1,40 @@
-const squareList = (arr) => {
-  // only change code below this line
-  return arr
-          .map(i => Math.abs(parseInt(i)))
-          .map(j => j * j)
-  // only change code above this line
-};
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  // Same, same; but different.
+  // Items found in only one array
 
-// test your code
-const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
-console.log(squaredIntegers);
+  // so you can brute force it
+  // one by one checking each against
+  // each. In this case, you would need
+  // a double for loop to dig down
+  // or maybe just a simple function
+  // that compares one array to another
+  // and then just call it on each array
+
+  // find largest array
+  // use reduce method
+
+  console.log(
+    arr1.reduce(())
+  )
+
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+// const squareList = (arr) => {
+//   // only change code below this line
+//   return arr
+//           .map(i => Math.abs(parseInt(i)))
+//           .map(j => j * j)
+//   // only change code above this line
+// };
+
+// // test your code
+// const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+// console.log(squaredIntegers);
 
 
 // the global variable
