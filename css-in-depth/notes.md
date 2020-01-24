@@ -5,3 +5,13 @@
 EM is a calculated value! Meaning it continues to calculate down, ie if body is 16, div is em 1.2, and p within div is em 1.2, div will be 16 * 1.2, and p in div will be 16 * 1.2 * 1.2
 
 "If you are disciplined enough to style your entire page in relative units like this, the entire page will scale up and down based on the viewport size. This can be a huge part of your responsive strategy. - pg. 41
+
+Re-read this part, and read again, and put into practice. This is cool! "You’ve now accomplished a large piece of your responsive strategy without a single media query. Instead of three or four hard-coded breakpoints, everything on your page will scale fluidly according to the viewport. - pg. 46 (pdf 74)
+
+Here's the magic code:
+:root {
+    /* Takes the root browser font size, 0.5 based on root font and then multiply by view width to get a smooth transition betwee font sizes
+    no media queries! */
+    font-size: calc(0.5em * 1vw);
+
+}

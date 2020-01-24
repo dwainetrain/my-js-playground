@@ -1,10 +1,10 @@
 :root {
     /* Takes the root browser font size, typically 16px
     you can base relative measurements off of it with rem */
-    font-size: 0.75em;
+    font-size: calc(0.5em * 1vw);
 }
 
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
     :root {
         font-size: 0.875em;
     }
@@ -14,7 +14,7 @@
     :root {
         font-size: 1em;
     }
-}
+} */
 
 body {
     font-family: sans-serif;
