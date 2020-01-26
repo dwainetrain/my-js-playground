@@ -15,3 +15,11 @@ Here's the magic code:
     font-size: calc(0.5em * 1vw);
 
 }
+
+"Using a unitless number lets you set the line height on the body and then forget about it for the rest of the page, unless there are particular places where you want to make an exception. - pg. 48 (pdf 76)
+ie. body { line-height: 1.2} (no em, no px, etc.)
+
+"With this technique, you can use JavaScript to re-theme your site, live in the browser. Or, you could highlight certain parts of the page or make any number of other on-the-fly changes. Using only a few lines of JavaScript, you can make changes that’ll affect a large number of elements on the page. - pg 54 (pdf 82)
+This is for using JS to change custom properties (ie css variables) on the fly. Some example code is included.
+
+Try out vw (view width) with images

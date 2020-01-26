@@ -1,27 +1,132 @@
-function diffArray(arr1, arr2) {
-  var newArr = [];
-  // Same, same; but different.
-  // Items found in only one array
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  
+  // This works, but I'm not entirely sure why, it seems to create an object to make this work even though it shouldn't
+  // console.log(
+    
+  //   collection
+  //   .filter(obj => JSON.stringify(
+  //     (Object.assign(
+  //       JSON.parse(
+  //         JSON.stringify(obj)
+  //       ), source))
+  //   ) === JSON.stringify(obj)
+  // )
+  // );
 
-  // so you can brute force it
-  // one by one checking each against
-  // each. In this case, you would need
-  // a double for loop to dig down
-  // or maybe just a simple function
-  // that compares one array to another
-  // and then just call it on each array
-
-  // find largest array
-  // use reduce method
-
-  console.log(
-    arr1.reduce(())
-  )
-
-  return newArr;
+  // Only change code above this line
+  return arr;
 }
 
-diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 })
+
+
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   var arr = [];
+//   // Only change code below this line
+//   // This is the literal result, how do I get these
+//   // values from the source?
+
+//   // you'll have to rethink this, because sometimes it gives you
+//   // a range of values to test against the initial array of objects
+//   // but you are close here, you just need to try abstact it more
+
+//   //so you need to split out the objects and compare original object to target object, if it matches
+//   // const sourceArr = [source];
+//   // console.log(sourceArr);
+//   const sourceKeys = Object.keys(source);
+//   console.log(source.entries)
+//   // const [sourceValues] = Object.values(source);
+//   // console.log(sourceKeys);
+//   // console.log(sourceValues);
+//   // // 'Capulet' === collection.last.'Capulet'
+//   // console.log(collection.filter(i => sourceArr.includes(i)));
+
+//   console.log(...collection)
+//   const sourceJSON = JSON.stringify(source);
+//   console.log(sourceJSON)
+//   const collectionJSON = JSON.stringify(collection);
+//   console.log(collectionJSON);
+//   const collectionJSONParse = JSON.parse(collectionJSON);
+//   console.log(collectionJSONParse);
+//   for (const obj of collection) {
+//       console.log(obj);
+//   }
+
+//   // well okay, this tells me if the values match...one.at.a.time
+//   // I'm thinking of elaborate ways to hold truth tables, but is there
+//   // a simplier method?
+//   // for (const obj of collection) {
+//   //   // console.log(sourceKeys[key]);
+//   //   for (const key of sourceKeys) {
+//   //     if (obj.hasOwnProperty(key)) {
+
+//   //     };
+//   //   }
+    
+//   // }
+
+
+//   // Only change code above this line
+//   return arr;
+// }
+// whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+
+// should return
+// [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
+
+// // Neat! 
+// function destroyer(arr, ...rest) {
+//     // Remove all the values
+//     return arr.filter(i => !rest.includes(i))
+//   }
+// }
+
+// destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+// // This works, but I wonder if there's a way to create it without repeating
+// // the logic...
+// function diffArray(arr1, arr2) {
+//   // var newArr = [];
+
+//   // let args = [...arguments]
+//   // //console.log(args);
+//   // args.forEach(i => console.log(i))
+
+//   // for (let i = 0; i < arr2.length; i++) {
+//   //   if (arr1.indexOf(arr2[i]) === -1) {
+//   //     newArr.push(arr2[i]);
+//   //   };
+//   // }
+
+  
+
+//   // for (let i = 0; i < arr1.length; i++) {
+//   //   if (arr2.indexOf(arr1[i]) === -1) {
+//   //     newArr.push(arr1[i]);
+//   //   };
+//   // }
+
+//   // return newArr;
+
+//   // Love this solution!
+//   console.log( arr1
+//         .concat(arr2)
+//         .filter(item => !arr1.includes(item) || !arr2.includes(item))
+//   );
+// }
+
+// diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+// diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub", "large thicket"]);
 
 
 // const squareList = (arr) => {
