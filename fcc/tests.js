@@ -1,29 +1,159 @@
 function whatIsInAName(collection, source) {
   // What's in a name?
   var arr = [];
-  // Only change code below this line
-  
-  // This works, but I'm not entirely sure why, it seems to create an object to make this work even though it shouldn't
-  // console.log(
-    
-  //   collection
-  //   .filter(obj => JSON.stringify(
-  //     (Object.assign(
-  //       JSON.parse(
-  //         JSON.stringify(obj)
-  //       ), source))
-  //   ) === JSON.stringify(obj)
-  // )
-  // );
+        // // convert object into array
+       
+        // let collection0Arr = Object.keys(collection[0]).map(i => [i, collection[0][i]]);
+        // let collection1Arr = Object.keys(collection[1]).map(i => [i, collection[1][i]]);
+        // let collection2Arr = Object.keys(collection[2]).map(i => [i, collection[2][i]]);
+        // console.log(collection0Arr);
+        // console.log(collection1Arr);
+        // console.log(collection2Arr);
+        
+        // converts each obj in collection into arrays
+        ////////// BELOW WORKS BEFORE FILTER FUNCTION - DON"T CHANGE! //////////
+        let sourceArr = Object.keys(source).map(i => [i, source[i]]);
+        // console.log(...sourceArr)
+        // for (let obj in collection) {
+        //   console.log('collection returns: ' + JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])));
 
-  // Only change code above this line
-  return arr;
+        //   console.log(
+        //       JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])).includes(JSON.stringify(...sourceArr))
+        //   );
+        // }
+        /////////////// DON"T CHANGE ABOVE - USE TO BUILD FILTER //////////////
+
+      
+          // okay, first gotcha is that it loads the object not the index of the object when filter passes over
+        console.log(
+          collection.filter(obj =>
+          JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr))
+          )
+
+        );
+
+        return collection.filter(obj =>
+          JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr))
+          )
+
+        
+        // ok, reduce idea, use it to go through each of the values and return true or false
+        // CLOSER STILL
+        // console.log(
+          
+        //   collection.reduce(function (acc, val, index) {
+        //       // return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
+        //       return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
+        //   } , [])
+        
+        // );
+
+  // return arr;
 }
+
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   var arr = [];
+//   // Only change code below this line
+  
+//   // This works, but I'm not entirely sure why, it seems to create an object to make this work even though it shouldn't
+//   // console.log(
+    
+//   //   collection
+//   //   .filter(obj => JSON.stringify(
+//   //     (Object.assign(
+//   //       JSON.parse(
+//   //         JSON.stringify(obj)
+//   //       ), source))
+//   //   ) === JSON.stringify(obj)
+//   // )
+//   // );
+
+//         // Now we're onto something. Object entries returns the object as an array
+//         // which has many more useful methods to use
+//         // for (let i in collection) {
+//         //     console.log( Object.entries(collection[i]));
+//         //     console.log(Object.entries(source));
+//         //     console.log(JSON.stringify(Object.entries(collection[i])).includes(JSON.stringify(Object.entries(source)[0])))
+//         // }
+//       // you could create your own function that takes any value and tests it against
+//       // the bigger object
+
+//         // This is so close, but how the heck do I compare the source entries individually?
+//         // let sourceEntries = Object.entries(source);
+//         // let collectionEntry = Object.entries(collection[2]);
+        
+//         // console.log('Source Entries: ' + sourceEntries);
+//         // console.log('Collection Entry: ' + collectionEntry);
+        
+//         // so filter expects a true or false value and builds the array based on true values
+
+//         // // convert object into array
+//         let sourceArr = Object.keys(source).map(i => [i, source[i]]);
+//         // console.log(sourceArr);
+
+//         // ok, reduce idea, use it to go through each of the values and return true or false
+//         // CLOSER STILL
+//         console.log(
+          
+//           collection.reduce(function (acc, val, index) {
+//               return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
+//           } , [])
+        
+//         );
+
+//         // 
+//         // for (i of sourceArr) {
+//         //   console.log(i);
+//         // }
+//         // let collectionArr = Object.keys(collection).map(i => [i, collection[i]]);
+//         // console.log(collectionArr);
+//         // console.log( collection.filter( i => {
+                  
+//         //                  if( JSON.stringify(
+//         //                     Object.entries(i))
+//         //                     .includes(
+//         //                       JSON.stringify(
+//         //                        Object.entries(source)))) { //ridiculous!
+//         //                          return true;
+//         //                        }
+                                
+//         //       })
+//         // );
+      
+//         // Only change code above this line
+//   //       return arr;
+//   //     }
+
+//   //     console.log([[1,2,3], [4,5,6]].includes([4,5,6]));
+
+//   //     function testValueInObject(target, test) {
+//   //         for (let i in target) {
+//   //             console.log(i);
+//   //         }
+        
+
+//   //     }
+
+//   //     testTarget1 = {a:1, b:2, c:3};
+//   //     testTest1 = {b:2};
+
+//   //     console.log(testValueInObject(testTarget1, testTest1));
+
+//   //     let newArr = collection.filter(obj => 
+//   //       JSON.stringify(obj) === JSON.stringify(source)
+//   //     )
+
+//   //     console.log(newArr);
+
+//   // // Only change code above this line
+//   return arr;
+// }
 
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 })
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
 
 
 // function whatIsInAName(collection, source) {
@@ -648,4 +778,3 @@ whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "
   
 //   mutation(["hello", "hey"]);
 //   console.log(mutation(["hello", "Hello"]));
-  
