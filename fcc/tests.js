@@ -1,55 +1,119 @@
+
+/////////// OK, I'm proud of this one ///////////////
+// Basically it's using the length of a truth table to determine
+// if elements match, each element is checked against the source
+// if it's found matching, push a truth to the truth table
+// then at the end check the amount of truths to the amount of sources
+// if they match, then all sources are true
+// Someday, I'd like to figure this out with a more functional approach...but for now this is good
 function whatIsInAName(collection, source) {
   // What's in a name?
-  var arr = [];
-        // // convert object into array
-       
-        // let collection0Arr = Object.keys(collection[0]).map(i => [i, collection[0][i]]);
-        // let collection1Arr = Object.keys(collection[1]).map(i => [i, collection[1][i]]);
-        // let collection2Arr = Object.keys(collection[2]).map(i => [i, collection[2][i]]);
-        // console.log(collection0Arr);
-        // console.log(collection1Arr);
-        // console.log(collection2Arr);
+  const arr = [];
         
-        // converts each obj in collection into arrays
-        ////////// BELOW WORKS BEFORE FILTER FUNCTION - DON"T CHANGE! //////////
-        let sourceArr = Object.keys(source).map(i => [i, source[i]]);
-        // console.log(...sourceArr)
-        // for (let obj in collection) {
-        //   console.log('collection returns: ' + JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])));
+        let truthTable = [];
+        for (const obj of collection) {
+          truthTable = [];
+          for (const item in source) {
+  
+            if (obj.hasOwnProperty(item) && obj[item] === source[item]) {
+              truthTable.push(true);
+            }
 
-        //   console.log(
-        //       JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])).includes(JSON.stringify(...sourceArr))
-        //   );
-        // }
-        /////////////// DON"T CHANGE ABOVE - USE TO BUILD FILTER //////////////
+            if (truthTable.length === Object.values(source).length) {
+              arr.push(obj);
+            }
+          }
+        }
+  console.log(arr);
+  return arr;
+}
+
+//// And this is what I want to strive for! ///
+function whatIsInAName2(collection, source) {
+
+  console.log( collection.filter(o => Object.keys(source).every(k => o.hasOwnProperty(k) && o[k]==source[k])) );
+}
+//////
+
+whatIsInAName2([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+whatIsInAName2([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
+//////////////////////
+
+
+
+
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   var arr = [];
+//         // // convert object into array
+       
+//         // let collection0Arr = Object.keys(collection[0]).map(i => [i, collection[0][i]]);
+//         // let collection1Arr = Object.keys(collection[1]).map(i => [i, collection[1][i]]);
+//         // let collection2Arr = Object.keys(collection[2]).map(i => [i, collection[2][i]]);
+//         // console.log(collection0Arr);
+//         // console.log(collection1Arr);
+//         // console.log(collection2Arr);
+        
+//         // converts each obj in collection into arrays
+//         ////////// BELOW WORKS BEFORE FILTER FUNCTION - DON"T CHANGE! //////////
+//         // let sourceArr = Object.keys(source).map(i => [i, source[i]]);
+//         // console.log(...sourceArr)
+//         // for (let obj in collection) {
+//         //   console.log('collection returns: ' + JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])));
+
+//         //   console.log(
+//         //       JSON.stringify(Object.keys(collection[obj]).map(i => [i, collection[obj][i]])).includes(JSON.stringify(...sourceArr))
+//         //   );
+//         // }
+//         /////////////// DON"T CHANGE ABOVE - USE TO BUILD FILTER //////////////
 
       
-          // okay, first gotcha is that it loads the object not the index of the object when filter passes over
-        console.log(
-          collection.filter(obj =>
-          JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr))
-          )
+//         //   // okay, first gotcha is that it loads the object not the index of the object when filter passes over
+//         // console.log(
+//         //   collection.filter(obj =>
+//         //   JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr))
+//         //   )
 
-        );
+//         // );
 
-        return collection.filter(obj =>
-          JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr))
-          )
+//         // Well, closer, but they want even more matching,
+//         let truthTable = [];
+//         for (let obj of collection) {
+//           truthTable = [];
+//           for (let item in source) {
+//             console.log(obj, item);
+//             console.log(obj[item], source[item]);
+//             if (obj.hasOwnProperty(item) && obj[item] === source[item]) {
+//               truthTable.push(true);
+//               console.log(truthTable);
+//             }
+//             console.log(Object.values(source).length);
+//             if (truthTable.length === Object.values(source).length) {
+//               arr.push(obj);
+//               console.log(arr);
+//             }
+//           }
+//         }
+
+//         // return collection.filter(obj =>
+//         //   JSON.stringify(Object.keys(obj).map(i => [i, obj[i]])).includes(JSON.stringify(...sourceArr)));
 
         
-        // ok, reduce idea, use it to go through each of the values and return true or false
-        // CLOSER STILL
-        // console.log(
+//         // ok, reduce idea, use it to go through each of the values and return true or false
+//         // CLOSER STILL
+//         // console.log(
           
-        //   collection.reduce(function (acc, val, index) {
-        //       // return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
-        //       return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
-        //   } , [])
+//         //   collection.reduce(function (acc, val, index) {
+//         //       // return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
+//         //       return Object.keys(collection[index]).map(i => [i, collection[index][i]]);
+//         //   } , [])
         
-        // );
+//         // );
 
-  // return arr;
-}
+//   return arr;
+// }
 
 // function whatIsInAName(collection, source) {
 //   // What's in a name?
@@ -150,10 +214,7 @@ function whatIsInAName(collection, source) {
 //   return arr;
 // }
 
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
-
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
 
 
 // function whatIsInAName(collection, source) {
