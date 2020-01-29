@@ -22,4 +22,29 @@ ie. body { line-height: 1.2} (no em, no px, etc.)
 "With this technique, you can use JavaScript to re-theme your site, live in the browser. Or, you could highlight certain parts of the page or make any number of other on-the-fly changes. Using only a few lines of JavaScript, you can make changes that’ll affect a large number of elements on the page. - pg 54 (pdf 82)
 This is for using JS to change custom properties (ie css variables) on the fly. Some example code is included.
 
-Try out vw (view width) with images
+idea: Try out vw (view width) with images
+
+Recommended adding to every css file:
+-->
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+-->
+sets all elements to border-box so even padding and border are included in calculations
+
+display: flex;
+for flexbox fun, more to come in chapter 5
+
+"WARNING Never explicitly set the height of an element unless you have no other choice. Always seek an alternative approach first. Setting a height invari- ably leads to further complications.
+
+"A vertical-align declaration only affects inline and table-cell elements. With inline elements, it controls alignment among other elements on the same line. You can use it to control how an inline image aligns with the neighboring text, for example.
+
+"With table-cell elements, vertical-align controls the alignment of the contents within the cell. If a CSS table layout works for your page, then you can accomplish vertical centering with vertical-align.
+
+"Here’s the simplest way to vertically center in CSS—give a container equal top and bottom padding, and let both the container and its contents determine their height naturally (figure 3.14)
