@@ -1,44 +1,102 @@
-///// PIG LATING /////
-// This passes, but it's not very clean, and there's lots of repeated code
-// Anyway to turn this more functional?
-function translatePigLatin(str) {
-  let newStr = [];
-  if (str[0].match(/[aeiou]/)) {
-    for(i=0; i < str.length; i++) {
-      newStr.push(str[i]);
-    }
-    newStr.push("way");
-  
-  } else if (str[0].match(/[^aeiou]/)) {
-    let splitAtVowel = str.split(/(?=[aeiou])/);
-    if (splitAtVowel[0].match(/[^aeiou]/)) {
-      for(i=1; i < splitAtVowel.length; i++) {
-        newStr.push(splitAtVowel[i]);
+function myReplace(str, before, after) {
+
+  // find location
+  let splitStr = str.split(" ")
+  let location = splitStr.findIndex(item => item === before);
+
+  // Check case of initial word
+  function checkCase(arr, index, word) {
+    let regexUpper = /[A-Z]/
+    let regexLower = /[a-z]/
+    if(arr[index][0].match(regexUpper)) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
       }
-      newStr.push(splitAtVowel[0]+'ay')
-  
-    } //else {
-
-    // for(i=1; i < splitAtVowel.length; i++) {
-    //   newStr.push(splitAtVowel[i]);
-    // }
-    // newStr.push(splitAtVowel[0]+'ay')
-    // }
+    return word;
   }
+  let editAfter = checkCase(splitStr, location, after);
 
+  // initialize new str
+  let newStr = [];
+  // put all strings before location
+  // add new word at location
+  // continue word after location
+  for(let i=0; i<location; i++) {
+      newStr.push(splitStr[i]);
+  }
+  newStr.push(editAfter);
+  for(let j=location+1; j<splitStr.length; j++) {
+    newStr.push(splitStr[j])
+  }
   
-  console.log(newStr.join(''));
-  return newStr.join('');
+  console.log(newStr.join(" "))
+  return newStr.join(" ");
 }
 
-translatePigLatin("consonant"); 
-translatePigLatin("california"); // aliforniacay 
-translatePigLatin("paragraphs"); // aragraphspay
-translatePigLatin("glove"); // oveglay
-translatePigLatin("algorithm"); // algorithmway
-translatePigLatin("eight"); // eightway
-translatePigLatin("schwartz"); // artzschway
-translatePigLatin("rhythm"); // rhythmay
+
+/// Aspiration - Simple string manipulation///
+/// I think you were too afraid to play with strings in this exercise
+/// No need to create arrays, there are plenty of string methods
+// for this kind of problem
+function myReplace(str, before, after) {
+  // Check if first character of argument "before" is a capital or lowercase letter and change the first character of argument "after" to match the case
+  if (/^[A-Z]/.test(before)) {
+    after = after[0].toUpperCase() + after.substr(1)
+  } else {
+    after = after[0].toLowerCase() + after.substr(1)
+  }
+
+  // return string with argument "before" replaced by argument "after" (with correct case)
+  return str.replace(before, after);
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("Let us go to the store", "store", "mall")
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting")
+myReplace("This has a spellngi error", "spellngi", "spelling")
+myReplace("His name is Tom", "Tom", "john")
+myReplace("Let us get back to more Coding", "Coding", "algorithms")
+
+// ///// PIG LATING /////
+// // This passes, but it's not very clean, and there's lots of repeated code
+// // Anyway to turn this more functional?
+// function translatePigLatin(str) {
+//   let newStr = [];
+//   if (str[0].match(/[aeiou]/)) {
+//     for(i=0; i < str.length; i++) {
+//       newStr.push(str[i]);
+//     }
+//     newStr.push("way");
+  
+//   } else if (str[0].match(/[^aeiou]/)) {
+//     let splitAtVowel = str.split(/(?=[aeiou])/);
+//     if (splitAtVowel[0].match(/[^aeiou]/)) {
+//       for(i=1; i < splitAtVowel.length; i++) {
+//         newStr.push(splitAtVowel[i]);
+//       }
+//       newStr.push(splitAtVowel[0]+'ay')
+  
+//     } //else {
+
+//     // for(i=1; i < splitAtVowel.length; i++) {
+//     //   newStr.push(splitAtVowel[i]);
+//     // }
+//     // newStr.push(splitAtVowel[0]+'ay')
+//     // }
+//   }
+
+  
+//   console.log(newStr.join(''));
+//   return newStr.join('');
+// }
+
+// translatePigLatin("consonant"); 
+// translatePigLatin("california"); // aliforniacay 
+// translatePigLatin("paragraphs"); // aragraphspay
+// translatePigLatin("glove"); // oveglay
+// translatePigLatin("algorithm"); // algorithmway
+// translatePigLatin("eight"); // eightway
+// translatePigLatin("schwartz"); // artzschway
+// translatePigLatin("rhythm"); // rhythmay
 
 
 
