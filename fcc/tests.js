@@ -1,45 +1,124 @@
-
-/////////// OK, I'm proud of this one ///////////////
-// Basically it's using the length of a truth table to determine
-// if elements match, each element is checked against the source
-// if it's found matching, push a truth to the truth table
-// then at the end check the amount of truths to the amount of sources
-// if they match, then all sources are true
-// Someday, I'd like to figure this out with a more functional approach...but for now this is good
-function whatIsInAName(collection, source) {
-  // What's in a name?
-  const arr = [];
-        
-        let truthTable = [];
-        for (const obj of collection) {
-          truthTable = [];
-          for (const item in source) {
+///// PIG LATING /////
+// This passes, but it's not very clean, and there's lots of repeated code
+// Anyway to turn this more functional?
+function translatePigLatin(str) {
+  let newStr = [];
+  if (str[0].match(/[aeiou]/)) {
+    for(i=0; i < str.length; i++) {
+      newStr.push(str[i]);
+    }
+    newStr.push("way");
   
-            if (obj.hasOwnProperty(item) && obj[item] === source[item]) {
-              truthTable.push(true);
-            }
+  } else if (str[0].match(/[^aeiou]/)) {
+    let splitAtVowel = str.split(/(?=[aeiou])/);
+    if (splitAtVowel[0].match(/[^aeiou]/)) {
+      for(i=1; i < splitAtVowel.length; i++) {
+        newStr.push(splitAtVowel[i]);
+      }
+      newStr.push(splitAtVowel[0]+'ay')
+  
+    } //else {
 
-            if (truthTable.length === Object.values(source).length) {
-              arr.push(obj);
-            }
-          }
-        }
-  console.log(arr);
-  return arr;
+    // for(i=1; i < splitAtVowel.length; i++) {
+    //   newStr.push(splitAtVowel[i]);
+    // }
+    // newStr.push(splitAtVowel[0]+'ay')
+    // }
+  }
+
+  
+  console.log(newStr.join(''));
+  return newStr.join('');
 }
 
-//// And this is what I want to strive for! ///
-function whatIsInAName2(collection, source) {
+translatePigLatin("consonant"); 
+translatePigLatin("california"); // aliforniacay 
+translatePigLatin("paragraphs"); // aragraphspay
+translatePigLatin("glove"); // oveglay
+translatePigLatin("algorithm"); // algorithmway
+translatePigLatin("eight"); // eightway
+translatePigLatin("schwartz"); // artzschway
+translatePigLatin("rhythm"); // rhythmay
 
-  console.log( collection.filter(o => Object.keys(source).every(k => o.hasOwnProperty(k) && o[k]==source[k])) );
-}
-//////
-
-whatIsInAName2([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 
-whatIsInAName2([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
-//////////////////////
+/////////// MY SOLUTION ////////////
+// function spinalCase(str) {
+//   // "It's such a fine line between stupid, and clever."
+//   // --David St. Hubbins
+//   // let splitUppercase = (str.replace(/(?=[A-Z])/g, ' ').trim()).split(/[_\s]/g);
+//   // console.log('UC: ', splitUppercase.map(word => word.toLowerCase().trim() ));
+//   let splitUppercase = str.split(/(?=[A-Z]|[\s])/g);
+//   return splitUppercase
+//           .map(word => word.trim())
+//           .map(word => word.replace(/_/g, ''))
+//           .filter(word => word !== '')
+//           .map(word => word.toLowerCase())
+//           .join('-')
+//   }
+
+// ////////// ASPIRTIONS ////////////
+// // I was very close, just needed to be more skilled at RegEx
+// function spinalCase(str) {
+//   // "It's such a fine line between stupid, and clever."
+//   // --David St. Hubbins
+//   // let splitUppercase = (str.replace(/(?=[A-Z])/g, ' ').trim()).split(/[_\s]/g);
+//   // console.log('UC: ', splitUppercase.map(word => word.toLowerCase().trim() ));
+//   console.log( str
+//         .split(/\s|_|(?=[A-Z])/)
+//         .join("-")
+//         .toLowerCase()
+
+//   );
+//   }
+
+// spinalCase('This Is Spinal Tap');
+// spinalCase("AllThe-small Things");
+// spinalCase("Teletubbies say Eh-oh");
+// spinalCase("The_Andy_Griffith_Show");
+// spinalCase("thisIsSpinalTap");
+
+// /////////// OK, I'm proud of this one ///////////////
+// // Basically it's using the length of a truth table to determine
+// // if elements match, each element is checked against the source
+// // if it's found matching, push a truth to the truth table
+// // then at the end check the amount of truths to the amount of sources
+// // if they match, then all sources are true
+// // Someday, I'd like to figure this out with a more functional approach...but for now this is good
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   const arr = [];
+        
+//         let truthTable = [];
+//         for (const obj of collection) {
+//           truthTable = [];
+//           for (const item in source) {
+  
+//             if (obj.hasOwnProperty(item) && obj[item] === source[item]) {
+//               truthTable.push(true);
+//             }
+
+//             if (truthTable.length === Object.values(source).length) {
+//               arr.push(obj);
+//             }
+//           }
+//         }
+//   console.log(arr);
+//   return arr;
+// }
+
+// //// And this is what I want to strive for! ///
+// function whatIsInAName2(collection, source) {
+
+//   console.log( collection.filter(o => Object.keys(source).every(k => o.hasOwnProperty(k) && o[k]==source[k])) );
+// }
+// //////
+
+// whatIsInAName2([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+// whatIsInAName2([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
+// //////////////////////
 
 
 
