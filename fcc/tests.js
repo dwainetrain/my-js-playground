@@ -1,47 +1,119 @@
 "use strict";
-// GC AT
-function pairElement(str) {
-   let splitString = str.split('');
 
-   console.log( splitString.map(element => {
-     switch (element) {
-        case "G":
-         return ["G", "C"];
-        case "C":
-          return ["C", "G"];
-        case "A":
-          return ["A", "T"];
-        case "T":
-          return ["T", "A"];
-        default:
-          return "Not G, C, A, or T"
-     }
-    }
-   ))
+function uniteUnique(arr1, arr2 ) {
+  // similar to quadratic expansion?
+  // [1, 2] [3, 2]
+  // are 1 and 3 different? yes
+  // are 1 and 3 in the dictionary? no
+  // 1 and 3, 1 unique, 3 unique
+  // add to final array
+  let dictionary = [];
 
+  // This function works for two arrays
+  // is there a way to cycle through a list of unknown
+  // arrays and compare all their values to each other...
+  // for each argument, say there are 4
+  // compare 1 and 2, compare 2 and 3, compare 3 and 4
+  // you could make a counter which is the simpliest way
+  // to track where you are
+  // step( compare current array to first array)
+  // step( compare current array to second array)
+  // step( compare current array )
+  // even if it's the same array, it will return the same result
+  // not the most efficent, but it should work
+  function uniqueArr (arr1, arr2) {
+    for (let i of arr1) {
+        for (let j of arr2) {
+          if (i !== j && !dictionary.includes(i))
+            dictionary.push(i);
+            console.log( i, j);
+            console.log(i === j);
+            console.log(dictionary)
+        }
+      
+      }
+  }
+
+  uniqueArr(arr1, arr2);
+  uniqueArr(arr2, arr1);
+  
 }
 
-/// Aspiration ///
-/// Excellent way to think through the pairs
-/// and save time on the switch statements ///
-function pairElement(str) {
-  //create object for pair lookup
-  var pairs = {
-    A: "T",
-    T: "A",
-    C: "G",
-    G: "C"
-  };
-  //split string into array of characters
-  var arr = str.split("");
-  //map character to array of character and matching pair
-  return arr.map(x => [x, pairs[x]]);
-}
+// Let's just start with 2
+uniteUnique([1, 3, 2], [5, 2, 1]);
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+// uniteUnique([1, 2, 3], [5, 2, 1]);
+// uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
 
-//test here
-pairElement("GCG");
+// function fearNotLetter(str) {
+//   // establish range of numbers, ie 97 - 101
+//   // count down through numbers
+//   // if character code doesn't equal counter
+//   // return missing counter
+//   let range = [str.charCodeAt(0), str.charCodeAt(str.length-1)];
+//   let counter = 0;
+//   for (let i = range[0]; i < range[1]; i++) {
+  
+//     if (str.charCodeAt(counter) !== i) {
+//           return String.fromCharCode(i);
+//     } 
+//     counter += 1;
+//   }
 
-pairElement("GCG");
+//   return undefined;
+
+// }
+
+// fearNotLetter("abce"); // d
+// fearNotLetter("abcdefghjklmno"); // i
+// fearNotLetter("stvwx"); //u
+// fearNotLetter("bcdf"); //e
+// fearNotLetter("abcdefghijklmnopqrstuvwxyz"); // undefined
+
+
+// // GC AT
+// function pairElement(str) {
+//    let splitString = str.split('');
+
+//    console.log( splitString.map(element => {
+//      switch (element) {
+//         case "G":
+//          return ["G", "C"];
+//         case "C":
+//           return ["C", "G"];
+//         case "A":
+//           return ["A", "T"];
+//         case "T":
+//           return ["T", "A"];
+//         default:
+//           return "Not G, C, A, or T"
+//      }
+//     }
+//    ))
+
+// }
+
+// /// Aspiration ///
+// /// Excellent way to think through the pairs
+// /// and save time on the switch statements ///
+// function pairElement(str) {
+//   //create object for pair lookup
+//   var pairs = {
+//     A: "T",
+//     T: "A",
+//     C: "G",
+//     G: "C"
+//   };
+//   //split string into array of characters
+//   var arr = str.split("");
+//   //map character to array of character and matching pair
+//   return arr.map(x => [x, pairs[x]]);
+// }
+
+// //test here
+// pairElement("GCG");
+
+// pairElement("GCG");
 
 // function myReplace(str, before, after) {
 
