@@ -8,12 +8,17 @@
     box-sizing: inherit;
 }
 
+body * + * {
+    margin-top: 1.5em;
+}
+
 body {
     background-color: #eee;
     font-family: Helvetica,Arial, sans-serif;
 }
 
 header {
+    padding: 1em 1.5em;
     color: #fff;
     background-color: #0072b0;
     border-radius: .5em;
@@ -42,6 +47,7 @@ main {
     /* float: left; */
     /* display: table-cell; */
     width: 70%;
+    padding: 1em 1.5em;
     background-color: #fff;
     border-radius: .5em;
 }
@@ -51,8 +57,26 @@ main {
     width: calc(30% - 1.5em); */
     /* display: table-cell; */
     width: 30%;
+    margin-top: 0;
     margin-left: 1.5em;
     padding: 1.5em;
     background-color: #fff;
     border-radius: .5em;
+}
+
+.button-link {
+    display: block;
+    padding: 0.5em;
+    color: #fff;
+    background-color: #0090C9;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.sponsor-link {
+    display: block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
 }
