@@ -48,3 +48,33 @@ for flexbox fun, more to come in chapter 5
 "With table-cell elements, vertical-align controls the alignment of the contents within the cell. If a CSS table layout works for your page, then you can accomplish vertical centering with vertical-align.
 
 "Here’s the simplest way to vertically center in CSS—give a container equal top and bottom padding, and let both the container and its contents determine their height naturally (figure 3.14)
+
+Veritcal centering scenerios - pg. 100 sidebar
+
+"Collapsed margins act as a sort of “personal space bubble.” If two people standing at a bus stop are each comfortable with 3 feet of personal space between, they’ll happily stand 3 feet apart. They don’t need to stand 6 feet apart to both be satisfied. (collapsing only applies to top and bottom margins)
+
+The margins of flex box items dont' collapse. Also, If you add top and bottom padding to the header, the margins inside it won’t collapse to the outside. Other ways to prevent margin collapse on pg. 104
+
+"Listing 3.17 shows one of the simpler fixes. It uses the adjacent sibling combinator (+) to target only button-links that immediately follow other button-links as siblings under the same parent element. pg. 106
+
+Neat! ie.
+.button-link + .button-like {
+    margin-top: 1.5em;
+}
+
+"lobotomized owl selector. It looks like this: * + *
+"it selects all elements on the page that aren’t the first child of their parent. (great for applying a margin to the top of all elements...)
+ie:
+
+body * + * {
+    margin-top: 1.5em;
+}
+
+"Summary (pg. 111)
+ Always use a universal border-box fix for predictable element sizing.
+ Avoid explicitly setting the height of an element to avoid overflow issues.
+ Use modern layout techniques like display: table or a flexbox to produce col-
+umns of equal height or to vertically center content.
+ If your margins behave oddly, take steps to prevent margins from collapsing.
+ Consider using the lobotomized owl selector on your page to globally apply
+margins between stacked elements.
