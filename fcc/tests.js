@@ -1,46 +1,126 @@
 "use strict";
 
-function uniteUnique(arr1, arr2 ) {
-  // similar to quadratic expansion?
-  // [1, 2] [3, 2]
-  // are 1 and 3 different? yes
-  // are 1 and 3 in the dictionary? no
-  // 1 and 3, 1 unique, 3 unique
-  // add to final array
-  let dictionary = [];
+// &amp; &
+// &lt; <
+// &gt; >
+// &quot;
+// &#39; '
 
-  // This function works for two arrays
-  // is there a way to cycle through a list of unknown
-  // arrays and compare all their values to each other...
-  // for each argument, say there are 4
-  // compare 1 and 2, compare 2 and 3, compare 3 and 4
-  // you could make a counter which is the simpliest way
-  // to track where you are
-  // step( compare current array to first array)
-  // step( compare current array to second array)
-  // step( compare current array )
-  // even if it's the same array, it will return the same result
-  // not the most efficent, but it should work
-  function uniqueArr (arr1, arr2) {
-    for (let i of arr1) {
-        for (let j of arr2) {
-          if (i !== j && !dictionary.includes(i))
-            dictionary.push(i);
-            console.log( i, j);
-            console.log(i === j);
-            console.log(dictionary)
-        }
-      
+function convertHTML(str) {
+  // &colon;&rpar;
+  // find symbol and its index
+  // find the symbols matching html in object
+  // replace at index
+
+  let htmlCodes = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '\"': '&quot;',
+    "\'": '&apos;'
+  };
+
+  // little by little, my regex powers improve
+  // and little by little, my reduce powers improve
+  let splitStr = str.match(/\w+|["']|\W|\S/g);
+
+  console.log(splitStr)
+  let newStr =
+    splitStr.reduce((result, item) => {
+      if (htmlCodes[item]) {
+          result.push(htmlCodes[item]);
+      } else {
+          result.push(item);
       }
-  }
+      // putting this return at the end is essential!!!
+      return result;
+    }, [])
+    .join("");
 
-  uniqueArr(arr1, arr2);
-  uniqueArr(arr2, arr1);
-  
+  console.log(newStr);
+  return newStr;
 }
 
-// Let's just start with 2
-uniteUnique([1, 3, 2], [5, 2, 1]);
+/// This is what I was trying to accomplish originally ///
+// so I'll just aspire to it now //
+function convertHTML(str) {
+  // Use Object Lookup to declare as many HTML entities as needed.
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  };
+  //Use map function to return a filtered str with all entities changed automatically.
+  return str
+    .split("")
+    .map(entity => htmlEntities[entity] || entity)
+    .join("");
+}
+/// so clean! ///
+
+// test here
+convertHTML("Dolce & Gabbana");
+
+convertHTML("Dolce & Gabbana");
+convertHTML("Hamburgers < Pizza < Tacos");
+convertHTML("Sixty > twelve");
+convertHTML('Stuff in "quotation marks"');
+
+// const testStr = 'Stuff in "quotation marks"'
+// console.log ( testStr.match(/\w+|["']/g))
+// // [ 'Stuff', 'in', '"quotation', 'marks', '"' ]
+
+
+
+/// Well it's terribly inefficent, but it works ///
+/// main ineffeciencies are that it checks each
+// array against each other array, including itself
+// and the near global dictionary makes me nervous
+// function uniteUnique(arr) {
+//   // similar to quadratic expansion?
+
+//   let dictionary = [];
+
+//   function uniqueArr (arr1, arr2) {
+//     for (let i of arr1) {
+//         for (let j of arr2) {
+//           if (i !== j && !dictionary.includes(i))
+//             dictionary.push(i);
+//         }
+      
+//       }
+//   }
+
+//   let arrays = [...arguments]
+
+//   for (let item of arrays) {
+//     for (let item2 of arrays) {
+//       uniqueArr(item, item2);
+//     }
+//   }
+
+//   return dictionary;
+  
+// }
+
+// /// Aspirations ///
+// //jshint esversion:6
+
+// function uniteUnique(...arrays) {
+//   //make an array out of the given arrays and flatten it (using the spread operator)
+//   const flatArray = [].concat(...arrays);
+
+//   // create a Set which clears any duplicates since it's a regulat set and not a multiset
+//   return [...new Set(flatArray)];
+// }
+
+// // test here
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+// ///
+
+// uniteUnique([1, 3, 2], [5, 2, 1]);
 // uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 // uniteUnique([1, 2, 3], [5, 2, 1]);
 // uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
