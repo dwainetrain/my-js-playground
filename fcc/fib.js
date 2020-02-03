@@ -4,11 +4,16 @@ function sumPrimes(num) {
         range.push(i);
     }
 
+    // this approach is not working, you need to work in some other direction
+    // So, you're taking a range of numbers
+    // check if that number is divisible by the numbers before it
+    // other than itself and 1. 
+
 
     let zeroRange = range.map(number => range.map(divider => number%divider).filter(item => item < 1) )
 
     console.log(zeroRange);
-    console.log( zeroRange.filter(arr => arr.length <= 2) );
+    console.log( zeroRange.filter(arr => arr.length <= 2).map((arr, _, i) => arr[i]) );
 
     let primeArr = []
     for (let i in zeroRange) {
