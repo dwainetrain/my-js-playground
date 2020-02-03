@@ -1,27 +1,390 @@
-<!-- Homework 3 (10 points)
+<!-- I wasn't feeling very creative, so I just used some items from Kabuki Japanese Restaurant's menu  -->
+<!-- I encased everything in a large form so the customer could choose quantity, not sure if that's the wisest move.  -->
 
-Create a web page (just one .html file) for a restaurant menu and an online order form. The page should contain the following
+<!DOCTYPE html>
+<html lang="en">
 
-:● Menu
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Order - Oishii Japanese Restaurant</title>
+</head>
 
-○ Appetizers
+<body>
 
-○ Entrees
+<h1>
+    Oishii Japanese Restaurant
+</h1>
 
-○ Desserts
+<h2>Menu Order Form</h2>
 
-Menu items should contain a name, price and brief description
 
-● Online Order Form
+<form action="#"> 
+    <h3>
+        Appetizers
+    </h3>
 
-○ Create a form that would let someone submit an order for food online.
+    <div class="menu-item">
+        <h4>
+            Edamame
+        </h4>
+        <div class="price">
+            $8.99
+        </div>
+        <div class="description">
+            Steamed organic soybeans, sea salt, <i>vegetarian</i>
+        </div>
 
-○ Include:
+            <div class="quantity">
+                <label name="edamame">Quantity</label>
+                <select>
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4 </option>
+                </select>
+              </div>
+    </div>
 
-■ Customer Contact information
 
-■ Some way to choose menu items
+    <div class="menu-item">
+        <h4>
+            Agedashi Tofu
+        </h4>
+        <div class="price">
+            $11.99
+        </div>
+        <div class="description">
+            Fried tofu, bonito flakes, ginger, green onions, dashi soy sauce
+        </div>
+        <div class="quantity">
+            <label name="agedashi-tofu">Quantity</label>
+            <select>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4 </option>
+            </select>
+        </div>
+    </div>
 
-■ Payment Information
+<div class="menu-item">
+    <h4>
+        Fried Gyoza Dumplings
+    </h4>
+    <div class="price">
+        $8.99
+    </div>
+    <div class="description">
+        Beef and vegetable dumplings
+    </div>
+    <div class="quantity">
+        <label name="fried-gyoza-dumplings">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
 
-Be creative, and add any other form controls you like. -->
+<div class="menu-item">
+    <h4>
+        Calamari Rings
+    </h4>
+    <div class="price">
+        $10.99
+    </div>
+    <div class="description">
+        Lightly fried calamari, wasabi mayo, spicy teriyaki sauce
+    </div>
+    <div class="quantity">
+        <label name="calimari-rings">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<h3>
+    Entrees
+</h3>
+
+<div class="menu-item">
+    <h4>
+        Tempura Udon
+    </h4>
+    <div class="price">
+        $16.99
+    </div>
+    <div class="description">
+        Japanese udon, shrimp and vegetable tempura
+    </div>
+    <div class="quantity">
+        <label name="tempura-udon">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<div class="menu-item">
+    <h4>
+        Spicy Miso Ramen
+    </h4>
+    <div class="price">
+        $17.99
+    </div>
+    <div class="description">
+        Spicy ramen, corn, seaweed, bean sprouts, miso-flavored broth
+    </div>
+    <div class="quantity">
+        <label name="spicy-miso-ramen">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<div class="menu-item">
+    <h4>
+        Tonkotsu Ramen
+    </h4>
+    <div class="price">
+        $18.99
+    </div>
+    <div class="description">
+        Pork-flavored broth, sweet roasted pork belly sliced, bean sprouts, black garlic oil
+    </div>
+    <div class="quantity">
+        <label name="tonkotsu-ramen">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<div class="menu-item">
+    <h4>
+        Salmon Yaki Bowl
+    </h4>
+    <div class="price">
+        $18.99
+    </div>
+    <div class="description">
+        Grilled salmon, green onion, seaweed, spicy sesame oil and garlic sauce
+    </div>
+    <div class="quantity">
+        <label name="salmon-yaki-bowl">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<h3>
+    Desserts
+</h3>
+
+<div class="menu-item">
+    <h4>
+        Mochi Ice Cream
+    </h4>
+    <div class="price">
+        $6.99
+    </div>
+    <div class="description">
+        Japanese rice cake with ice cream filling
+    </div>
+    <div class="quantity">
+        <label name="mochi-ice-cream">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<div class="menu-item">
+    <h4>
+        Banana Tempura
+    </h4>
+    <div class="price">
+        $7.99
+    </div>
+    <div class="description">
+        Lightly fried banana, caramel sauce, vanilla ice cream
+    </div>
+    <div class="quantity">
+        <label name="banana-tempura">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<div class="menu-item">
+    <h4>
+        Pumpkin Honey Nuts
+    </h4>
+    <div class="price">
+        $5.99
+    </div>
+    <div class="description">
+        Cinnamon sugar and honey drizzled over roasted kabocha slices
+    </div>
+    <div class="quantity">
+        <label name="pumpkin-honey-nuts">Quantity</label>
+        <select>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 </option>
+        </select>
+    </div>
+</div>
+
+<h2>Order Total</h2>
+<div class="order-total">$0.00</div>
+
+
+<h2>Payment</h2>
+
+<fieldset>
+    <legend class="legend">Customer Information</legend>
+    <div class="name">
+        <label for="name">Name: </label><br />
+        <input type="text" name="first-name" placeholder="First">
+        <input type="text" name="last-name" placeholder="Last">
+    </div>
+
+    <div class="address">
+        <label for="address">Address: </label><br />
+        <input type="text" name="street-address" placeholder="Street Address">
+        <input type="text" name="city" placeholder="City">
+        <select><!-- took this snippet from here...https://www.freeformatter.com/usa-state-list-html-select.html -->
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+        <input type="text" name="zip" placeholder="Zip Code">
+    </div>
+
+<div class="email">
+    <label for="email">Email: </label><br />
+        <input type="text" name="email" placeholder="Email Address">
+</div>
+
+<div class="phone">
+    <label for="phone">Phone: </label><br />
+        <input type="text" name="phone" placeholder="Phone Number">
+</div>
+
+</fieldset>
+
+<fieldset>
+    <legend class="legend">Payment Type:</legend>
+    <input type="radio" id="paypal" name="payment-optioin" value="paypal">
+    <label for="paypal">Paypal</label><br />
+
+    <input type="radio" id="stripe" name="payment-optioin" value="stripe">
+    <label for="stripe">Stripe</label><br />
+
+    <input type="radio" id="credit-card" name="payment-optioin" value="credit-card">
+    <label for="credit-card">Credit Card</label>
+</fieldset>
+
+<div class="terms">
+    <p>
+        <input type="checkbox" id="terms" name="terms" unchecked>
+        <label for="terms">Click here to agree to our <a href="https://www.reddit.com/r/funny/comments/c4r2fr/terms_and_conditions/" target="_blank">Terms and Conditions</a></label>
+    </p>
+</div>
+
+<div class="submit"> 
+    <button type="submit">Process Payment</button>
+</div>
+
+</form>
+
+</body>
+</html>
