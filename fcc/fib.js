@@ -6,6 +6,14 @@
 // uses the matrix to calculate the result
 // so, don't discredit this skill!
 
+// Rules of primes:
+// 
+// aside from 5, no other prime can end in five
+// aside from 2, no other prime can end in two
+// no prime ends in 4, 6, 8, or zero
+// if a prime is not divisible by another prime before it, it is not divisible by any other number before it
+
+
 // and comparing this to the other solutions, this one doesn't seem overly complicated...
 function sumPrimes(num) {
     // create the range of numbers to test
