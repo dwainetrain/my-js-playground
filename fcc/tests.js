@@ -1,72 +1,94 @@
 "use strict";
 
-// &amp; &
-// &lt; <
-// &gt; >
-// &quot;
-// &#39; '
-
-function convertHTML(str) {
-  // &colon;&rpar;
-  // find symbol and its index
-  // find the symbols matching html in object
-  // replace at index
-
-  let htmlCodes = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '\"': '&quot;',
-    "\'": '&apos;'
-  };
-
-  // little by little, my regex powers improve
-  // and little by little, my reduce powers improve
-  let splitStr = str.match(/\w+|["']|\W|\S/g);
-
-  console.log(splitStr)
-  let newStr =
-    splitStr.reduce((result, item) => {
-      if (htmlCodes[item]) {
-          result.push(htmlCodes[item]);
-      } else {
-          result.push(item);
-      }
-      // putting this return at the end is essential!!!
-      return result;
-    }, [])
-    .join("");
-
-  console.log(newStr);
-  return newStr;
+function sumFibs(num) {
+// first, find all fib numbers between
+// 1 and num
+// ie. 1-10 = 1, 1, 2, 3, 5, 8
+let fibArr = [1];
+function findFib(num) {
+  if(num === 1) {
+    fibArr.unshift(1)
+  } else {
+    fibArr.push(num)
+    return findFib(num - 1);
+  }
 }
 
-/// This is what I was trying to accomplish originally ///
-// so I'll just aspire to it now //
-function convertHTML(str) {
-  // Use Object Lookup to declare as many HTML entities as needed.
-  const htmlEntities = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&apos;"
-  };
-  //Use map function to return a filtered str with all entities changed automatically.
-  return str
-    .split("")
-    .map(entity => htmlEntities[entity] || entity)
-    .join("");
+findFib(num);
+console.log(fibArr);
+
 }
-/// so clean! ///
 
-// test here
-convertHTML("Dolce & Gabbana");
+sumFibs(3);
 
-convertHTML("Dolce & Gabbana");
-convertHTML("Hamburgers < Pizza < Tacos");
-convertHTML("Sixty > twelve");
-convertHTML('Stuff in "quotation marks"');
+
+// // &amp; &
+// // &lt; <
+// // &gt; >
+// // &quot;
+// // &#39; '
+
+// function convertHTML(str) {
+//   // &colon;&rpar;
+//   // find symbol and its index
+//   // find the symbols matching html in object
+//   // replace at index
+
+//   let htmlCodes = {
+//     '&': '&amp;',
+//     '<': '&lt;',
+//     '>': '&gt;',
+//     '\"': '&quot;',
+//     "\'": '&apos;'
+//   };
+
+//   // little by little, my regex powers improve
+//   // and little by little, my reduce powers improve
+//   let splitStr = str.match(/\w+|["']|\W|\S/g);
+
+//   console.log(splitStr)
+//   let newStr =
+//     splitStr.reduce((result, item) => {
+//       if (htmlCodes[item]) {
+//           result.push(htmlCodes[item]);
+//       } else {
+//           result.push(item);
+//       }
+//       // putting this return at the end is essential!!!
+//       return result;
+//     }, [])
+//     .join("");
+
+//   console.log(newStr);
+//   return newStr;
+// }
+
+// /// This is what I was trying to accomplish originally ///
+// // so I'll just aspire to it now //
+// function convertHTML(str) {
+//   // Use Object Lookup to declare as many HTML entities as needed.
+//   const htmlEntities = {
+//     "&": "&amp;",
+//     "<": "&lt;",
+//     ">": "&gt;",
+//     '"': "&quot;",
+//     "'": "&apos;"
+//   };
+//   //Use map function to return a filtered str with all entities changed automatically.
+//   return str
+//     .split("")
+//     .map(entity => htmlEntities[entity] || entity)
+//     .join("");
+// }
+// /// so clean! ///
+
+// // test here
+// convertHTML("Dolce & Gabbana");
+
+// convertHTML("Dolce & Gabbana");
+// convertHTML("Hamburgers < Pizza < Tacos");
+// convertHTML("Sixty > twelve");
+// convertHTML('Stuff in "quotation marks"');
 
 // const testStr = 'Stuff in "quotation marks"'
 // console.log ( testStr.match(/\w+|["']/g))
