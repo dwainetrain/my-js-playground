@@ -5,7 +5,7 @@
 // It actually creates a matrix first and then
 // uses the matrix to calculate the result
 // so, don't discredit this skill!
-
+// git test
 // Rules of primes:
 // 
 // aside from 5, no other prime can end in five
@@ -39,7 +39,7 @@ function sumPrimes(num) {
     return primeArr.reduce((result, item) => result + item, 0);
   }
   
-  console.log( sumPrimes(100000) );
+  console.log( sumPrimes(10000) );
 
  // 1(1/1), 2(1/2), 3(1/3), 4(2/2), 5(1/5), 6(2/3), 7(1/7), 8(2/2/2), 9(3/3), 10(2/5)
 // initialize prime array with 1, create a number, if that number, prime array shouldn't contain 1!
