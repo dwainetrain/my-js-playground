@@ -1,0 +1,20 @@
+function sumPrimes(num) {
+    let range = [];
+    for (let i = 2; i <= num; i++) {
+        range.push(i);
+    }
+
+    let zeroRange = range.map(number => range.map(divider => number%divider).filter(item => item < 1) )
+
+    let primeArr = [];
+    for (let i in zeroRange) {
+        if (zeroRange[i].length <= 1) {
+            primeArr.push(range[i]);
+        }
+    }
+
+    console.log(primeArr);
+    return primeArr.reduce((result, item) => result + item, 0);
+  }
+  
+  console.log( sumPrimes(10) );

@@ -14,7 +14,7 @@ function sumPrimes(num) {
         range.push(i);
     }
 
-    // create a matrix of numbers, any solution that's zero is a divisor, if there's only one divisor
+    // create a matrix of numbers, any solution that's a zero is a divisor, if there's only one divisor
     // then that number is a prime. eleminate all other numbers so you only have an array of arrays of zeros
     let zeroRange = range.map( number => range.map(divider => number%divider).filter(item => item < 1) )
 
@@ -31,7 +31,7 @@ function sumPrimes(num) {
     return primeArr.reduce((result, item) => result + item, 0);
   }
   
-  console.log( sumPrimes(10) );
+  console.log( sumPrimes(100000) );
 
  // 1(1/1), 2(1/2), 3(1/3), 4(2/2), 5(1/5), 6(2/3), 7(1/7), 8(2/2/2), 9(3/3), 10(2/5)
 // initialize prime array with 1, create a number, if that number, prime array shouldn't contain 1!
