@@ -1,27 +1,34 @@
+// this is overly complicated, but yet it works
+// I hope to simplify this mess in the future
+// yet, I'm intrigued by how this works
+// because it's not an explicit comparison
+// It actually creates a matrix first and then
+// uses the matrix to calculate the result
+// so, don't discredit this skill!
+
+// and comparing this to the other solutions, this one doesn't seem overly complicated...
 function sumPrimes(num) {
+    // create the range of numbers to test
     let range = [];
-    for (let i = 1; i <= num; i++) {
+    for (let i = 2; i <= num; i++) {
         range.push(i);
     }
 
-    // this approach is not working, you need to work in some other direction
-    // So, you're taking a range of numbers
-    // check if that number is divisible by the numbers before it
-    // other than itself and 1. 
+    // create a matrix of numbers, any solution that's zero is a divisor, if there's only one divisor
+    // then that number is a prime. eleminate all other numbers so you only have an array of arrays of zeros
+    let zeroRange = range.map( number => range.map(divider => number%divider).filter(item => item < 1) )
 
-
-    let zeroRange = range.map(number => range.map(divider => number%divider).filter(item => item < 1) )
-
-    console.log(zeroRange);
-    console.log( zeroRange.filter(arr => arr.length <= 2).map((arr, _, i) => arr[i]) );
-
-    let primeArr = []
+    // find arrays with only a single zero, match its index to the range index
+    // and then you have your prime.
+    let primeArr = [];
     for (let i in zeroRange) {
-        primeArr.push(range[i]);
+        if (zeroRange[i].length <= 1) {
+            primeArr.push(range[i]);
+        }
     }
 
-
-    return primeArr;
+    console.log(primeArr);
+    return primeArr.reduce((result, item) => result + item, 0);
   }
   
   console.log( sumPrimes(10) );
