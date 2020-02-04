@@ -25,6 +25,7 @@ function smallestCommons(arr) {
   // keep going through its multiples until the
   // second number divides into it
   // and then set that as the next highest number
+  // Lowest common multiple is communatative
   // function lcm(a, b) {
   //   let counter = a;
   //   while (counter%b > 0 ) {
