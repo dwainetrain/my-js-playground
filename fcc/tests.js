@@ -1,25 +1,89 @@
 "use strict";
 
-function sumFibs(num) {
-// first, find all fib numbers between
-// 1 and num
-// ie. 1-10 = 1, 1, 2, 3, 5, 8
-let fibArr = [1];
-function findFib(num) {
-  if(num === 1) {
-    fibArr.unshift(1)
-  } else {
-    fibArr.push(num)
-    return findFib(num - 1);
+// For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+function smallestCommons(arr) {
+
+  // sort array
+  let sortArr = arr.sort((a,b) => a - b);
+
+  // create array out of range of numbers
+  let range = []
+  for (let i = sortArr[0]; i <= sortArr[1]; i++) {
+     range.push(i)
   }
+
+  /*
+  this is what I'm going for, a function that does this
+  lcm(1, 2); // 2
+  lcm(2, 3); // 6
+  lcm(6, 4); // 12
+  lcm(12, 5); // 60
+  */
+  // okay this works, now to apply this to a range of numbers
+  // the basic idea here is to take the first number and
+  // keep going through its multiples until the
+  // second number divides into it
+  // and then set that as the next highest number
+  // function lcm(a, b) {
+  //   let counter = a;
+  //   while (counter%b > 0 ) {
+  //      counter += a;
+  //   }
+  //   return counter
+  // }
+
+  return range.reduce((a, b) => {
+    let counter = a;
+    while (counter%b > 0) {
+      counter += a;
+    } 
+    return counter;
+  })
+
+  // console.log( lcm(1, 2));
+
 }
 
-findFib(num);
-console.log(fibArr);
+/*
+walk up a and b until you find one that's similar, B is least 
+then walk up b and c until you find one that's similar
+then walk up c and d until you find one that's similar, 
 
-}
 
-sumFibs(3);
+
+
+
+*/
+
+smallestCommons([1, 3])
+smallestCommons([1, 5]) // should return 60.
+smallestCommons([5, 1]) // should return 60.
+smallestCommons([2, 10]) // should return 2520.
+smallestCommons([1, 13]) // should return 360360.
+smallestCommons([23, 18]) // should return 6056820.
+
+
+// function sumFibs(num) {
+// // first, find all fib numbers between
+// // 1 and num
+// // ie. 1-10 = 1, 1, 2, 3, 5, 8
+// let fibArr = [1];
+// function findFib(num) {
+//   if(num === 1) {
+//     fibArr.unshift(1)
+//   } else {
+//     fibArr.push(num)
+//     return findFib(num - 1);
+//   }
+// }
+
+// findFib(num);
+// console.log(fibArr);
+
+// }
+
+// sumFibs(3);
 
 
 // // &amp; &
