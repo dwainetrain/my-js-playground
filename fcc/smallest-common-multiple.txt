@@ -1,0 +1,35 @@
+function smallestCommons(arr) {
+
+  // sort array
+  let sortArr = arr.sort((a,b) => a - b);
+
+  // create an array out of the range of numbers
+  let range = []
+  for (let i = sortArr[0]; i <= sortArr[1]; i++) {
+     range.push(i)
+  }
+
+  /*
+  this is what I'm going for, a function that does this
+  lcm(1, 2); // 2
+  lcm(2, 3); // 6
+  lcm(6, 4); // 12
+  lcm(12, 5); // 60 
+  */
+
+  // the basic idea here is to take the first number and
+  // keep going through its multiples until the
+  // second number divides into it
+  // and then set that as the next highest number
+
+  return range.reduce((a, b) => {
+    let counter = a;
+    while (counter%b > 0) {
+      counter += a;
+    } 
+    return counter;
+  })
+
+  // Great use of reduce!
+
+}
