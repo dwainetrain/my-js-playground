@@ -1,34 +1,34 @@
 "use strict";
 
-function dropElements(arr, func) {
-  // Drop them elements.
-  // this works suprisingly well for most cases
-  // the issue is that you need to halt the loop
-  // after the first truth
-  // the best method I've found is just creating a map
-  // and find the location of the first true statement
-  // if there are no true statements, break
-  let loc =  arr.map(func).indexOf(true);
-  let finalArr = [];
+// function dropElements(arr, func) {
+//   // Drop them elements.
+//   // this works suprisingly well for most cases
+//   // the issue is that you need to halt the loop
+//   // after the first truth
+//   // the best method I've found is just creating a map
+//   // and find the location of the first true statement
+//   // if there are no true statements, break
+//   let loc =  arr.map(func).indexOf(true);
+//   let finalArr = [];
 
-  for (let i = loc; i < arr.length; i++) {
-    if(loc === -1) {
-      break;
-    } else {
-      finalArr.push(arr[i]);
-    }
-  }
-  console.log(finalArr)
-  return finalArr;
-}
+//   for (let i = loc; i < arr.length; i++) {
+//     if(loc === -1) {
+//       break;
+//     } else {
+//       finalArr.push(arr[i]);
+//     }
+//   }
+//   console.log(finalArr)
+//   return finalArr;
+// }
 
-dropElements([1, 2, 3], function(n) {return n < 3; });
-dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) // should return [3, 4].
-dropElements([0, 1, 0, 1], function(n) {return n === 1;}) // should return [1, 0, 1].
-dropElements([1, 2, 3], function(n) {return n > 0;}) // should return [1, 2, 3].
-dropElements([1, 2, 3, 4], function(n) {return n > 5;}) // should return [].
-dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) // should return [7, 4].
-dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) // should return [3, 9, 2].
+// dropElements([1, 2, 3], function(n) {return n < 3; });
+// dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) // should return [3, 4].
+// dropElements([0, 1, 0, 1], function(n) {return n === 1;}) // should return [1, 0, 1].
+// dropElements([1, 2, 3], function(n) {return n > 0;}) // should return [1, 2, 3].
+// dropElements([1, 2, 3, 4], function(n) {return n > 5;}) // should return [].
+// dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) // should return [7, 4].
+// dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) // should return [3, 9, 2].
 
 // // For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
 

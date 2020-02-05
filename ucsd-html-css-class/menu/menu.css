@@ -1,0 +1,45 @@
+:root {
+    box-sizing: border-box;
+    font-size: calc(0.5em * 1vw);
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.main {
+    width: 60%;
+}
+
+.sidebar{
+    width: 40%;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+.menu-item {
+    padding: 2em;
+    border-radius: 0.5em;
+    background-color: lightgrey;
+}
+
+.menu-item > h4 {
+    text-transform: uppercase;
+}
+
