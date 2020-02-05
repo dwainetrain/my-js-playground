@@ -1,0 +1,22 @@
+function dropElements(arr, func) {
+  // Drop them elements.
+  // create map of true/false elements
+  // and get location of first true statement
+  let loc =  arr.map(func).indexOf(true);
+
+  // initilize final array
+  let finalArr = [];
+
+  // if it's -1, there there's no true
+  // else, put the remainder of the array
+  // starting at first true location
+  for (let i = loc; i < arr.length; i++) {
+    if(loc === -1) {
+      break;
+    } else {
+      finalArr.push(arr[i]);
+    }
+  }
+  console.log(finalArr)
+  return finalArr;
+}
