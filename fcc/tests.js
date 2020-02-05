@@ -1,67 +1,101 @@
 "use strict";
 
-// For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
-
-function smallestCommons(arr) {
-
-  // sort array
-  let sortArr = arr.sort((a,b) => a - b);
-
-  // create array out of range of numbers
-  let range = []
-  for (let i = sortArr[0]; i <= sortArr[1]; i++) {
-     range.push(i)
+function dropElements(arr, func) {
+  // Drop them elements.
+  // this works suprisingly well for most cases
+  // the issue is that something like [0,1,0,1] should return [1,0,1]
+  // 
+  let counter = 0;
+  // There's some gremlin here
+  // it's when the process turn true, it still ups the counter
+  // so some other subtlety of the method is required
+  // recursion maybe?
+  console.log(func(counter), counter, arr)
+  while (!func(counter)) {
+    counter++;
   }
 
-  /*
-  this is what I'm going for, a function that does this
-  lcm(1, 2); // 2
-  lcm(2, 3); // 6
-  lcm(6, 4); // 12
-  lcm(12, 5); // 60
-  */
-  // okay this works, now to apply this to a range of numbers
-  // the basic idea here is to take the first number and
-  // keep going through its multiples until the
-  // second number divides into it
-  // and then set that as the next highest number
-  // function lcm(a, b) {
-  //   let counter = a;
-  //   while (counter%b > 0 ) {
-  //      counter += a;
-  //   }
-  //   return counter
-  // }
+  console.log('counter at exit: ', counter)
 
-  return range.reduce((a, b) => {
-    let counter = a;
-    while (counter%b > 0) {
-      counter += a;
-    } 
-    return counter;
-  })
+  let newArr = [];
+  for(let i = counter; i < arr.length; i++) {
+    newArr.push(arr[i])
+  }
 
-  // console.log( lcm(1, 2));
-
+  console.log(newArr)
+  return newArr;
 }
 
-/*
-walk up a and b until you find one that's similar, B is least 
-then walk up b and c until you find one that's similar
-then walk up c and d until you find one that's similar, 
+dropElements([1, 2, 3], function(n) {return n < 3; });
+dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) // should return [3, 4].
+dropElements([0, 1, 0, 1], function(n) {return n === 1;}) // should return [1, 0, 1].
+dropElements([1, 2, 3], function(n) {return n > 0;}) // should return [1, 2, 3].
+dropElements([1, 2, 3, 4], function(n) {return n > 5;}) // should return [].
+dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) // should return [7, 4].
+dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) // should return [3, 9, 2].
+
+// // For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+// function smallestCommons(arr) {
+
+//   // sort array
+//   let sortArr = arr.sort((a,b) => a - b);
+
+//   // create array out of range of numbers
+//   let range = []
+//   for (let i = sortArr[0]; i <= sortArr[1]; i++) {
+//      range.push(i)
+//   }
+
+//   /*
+//   this is what I'm going for, a function that does this
+//   lcm(1, 2); // 2
+//   lcm(2, 3); // 6
+//   lcm(6, 4); // 12
+//   lcm(12, 5); // 60
+//   */
+//   // okay this works, now to apply this to a range of numbers
+//   // the basic idea here is to take the first number and
+//   // keep going through its multiples until the
+//   // second number divides into it
+//   // and then set that as the next highest number
+//   // function lcm(a, b) {
+//   //   let counter = a;
+//   //   while (counter%b > 0 ) {
+//   //      counter += a;
+//   //   }
+//   //   return counter
+//   // }
+
+//   return range.reduce((a, b) => {
+//     let counter = a;
+//     while (counter%b > 0) {
+//       counter += a;
+//     } 
+//     return counter;
+//   })
+
+//   // console.log( lcm(1, 2));
+
+// }
+
+// /*
+// walk up a and b until you find one that's similar, B is least 
+// then walk up b and c until you find one that's similar
+// then walk up c and d until you find one that's similar, 
 
 
 
 
 
-*/
+// */
 
-smallestCommons([1, 3])
-smallestCommons([1, 5]) // should return 60.
-smallestCommons([5, 1]) // should return 60.
-smallestCommons([2, 10]) // should return 2520.
-smallestCommons([1, 13]) // should return 360360.
-smallestCommons([23, 18]) // should return 6056820.
+// smallestCommons([1, 3])
+// smallestCommons([1, 5]) // should return 60.
+// smallestCommons([5, 1]) // should return 60.
+// smallestCommons([2, 10]) // should return 2520.
+// smallestCommons([1, 13]) // should return 360360.
+// smallestCommons([23, 18]) // should return 6056820.
 
 
 // function sumFibs(num) {
