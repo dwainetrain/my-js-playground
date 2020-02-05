@@ -3,27 +3,22 @@
 function dropElements(arr, func) {
   // Drop them elements.
   // this works suprisingly well for most cases
-  // the issue is that something like [0,1,0,1] should return [1,0,1]
-  // 
-  let counter = 0;
-  // There's some gremlin here
-  // it's when the process turn true, it still ups the counter
-  // so some other subtlety of the method is required
-  // recursion maybe?
-  console.log(func(counter), counter, arr)
-  while (!func(counter)) {
-    counter++;
+  // the issue is that you need to halt the loop
+  // after the first truth
+  // the best method I've found is just creating a map
+  let loc =  arr.map(func).indexOf(true);
+  // let loc = truthMap;
+  let finalArr = [];
+
+  for (let i = loc; i < arr.length; i++) {
+    if(loc === -1) {
+      break;
+    } else {
+      finalArr.push(arr[i]);
+    }
   }
-
-  console.log('counter at exit: ', counter)
-
-  let newArr = [];
-  for(let i = counter; i < arr.length; i++) {
-    newArr.push(arr[i])
-  }
-
-  console.log(newArr)
-  return newArr;
+  console.log(finalArr)
+  return finalArr;
 }
 
 dropElements([1, 2, 3], function(n) {return n < 3; });
