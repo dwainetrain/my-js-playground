@@ -6,8 +6,9 @@ function dropElements(arr, func) {
   // the issue is that you need to halt the loop
   // after the first truth
   // the best method I've found is just creating a map
+  // and find the location of the first true statement
+  // if there are no true statements, break
   let loc =  arr.map(func).indexOf(true);
-  // let loc = truthMap;
   let finalArr = [];
 
   for (let i = loc; i < arr.length; i++) {
