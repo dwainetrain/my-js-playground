@@ -1,5 +1,7 @@
 "use strict";
 
+console.log(String.fromCharCode(67));
+
 // function dropElements(arr, func) {
 //   // Drop them elements.
 //   // this works suprisingly well for most cases
