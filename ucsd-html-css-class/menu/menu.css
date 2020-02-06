@@ -9,14 +9,15 @@
     box-sizing: inherit;
 }
 
+body * + * {
+    margin-top: 1.5em;
+}
+
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h1 {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
 }
 
 .container {
@@ -29,14 +30,17 @@ h1 {
 
 .sidebar{
     width: 40%;
+    margin-left: 1.5em;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    align-self: flex-start;
 }
 .menu-item {
     padding: 2em;
     border-radius: 0.5em;
     background-color: lightgrey;
+    
 }
 
 .menu-item > h4 {
