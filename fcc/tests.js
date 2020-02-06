@@ -1,6 +1,48 @@
 "use strict";
 
-console.log(String.fromCharCode(67));
+// Yes! I enjoy this type of coding, whatever it's called!
+function binaryAgent(str) {
+  
+  // A simple way to turn an index of a binary into a number
+  /*
+  What this function is doing
+  if (1 @ index(0), map 1, if 1 @ index(1), map 2, if 1 @ index(2) map 4,
+  if 1 @ index(3) map 8, if 1 @ index(4) map 16, if 1 @ index(5) map 32)
+  add all numbers together to get the bindary equivilent
+  */
+  function binaryValue (index) {
+    return Math.pow(2, index);
+  }
+
+  function binaryToCharCode(arr) {
+      
+      return arr.split('')
+                    .map(item => parseInt(item))
+                    .reverse() // have to go from right to left for binary!
+                    .map((number, index) => {
+                      if (number === 1) {
+                        return binaryValue(index)
+                      } else {
+                        return 0;
+                      }
+                      }) // Get binary value
+                    .reduce((a, b) => a + b) // sum up the binary values
+      };
+  
+let splitStr = str.split(" ");
+let parsedArr = [];
+
+for (let element of splitStr) {
+  parsedArr.push(binaryToCharCode(element));
+}
+
+return parsedArr.map(item => String.fromCharCode(item)).join('');
+  
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
 
 // function dropElements(arr, func) {
 //   // Drop them elements.
