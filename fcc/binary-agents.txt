@@ -1,0 +1,48 @@
+function binaryAgent(str) {
+  
+
+  function binaryValue (index) {
+    return Math.pow(2, index);
+  }
+
+  let splitStr = str.split(" ")
+  /* Need to break these numbers off and convert into integers
+  */
+
+  function binaryToCharCode(arr) {
+    // for (let element of arr) {
+      
+      return arr.split('')
+                    .map(item => parseInt(item))
+                    .reverse() // have to go from right to left for binary!
+                    .map((number, index) => {
+                      if (number === 1) {
+                        return binaryValue(index)
+                      } else {
+                        return 0;
+                      }
+                      })
+                      .reduce((a, b) => a + b)
+                      // }
+    };
+
+let parsedArr = [];
+for (let element of splitStr) {
+  console.log(element)
+  parsedArr.push(binaryToCharCode(element));
+}
+
+
+console.log(parsedArr);
+return parsedArr.map(item => String.fromCharCode(item)).join('');
+
+
+  // for (let i of splitStr){
+  //   console.log( i.split("").map((item, _, index) => binaryValue(parseInt(index))) );
+  // }
+  /* for each number, if it's a 1 at a certain index, add it to corresponding index of object. I don't know if object is really what were after, because we'll have to reset it for every word.
+
+  if (1 @ index(0), map 1, if 1 @ index(1), map 2, if 1 @ index(2) map 4,
+  if 1 @ index(3) map 8, if 1 @ index(4) map 16, if 1 @ index(5) map 32)
+  */
+}
