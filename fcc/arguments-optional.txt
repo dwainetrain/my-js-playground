@@ -1,0 +1,19 @@
+function addTogether(a) {
+  for (let i of [...arguments]) {
+    if (typeof i !== 'number') {
+      return undefined;
+      }
+    }
+
+  if (arguments.length > 1) {
+    return [...arguments].reduce((result, item) => result + item)
+  }
+
+  return b => {
+    if (typeof b !== 'number') {
+      return undefined
+    } else {
+      return a + b;
+    }
+} 
+}
