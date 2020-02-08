@@ -2,37 +2,34 @@
 
 var Person = function(firstAndLast) {
   // Complete the method below and implement the others similarly
-  constructor(firstAndLast) {
-    let nameArr = firstAndLast.split(" ");
-    this.firstName = nameArr[0];
-    this.lastName = nameArr[1];
-  }
-  
+  let nameArr = firstAndLast.split(" ");
+  let firstName = nameArr[0];
+  let lastName = nameArr[1];
 
   this.getFullName = function() {
-    return `${this.firstName} ${this.lastName}`;
+    return `${firstName} ${lastName}`;
   };
 
   this.getFirstName = function() {
-    return `${this.firstName}`;
+    return `${firstName}`;
   };
 
   this.getLastName = function() {
-    return `${this.lastName}`;
+    return `${lastName}`;
   }
 
   this.setFirstName = function(first) {
-    this.firstName = first;
+    firstName = first;
   };
 
   this.setLastName = function(last) {
-    this.lastName = last;
+    lastName = last;
   };
 
   this.setFullName = function(firstAndLast) {
     let nameArr = firstAndLast.split(" ");
-    this.firstName = nameArr[0];
-    this.lastName = nameArr[1];
+    firstName = nameArr[0];
+    lastName = nameArr[1];
   };
 
 };

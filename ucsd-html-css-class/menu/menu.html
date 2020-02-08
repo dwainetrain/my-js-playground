@@ -38,7 +38,7 @@
 
                     <div class="quantity">
                         <label for="edamame">Quantity</label>
-                        <select>
+                        <select id="edamame">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="quantity">
                     <label for="agedashi-tofu">Quantity</label>
-                    <select>
+                    <select id="agedashi-tofu">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -83,7 +83,7 @@
             </div>
             <div class="quantity">
                 <label for="fried-gyoza-dumplings">Quantity</label>
-                <select>
+                <select id="fried-gyoza-dumplings">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -105,7 +105,7 @@
             </div>
             <div class="quantity">
                 <label for="calimari-rings">Quantity</label>
-                <select>
+                <select id="calimari-rings">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -131,7 +131,7 @@
             </div>
             <div class="quantity">
                 <label for="tempura-udon">Quantity</label>
-                <select>
+                <select id="tempura-udon">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -153,7 +153,7 @@
             </div>
             <div class="quantity">
                 <label for="spicy-miso-ramen">Quantity</label>
-                <select>
+                <select id="spicy-miso-ramen">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -175,7 +175,7 @@
             </div>
             <div class="quantity">
                 <label for="tonkotsu-ramen">Quantity</label>
-                <select>
+                <select id="tonkotsu-ramen">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -197,7 +197,7 @@
             </div>
             <div class="quantity">
                 <label for="salmon-yaki-bowl">Quantity</label>
-                <select>
+                <select id="salmon-yaki-bowl">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -223,7 +223,7 @@
             </div>
             <div class="quantity">
                 <label for="mochi-ice-cream">Quantity</label>
-                <select>
+                <select id="mochi-ice-cream">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -245,7 +245,7 @@
             </div>
             <div class="quantity">
                 <label for="banana-tempura">Quantity</label>
-                <select>
+                <select id="banana-tempura">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -267,7 +267,7 @@
             </div>
             <div class="quantity">
                 <label for="pumpkin-honey-nuts">Quantity</label>
-                <select>
+                <select id="pumpkin-honey-nuts">
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -289,13 +289,13 @@
     <fieldset>
         <legend class="legend">Customer Information</legend>
         <div class="name">
-            <label for="name">Name: </label><br />
+            <h5>Name:</h5><br />
             <input type="text" name="first-name" placeholder="First">
             <input type="text" name="last-name" placeholder="Last">
         </div>
 
         <div class="address">
-            <label for="address">Address: </label><br />
+            <h5 class="address">Address:</h5><br />
             <input type="text" name="street-address" placeholder="Street Address">
             <input type="text" name="city" placeholder="City">
             <select><!-- took this snippet from here...https://www.freeformatter.com/usa-state-list-html-select.html -->
@@ -355,20 +355,20 @@
         </div>
 
     <div class="email">
-        <label for="email">Email: </label><br />
+        <h5>Email: </h5><br />
             <input type="email" name="email" placeholder="Email Address">
     </div>
 
     <div class="phone">
-        <label for="phone">Phone: </label><br />
-            <input type="text" name="phone" placeholder="Phone Number">
+        <h5>Phone: </h5><br />
+            <input type="tel" name="phone" placeholder="Phone Number">
     </div>
 
     </fieldset>
 
     <fieldset>
         <legend class="legend">Payment Type:</legend>
-        <input type="radio" id="paypal" name="payment-optioin" value="paypal">
+        <input type="radio" id="paypal" name="payment-optioin" value="paypal" checked>
         <label for="paypal">Paypal</label><br />
 
         <input type="radio" id="stripe" name="payment-optioin" value="stripe">
@@ -390,9 +390,9 @@
     </div>
     </form>
 
-</div><!-- sidebar -->
+    </div><!-- sidebar -->
 
-</div><!--container-->
+</div><!-- container-->
 
 </body>
 </html>
