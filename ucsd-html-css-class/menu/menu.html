@@ -9,11 +9,8 @@
     <title>Menu Order - Oishii Japanese Restaurant</title>
     <link rel="stylesheet" href="menu.css">
 </head>
-
 <body>
 
-
-    
 
 <div class="container">
 
@@ -40,7 +37,7 @@
                 </div>
 
                     <div class="quantity">
-                        <label name="edamame">Quantity</label>
+                        <label for="edamame">Quantity</label>
                         <select>
                         <option>0</option>
                         <option>1</option>
@@ -63,7 +60,7 @@
                     Fried tofu, bonito flakes, ginger, green onions, dashi soy sauce
                 </div>
                 <div class="quantity">
-                    <label name="agedashi-tofu">Quantity</label>
+                    <label for="agedashi-tofu">Quantity</label>
                     <select>
                         <option>0</option>
                         <option>1</option>
@@ -85,7 +82,7 @@
                 Beef and vegetable dumplings
             </div>
             <div class="quantity">
-                <label name="fried-gyoza-dumplings">Quantity</label>
+                <label for="fried-gyoza-dumplings">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -107,7 +104,7 @@
                 Lightly fried calamari, wasabi mayo, spicy teriyaki sauce
             </div>
             <div class="quantity">
-                <label name="calimari-rings">Quantity</label>
+                <label for="calimari-rings">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -133,7 +130,7 @@
                 Japanese udon, shrimp and vegetable tempura
             </div>
             <div class="quantity">
-                <label name="tempura-udon">Quantity</label>
+                <label for="tempura-udon">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -155,7 +152,7 @@
                 Spicy ramen, corn, seaweed, bean sprouts, miso-flavored broth
             </div>
             <div class="quantity">
-                <label name="spicy-miso-ramen">Quantity</label>
+                <label for="spicy-miso-ramen">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -177,7 +174,7 @@
                 Pork-flavored broth, sweet roasted pork belly sliced, bean sprouts, black garlic oil
             </div>
             <div class="quantity">
-                <label name="tonkotsu-ramen">Quantity</label>
+                <label for="tonkotsu-ramen">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -199,7 +196,7 @@
                 Grilled salmon, green onion, seaweed, spicy sesame oil and garlic sauce
             </div>
             <div class="quantity">
-                <label name="salmon-yaki-bowl">Quantity</label>
+                <label for="salmon-yaki-bowl">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -225,7 +222,7 @@
                 Japanese rice cake with ice cream filling
             </div>
             <div class="quantity">
-                <label name="mochi-ice-cream">Quantity</label>
+                <label for="mochi-ice-cream">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -247,7 +244,7 @@
                 Lightly fried banana, caramel sauce, vanilla ice cream
             </div>
             <div class="quantity">
-                <label name="banana-tempura">Quantity</label>
+                <label for="banana-tempura">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -269,7 +266,7 @@
                 Cinnamon sugar and honey drizzled over roasted kabocha slices
             </div>
             <div class="quantity">
-                <label name="pumpkin-honey-nuts">Quantity</label>
+                <label for="pumpkin-honey-nuts">Quantity</label>
                 <select>
                     <option>0</option>
                     <option>1</option>
@@ -281,7 +278,7 @@
         </div>
     </main>
 
-<sidebar class="sidebar">
+<div class="sidebar">
     <h2>Order Total</h2>
     <div class="order-total">$0.00</div>
 
@@ -383,7 +380,7 @@
 
     <div class="terms">
         <p>
-            <input type="checkbox" id="terms" name="terms" unchecked>
+            <input type="checkbox" id="terms" name="terms">
             <label for="terms">Click here to agree to our <a href="https://www.reddit.com/r/funny/comments/c4r2fr/terms_and_conditions/" target="_blank">Terms and Conditions</a></label>
         </p>
     </div>
@@ -391,9 +388,11 @@
     <div class="submit"> 
         <button type="submit">Process Payment</button>
     </div>
-</div><!-- order -->
+    </form>
 
-</form>
-</sidebar><!--container-->
+</div><!-- sidebar -->
+
+</div><!--container-->
+
 </body>
 </html>
