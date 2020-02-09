@@ -1,5 +1,8 @@
 "use strict";
 
+// http://crookedcode.com/2016/08/09/fcc-advanced-algorithm-scripting-challenge-map-the-debris/
+// https://www.quora.com/How-is-an-orbital-period-calculated
+
 var Person = function(firstAndLast) {
   // Complete the method below and implement the others similarly
   let nameArr = firstAndLast.split(" ");
