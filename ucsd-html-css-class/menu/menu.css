@@ -1,6 +1,6 @@
 :root {
     box-sizing: border-box;
-    font-size: calc(0.5em * 1vw);
+    /* font-size: calc(0.5em * 1vw); */
 }
 
 *,
@@ -9,12 +9,12 @@
     box-sizing: inherit;
 }
 
-body * + * {
+/* body * + * {
     margin-top: 1.5em;
-}
+} */
 
 body {
-    font-family: 'Minon Pro', 'Verdand', 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Verdand', 'Trebuchet MS', sans-serif;
 
 }
 
@@ -23,40 +23,77 @@ h1 {
     font-weight: 900;
 }
 
-h4 {
-    color: red;
-    font-family: 'Times New Roman', Times, serif;
+h5 {
+  margin: initial;  
+}
+
+input {
+    margin: initial;
 }
 
 .container {
-    display: flex;
-}
+    /* display: flex; */
+} 
 
 .main {
     width: 60%;
 }
 
 .sidebar{
-    width: 40%;
+    width: 60%;
+    /* width: 40%;
     margin-left: 1.5em;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    align-self: flex-start;
+    align-self: flex-start; */
 }
+
+legend {
+    text-align: right;
+}
+
 .menu-item {
     padding: 15px;
-    border-radius: 0.5em;
-    background-color: lightgrey;
-    width: 50%;
+    border-radius: 0.35em;
+    border: 1px solid #C7C0C0;
+    background-color: #F4F4F4;
+    margin-bottom: 1.5em;
+    line-height: 3em;
+    text-align: center;
+    /* width: %;
+    float: left; */
     
 }
 
 .menu-item > h4 {
     text-transform: uppercase;
+    color: red;
+    font-family: 'Minon Pro', 'Georgia','Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.border-test {
-    border: 1px solid red;
+.description {
+    color: #333131;
+}
+
+.price {
+    display: inline;
+    color: #8E8888;
+    font-weight: 200;
+    letter-spacing: .08em;
+}
+
+.price::after {
+    content: "|";
+    color: #626060;
+}
+
+.quantity {
+    color: #4F4D4D;
 }
 
