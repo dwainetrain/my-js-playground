@@ -1,6 +1,16 @@
 :root {
     box-sizing: border-box;
-    /* font-size: calc(0.5em * 1vw); */
+}
+
+/* css reset*/
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 *,
@@ -9,50 +19,63 @@
     box-sizing: inherit;
 }
 
-/* body * + * {
-    margin-top: 1.5em;
-} */
 
 body {
-    font-family: 'Gill Sans', 'Verdand', 'Trebuchet MS', sans-serif;
+    font-family:  'Verdand', 'Trebuchet MS', sans-serif;
+    background-image: url("images/japanese_fan_wheel_wave_pattern-277.jpg");
+    background-repeat: repeat;
+}
 
+.logo {
+    text-align: center;
 }
 
 /* Heading Styles */
 h1 {
     font-weight: 900;
+    font-size: 2em;
 }
 
-h5 {
-  margin: initial;  
+h2 {
+    color: #C7C0C0;
+    font-size: 1.5em;
+    margin: 1em;
 }
 
-input {
+h3 {
+    font-size: 1.70em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 0.5em;
+}
+
+
+h5, .payment-type label {
     margin: initial;
+    font-size: 1em;
+    margin-top: 1em;
+    opacity: 70%;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
 }
 
 .container {
-    /* display: flex; */
+    background-color: #fff;
+    width: 70%;
+    margin: auto;
+    padding: 1.5em 0 1.5em 0;
+    border: 1px gray solid;
 } 
 
 .main {
     width: 60%;
+    margin: inherit;
+    text-align: center;
 }
 
-.sidebar{
-    width: 60%;
-    /* width: 40%;
-    margin-left: 1.5em;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    align-self: flex-start; */
-}
-
-legend {
-    text-align: right;
-}
-
+/* menu item styling */
 .menu-item {
     padding: 15px;
     border-radius: 0.35em;
@@ -61,15 +84,13 @@ legend {
     margin-bottom: 1.5em;
     line-height: 3em;
     text-align: center;
-    /* width: %;
-    float: left; */
     
 }
 
 .menu-item > h4 {
     text-transform: uppercase;
     color: red;
-    font-family: 'Minon Pro', 'Georgia','Times New Roman', Times, serif;
+    font-family: 'Georgia','Times New Roman', Times, serif;
     font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: .1em;
@@ -79,11 +100,12 @@ legend {
 
 .description {
     color: #333131;
+    line-height: initial;
 }
 
 .price {
     display: inline;
-    color: #8E8888;
+    color: rgb(80, 75, 75);
     font-weight: 200;
     letter-spacing: .08em;
 }
@@ -97,3 +119,87 @@ legend {
     color: #4F4D4D;
 }
 
+.menu-item select {
+    font-size: 0.85em;
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    margin-bottom: 0.5em;
+    color: #333131;
+    height: 1.5em;
+  }
+
+
+hr {
+    border-top: #C7C0C0 1px solid;
+}
+
+.order-total p{
+    font-size: 2em;
+    text-align: center;
+    color: #333131;
+}
+
+.sidebar{
+    width: 60%;
+    margin: inherit;
+}
+
+.sidebar h2, .terms, .submit {
+    text-align: center;
+}
+
+/* Form Style */
+
+fieldset {
+    padding: 1em 1.88em;
+    border-radius: 0.35em;
+    border: 1px solid #C7C0C0;
+    background-color: #F4F4F4;
+    margin-bottom: 1.5em;
+}
+
+
+input {
+    margin: initial;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="radio"], .address select {
+    font-size: 1.2em;
+    padding: 0.5em 0.5em;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    margin-bottom: 0.5em;
+    color: #333131;
+  }
+
+  input[name="street-address"] {
+      width: 100%;
+  }
+
+  input[type="email"] {
+      width: 100%;
+  }
+
+  input[type="tel"] {
+    width: 50%;
+  }
+
+  .address select {
+      height: 2.3em;
+  }
+
+  .submit button {
+    text-transform: uppercase;
+    width: 100%;
+    padding: 0.5em 0 0.5em 0;
+    font-size: 1.25em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+
+  .submit button:hover {
+    background-color: black;
+    color: #fcfcfc;
+}
