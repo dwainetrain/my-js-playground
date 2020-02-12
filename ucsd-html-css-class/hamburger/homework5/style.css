@@ -1,0 +1,26 @@
+* {
+    font-family: 'Verdana', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #444;
+    min-height: 78px;
+    display: flex;
+}
+
+header h1 {
+    font-size: 2.2em;
+    font-weight: 500;
+    color: #FFF;
+    /* display: inline; */
+}
+
+nav ul li {
+    display: inline;   
+}
+
+nav ul li a {
+    color: #FFA300;
+}
