@@ -1,13 +1,22 @@
 'use strict';
 
-// Version 0.01
+// VERSION 0.01
+//- it should show the question - k
+// - it should accept input from user to show answer - k
+// - it should show the answer - k
+// - it should allow to add more questions/answer pairs - k
+// - it should allow to edit cards - k
+// - it should allow to delete cards - k
+
+// NEXT VERSION:
+// - it should provide answer validation
+// - it should allow yes/no for remembering - ?
 
 /* Cards Object */
 // Find some way to protect this number
 let idCount = 3;
 
 let cards = {
-
     0 : {'question': 'What is New Mexico\'s Capital?', 'answer':'Santa Fe'},
     1 : {'question': 'What is Colorado\'s Capital?', 'answer': 'Denver'},
     2 : {'question': 'What is Wyoming\'s Capital?', 'answer': 'Chyenne'},
@@ -21,13 +30,12 @@ const cardId = function cardIdNumber() {
     return idCount;
 };
 
-// Add card logic
 function addCard(q, a) {
     const id = cardId();
     cards[id] = {'question': q, 'answer': a};
     idCount += 1;
 };
-/* End add card logic */
+/* End Add Card */
 
 /* Delete Card */
 function deleteCard(id) {

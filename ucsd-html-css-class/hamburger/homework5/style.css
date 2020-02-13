@@ -7,18 +7,18 @@
 header {
     background-color: #444;
     min-height: 78px;
-    display: flex;
 }
 
 header h1 {
     font-size: 2.2em;
     font-weight: 500;
     color: #FFF;
-    /* display: inline; */
+    float: left;
+    display: inline;
 }
 
 nav ul li {
-    display: inline;   
+    display: inline;
 }
 
 nav ul li a {
