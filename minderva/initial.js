@@ -9,6 +9,7 @@
 // - it should allow to delete cards - k
 
 // NEXT VERSION:
+// - it should move all functions into an object as methods
 // - it should provide answer validation
 // - it should allow yes/no for remembering - ?
 
