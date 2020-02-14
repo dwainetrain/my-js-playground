@@ -1,4 +1,11 @@
-* {
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
     font-family: 'Verdana', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -6,21 +13,32 @@
 
 header {
     background-color: #444;
+    box-shadow: 0px 1px #CECECE;
     min-height: 78px;
+    padding: 1em;
 }
 
 header h1 {
     font-size: 2.2em;
     font-weight: 500;
     color: #FFF;
-    float: left;
-    display: inline;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+nav {
+    /* margin-top: 1em; */
+    vertical-align: baseline;
+    display: inline-block;
+    margin-left: 2em;
 }
 
 nav ul li {
     display: inline;
+    margin: 0 0.8em 0 0.8em;
 }
 
 nav ul li a {
     color: #FFA300;
+    
 }
