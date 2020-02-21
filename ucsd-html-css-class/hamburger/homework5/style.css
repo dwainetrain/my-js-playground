@@ -13,8 +13,8 @@
 
 header {
     background-color: #444;
-    box-shadow: 0px 1px #CECECE;
-    min-height: 78px;
+    border-bottom: 1px solid #CECECE;
+    min-height: 80px;
     padding: 1em;
 }
 
@@ -27,18 +27,85 @@ header h1 {
 }
 
 nav {
-    /* margin-top: 1em; */
     vertical-align: baseline;
     display: inline-block;
     margin-left: 2em;
 }
 
-nav ul li {
-    display: inline;
+header nav ul li {
+    display: inline-block;
     margin: 0 0.8em 0 0.8em;
 }
 
 nav ul li a {
     color: #FFA300;
-    
+}
+
+section {
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+
+section > h2 {
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin: 1em 0;
+}
+
+.ingredient {
+    list-style: none;
+    clear: both;
+}
+
+.ingredient h3 {
+    float: left;
+    width: 110px;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #078484;
+}
+
+.ingredient img {
+    float: right;
+    width: 190px;
+}
+
+.ingredient img:hover {
+    width: 300px;
+}
+
+footer {
+    display: inline-block;
+    width: 100%;
+    background-color: #444;
+    min-height: 170px;
+    border-top: 1px solid #CECECE;
+    padding: 2.5em;
+    margin-top: 2em;
+    text-align: center;
+}
+
+footer nav {
+    display: table;
+    margin: 0 auto;
+}
+
+footer nav ul {
+    text-transform: uppercase;
+    list-style: none;
+    font-size: 0.7em;
+    line-height: 2em;
+}
+
+footer p {
+    display: inline-block;
+    margin: 1em auto 1em auto;
+    color: white;
+}
+
+footer > p:first-of-type::after {
+    content: "|";
+    margin-left: 0.5em;
 }
