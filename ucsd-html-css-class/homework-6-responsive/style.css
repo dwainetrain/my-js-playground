@@ -1,3 +1,8 @@
+/* TODO - Clean up HTML and run through validator (use better semantics?) */
+/* TODO - Consistant colors for gray boxes - k */
+/* TODO - Clean up redundent CSS rules, and validate */
+/* TODO - Watch class video on responsive design and fill in any holes */
+
 :root {
   box-sizing: border-box;
 }
@@ -11,9 +16,9 @@
     padding: 0;
 }
 
-/* body *+* {
-  margin-top: 1.5em;
-} */
+body {
+  background-color: #fff;
+} 
 
 .container {
   max-width: 988px; /*495*/
@@ -26,16 +31,19 @@
 
 /* Header */
 header {
-  background-color: #ddd;
+  background-color: #D3D3D3;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+nav {
+  flex: 2;
+}
+
 nav ul li {
   display: flex;
   list-style: none;
-  background-color: #eee;
   justify-content: space-between;
   align-items: center;
 }
@@ -50,13 +58,13 @@ nav ul {
 /* Sidebar */
 aside {
   display: flex;
-  background-color: #eee;
+  background-color: #D3D3D3;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 aside .link {
-  background-color: silver;
+  background-color: #a2a2a2;
   padding: 5px 0;
   text-align: center;
   margin: 0.3em 0;
@@ -64,33 +72,56 @@ aside .link {
 /* End Sidebar */
 
 /* Content */
-content {
+.content {
   display: flex;
-  background-color: #eee;
+  background-color: #D3D3D3;
   flex-wrap: wrap;
   /* justify-content: space-around; */
 }
 
+/* Footer */
+footer {
+  background-color: #D3D3D3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 1em;
+  
+}
+
+footer .footer-links {
+  flex-basis: 100%;
+  background-color: lightgray;
+  margin-top: 1em;
+  
+}
+
+.foot-link {
+  display: flex;
+  justify-content: center;
+  margin: 0.3em;
+}
+
+main {
+  margin: 1em auto;
+}
 
 
 /* Media Queries */
 
-@media only screen and (max-width: 400px) {
-
-  body{
-    background-color: aquamarine;
-  }
+@media only screen and (max-width: 500px) {
 
   nav ul li {
     flex-basis: 100%;
     margin: 0.2em;
+    justify-content: center;
   }
 
   aside .link {
     flex-basis: 45%;
   }
 
-  content img {
+  .content img {
     width: 88%;
   }
 
@@ -102,43 +133,65 @@ content {
     width: 95%;
   }
 
-  content {
+  .content {
     text-align: center;
     justify-content: center;
   };
   
 }
 
-
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-
-  body{
-    background-color: aqua;
-  }
+@media only screen and (min-width: 501px) and (max-width: 767px) {
 
   nav ul li {
     flex-basis: 50%;
     margin: 0.2em auto 0.2em auto;
+    justify-content: center;
   }
 
+  .content {
+    text-align: center;
+    justify-content: center;
+  };
   
   
 }
 
-@media only screen and (min-width: 961px) {
-
-  body{
-    background-color: darkcyan;
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  nav ul li {
+    flex-basis: 50%;
+    margin: 0.2em auto 0.2em auto;
+    justify-content: center;
   }
+
+  .content .item {
+    margin: 0.3em 0.5em;
+  }
+
+  .content .items {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin: auto;
+    /* grid-gap: 1em; */
+    /* justify-content: center; */
+  }
+}
+
+@media only screen and (min-width: 961px) {
 
   header {
     padding: 1em;
+    justify-content: stretch;
+  }
+
+  nav ul {
+    display: flex;
     justify-content: space-between;
   }
 
   nav ul li{
-    justify-content: space-around;
-    margin: 0em 1em 0.2em auto;
+    justify-content: space-between;
+    margin: 0em 0.5em 0.5em auto;
   }
 
   aside {
@@ -158,7 +211,7 @@ content {
     padding: 1em;
   }
 
-  content {
+  .content {
     width: 636px;
     flex: 2;
     flex-basis: 40%;
@@ -166,33 +219,47 @@ content {
     padding: 1em;
   }
 
-  content .item {
+  .content .item {
     margin: 0.3em 0.5em;
   }
 
-  content .items {
+  .content .items {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     /* grid-gap: 1em; */
     /* justify-content: center; */
   }
-  
-  
 
-  /* aside {
-    flex-direction: column;
+  footer {
+    margin-top: 1em;
+    align-content: center;
+    padding-bottom: 1em;
   }
 
-  aside .link {
-    display: block;
-    background-color: silver;
-    padding: 5px 30px;
-    text-align: center;
-    margin: 0.3em 0;
-  } */
+  .foot-logo-container {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    width: 305px;
+  }
 
-  
+  footer .footer-links {
+    background-color:lightgray;
+    margin-top: 1em;
+    display: flex;
+    /* width: 305px; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-basis: 31%;
+  }
+
+  .foot-link {
+    display: flex;
+    justify-content: center;
+    margin: 0.3em;
+    flex-basis: 25%;
+  }
 
 }
 
