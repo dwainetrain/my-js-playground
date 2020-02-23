@@ -1,5 +1,4 @@
 /* TODO - Clean up HTML and run through validator (use better semantics?) */
-/* TODO - Consistant colors for gray boxes - k */
 /* TODO - Clean up redundent CSS rules, and validate */
 /* TODO - Watch class video on responsive design and fill in any knowledge holes */
 
@@ -21,20 +20,17 @@ body {
 } 
 
 .container {
-  max-width: 988px; /*495*/
+  max-width: 988px;
   margin: 0 auto;
-  /* display: flex; */
-  /* flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; */
 }
 
 /* Header */
 header {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 1em;
 }
 
 nav {
@@ -46,11 +42,14 @@ nav ul li {
   list-style: none;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1em;
 }
 
 nav ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  
 }
 
 /* End of Header */
@@ -58,9 +57,11 @@ nav ul {
 /* Sidebar */
 aside {
   display: flex;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 aside .link {
@@ -74,14 +75,15 @@ aside .link {
 /* Content */
 .content {
   display: flex;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   flex-wrap: wrap;
+  padding-bottom: 1em;
   /* justify-content: space-around; */
 }
 
 /* Footer */
 footer {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,7 +111,7 @@ main {
 
 /* Media Queries */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
 
   nav ul li {
     flex-basis: 100%;
@@ -136,11 +138,11 @@ main {
   .content {
     text-align: center;
     justify-content: center;
-  };
+  }
   
 }
 
-@media only screen and (min-width: 501px) and (max-width: 767px) {
+@media only screen and (min-width: 401px) and (max-width: 767px) {
 
   nav ul li {
     flex-basis: 50%;
@@ -151,17 +153,11 @@ main {
   .content {
     text-align: center;
     justify-content: center;
-  };
-  
+  }
   
 }
 
 @media only screen and (min-width: 768px) and (max-width: 960px) {
-  nav ul li {
-    flex-basis: 50%;
-    margin: 0.2em auto 0.2em auto;
-    justify-content: center;
-  }
 
   .content .item {
     margin: 0.3em 0.5em;
@@ -172,9 +168,9 @@ main {
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     margin: auto;
-    /* grid-gap: 1em; */
-    /* justify-content: center; */
   }
+
+  
 }
 
 @media only screen and (min-width: 961px) {
@@ -212,8 +208,7 @@ main {
   }
 
   .content {
-    width: 636px;
-    flex: 2;
+    /* width: 636px; */
     flex-basis: 40%;
     justify-content: center;
     padding: 1em;
@@ -227,8 +222,6 @@ main {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-    /* grid-gap: 1em; */
-    /* justify-content: center; */
   }
 
   footer {
@@ -248,10 +241,9 @@ main {
     background-color:lightgray;
     margin-top: 1em;
     display: flex;
-    /* width: 305px; */
     flex-wrap: wrap;
     justify-content: space-around;
-    flex-basis: 31%;
+    flex-basis: 33%;
   }
 
   .foot-link {
@@ -260,12 +252,6 @@ main {
     margin: 0.3em;
     flex-basis: 25%;
   }
+  
 
 }
-
-
-
-
-
-
-
