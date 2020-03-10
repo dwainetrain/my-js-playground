@@ -1,5 +1,8 @@
+/* Try a gradient! And try some subtle drop shadow */
+
 :root {
   box-sizing: border-box;
+  --brown: #463333;
 }
 
 *,
@@ -65,7 +68,7 @@ header,
 .intro-text {
   /* grid-column: 1 / 6;
   grid-row: 1 / 2; */
-  background-color: #463333;
+  background-color: var(--brown);
 }
 
 header {
