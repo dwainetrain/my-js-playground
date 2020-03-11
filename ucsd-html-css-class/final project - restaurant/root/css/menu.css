@@ -1,0 +1,95 @@
+body {
+    background-image: url(../images/the-creative-exchange-YRSRQpBfsj4-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: 150px auto auto;
+}
+
+.main {
+    grid-column: 4/-4;
+    grid-row: 2;
+    background-color: rgba(70,51,51, 0.6);
+    padding: 75px 2em 2em 2em;
+}
+
+.main>h2, .main>p {
+    text-align: center;
+}
+
+.menu-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2em auto;
+    grid-gap: 2em;
+    margin-top: 1em;
+    
+}
+
+.menu-section > h3 {
+    grid-column: 1/-1;
+    grid-row: 1;
+    justify-self: center;
+}
+
+/* menu item styling */
+.menu-item {
+    padding: 15px;
+    border-radius: 0.35em;
+    border: 1px solid #C7C0C0;
+    background-color: #F4F4F4;
+    margin-bottom: 1.5em;
+    line-height: 3em;
+    text-align: center;
+}
+
+.menu-item > h4 {
+    text-transform: uppercase;
+    color: red;
+    font-family: 'Georgia','Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.description {
+    color: #333131;
+    line-height: initial;
+}
+
+.price {
+    display: inline;
+    color: rgb(80, 75, 75);
+    font-weight: 200;
+    letter-spacing: .08em;
+}
+
+.price::after {
+    content: "|";
+    color: #626060;
+}
+
+.quantity {
+    color: #4F4D4D;
+}
+
+.menu-item select {
+    font-size: 0.85em;
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    margin-bottom: 0.5em;
+    color: #333131;
+    height: 1.5em;
+}
+
+
+hr {
+    border-top: #C7C0C0 1px solid;
+}
+

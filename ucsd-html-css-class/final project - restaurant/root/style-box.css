@@ -29,7 +29,7 @@ body {
 .home {
   display: grid;
   grid-template-columns: repeat(32, 1fr);
-  grid-template-rows: 150px 150px 420px 250px 724px 250px;
+  grid-template-rows: 150px 150px 420px auto 724px 250px;
 }
 
 
@@ -39,13 +39,10 @@ body {
   display: grid;
   grid-template-columns: 1fr auto repeat(4,2fr) 1fr;
   grid-gap: 2em;
-  /* grid-template-columns: repeat(32, 1fr); */
-  /* grid-template-rows: 250px 150px; */
   justify-content: center;
   justify-items: center;
   align-items: center;
   border-bottom: 1px solid var(--tan);
-  /* display: contents; */
 }
 
 .logo {
@@ -67,7 +64,7 @@ body {
   align-self: center;
 }
 
-.menu {
+.nav-menu {
   grid-row: 1/ span 2;
   grid-column: 4/span 2;
   width: 100%;
@@ -106,21 +103,15 @@ li.item {
   color: var(--tan);
 }
 
-ul>.item5 {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-
 
 ul>li>a,
-.language>.item>a {
+.language a {
   text-decoration: none;
   color: var(--tan);
 }
 
 ul>li>a:hover,
-.language>.item>a:hover {
+.language a:hover {
   color: var(--light);
 }
 
@@ -169,7 +160,7 @@ ul>.active>a,
   justify-self: center;
 }
 
-.information {
+.information-block {
   grid-column: 1/-1;
   grid-row: 4;
   background-color: var(--brown);
@@ -177,13 +168,26 @@ ul>.active>a,
   border-style: solid;
   border-color: #FFD2B6;
   z-index: 2;
-  padding: 5em 20em 6em 20em;
+  padding: 2em 2em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.flavor-text {
+  max-width:54em;
+  line-height: 2em;
+}
+
+h1 {
+  color: var(--tan);
 }
 
 .footer {
   grid-column: 1/-1;
   grid-row: 6;
   display: grid;
+  grid-gap: 2em;
   grid-template-columns: 1fr auto 2fr 2fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-content: center;
@@ -195,18 +199,29 @@ ul>.active>a,
 
 .footer>a {
   grid-column: 2;
-  width: 100%;
   grid-row: 2 span;
-  border-right: 1px solid var(--tan);
-  padding-right: 30px;
+  min-width: 160px;
+  max-width: 185px;
+  border-right: 2px solid var(--tan);
+  padding-right: 2em ;
 }
 
 .footer>a>img {
-  width: 200px;
+  width: 100%;
+}
 
+.footer-information {
+  grid-column: 3/span 4;
+  width: 100%;
+  align-self: end;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .copyright {
-  grid-column: 3/ span 2;
+  grid-column: 3/ span 4;
   grid-row: 2;
+  justify-self: start;
 }
