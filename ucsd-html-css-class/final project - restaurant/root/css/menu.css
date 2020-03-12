@@ -7,7 +7,7 @@ body {
 .menu {
     display: grid;
     grid-template-columns: repeat(32, 1fr);
-    grid-template-rows: 150px auto auto;
+    grid-template-rows: 96px auto auto;
 }
 
 .main {
