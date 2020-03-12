@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+    </main>
+</body>
+<style>
+    :root {
+        border-style: border-box;
+    }
+
+    *{
+        border-style: inherit;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1em;
+        height: calc(100vh - 2em);
+        margin: 1em;
+    }
+
+    .column {
+        border: 1px solid limegreen;
+    }
+</style>
+</html>
