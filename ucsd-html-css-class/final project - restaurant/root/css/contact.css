@@ -1,115 +1,171 @@
 body {
-    background-image: url(../images/gab-manalo--rwSUiw2eSc-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
+  background-image: url(../images/gab-manalo--rwSUiw2eSc-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-.contact {
-    display: grid;
-    grid-template-columns: repeat(32, 1fr);
-    grid-template-rows: 96px auto auto;
+.contact-us {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 96px auto auto;
 }
+
+.phone-contact {
+  grid-column: 2/-2;
+  margin: 2em;
+  text-align: center;
+  border-bottom: 1px solid var(--tan);
+  padding-bottom: 2em;
+}
+
+.social-icon>a>img {
+  filter: invert();
+  width: 3em;
+  opacity: 0.80;
+}
+
+.social-icon>a:link,
+.phone-contact a:link {
+  color: var(--light);
+}
+
+.social-icon>a:hover,
+.phone-contact a:hover {
+  text-decoration: none;
+}
+
+.social-icon>a:visited {
+  text-decoration: none;
+  color: var(--light);
+}
+
+
 
 .main {
-    grid-column: 4/-4;
-    grid-row: auto;
-    background-color: rgba(70,51,51, 0.6);
-    padding-top: 75px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-column: 2;
+  grid-row: auto;
+  background-color: rgba(70, 51, 51, 0.8);
+  padding-top: 75px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
 }
 
-.social {
-    grid-column: 2/-2;
-    display: flex;
-    justify-content: space-around;
+.social-contact {
+  grid-column: 2/-2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  gap: 2em;
+  margin-bottom: 2em;
 }
 
-.contact-form {
-    grid-column: 2/-2;
-    background-color: var(--brown);
-    padding: 2em;
+.social-contact>h2 {
+  grid-column: 1/-1;
 }
 
 /* Contact Form */
-.container {
-	max-width:400px;
-	width:100%;
-	margin:0 auto;
-	position:relative;
+
+.contact-form {
+  grid-column: 1/-1;
+  background-color: var(--brown);
+  padding: 0 2em 0 2em;
+  border: 1px solid var(--tan);
+  border-radius: 3px;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+.contact-form {
+  width: 100%;
+  margin: 3em auto;
+  position: relative;
+}
+
 
 #contact {
-	background:#F9F9F9;
-	padding:25px;
-	margin:50px 0;
+  background: var(--brown);
+  padding: 25px;
+  margin: 3em 0;
 }
 
-#contact h3 {
-	color: #F96;
-	display: block;
-	font-size: 30px;
-	font-weight: 400;
-}
-
-#contact h4 {
-	margin:5px 0 15px;
-	display:block;
-	font-size:13px;
+#contact h2 {
+  color: var(--tan);
+  display: block;
+  font-weight: 300;
+  margin: 0 0 1em 0;
 }
 
 fieldset {
-	border: medium none !important;
-	margin: 0 0 10px;
-	min-width: 100%;
-	padding: 0;
-	width: 100%;
+  border: medium none;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
-	width:100%;
-	border:1px solid #CCC;
-	background:#FFF;
-	margin:0 0 5px;
-	padding:10px;
+label {
+  color: var(--white);
+  font-weight: 300;
 }
 
-#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-	border:1px solid #AAA;
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid var(--tan);
+  background-color: var(--dark-brown);
+  margin: 0 0 0.5em;
+  padding: 0.8em;
+  color: var(--light);
+  font-size: 1em;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  border-bottom: 1px solid #AAA;
 }
 
 #contact textarea {
-	height:100px;
-	max-width:100%;
-  resize:none;
+  height: 100px;
+  max-width: 100%;
+  resize: none;
 }
 
 #contact button[type="submit"] {
-	cursor:pointer;
-	width:100%;
-	border:none;
-	background:#0CF;
-	color:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-	font-size:15px;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: var(--light);
+  color: var(--brown);
+  margin: 0 0 5px;
+  padding: .50em;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--tan);
 }
 
 #contact button[type="submit"]:hover {
-	background:#09C;
-	-webkit-transition:background 0.3s ease-in-out;
-	-moz-transition:background 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out;
+  background-color: var(--dark-brown);
+  color: var(--light);
+  border: 1px solid var(--tan);
 }
 
-#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
 
-#contact input:focus, #contact textarea:focus {
-	outline:0;
-	border:1px solid #999;
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+}
+
+@media (max-width: 1080px) {
+  .contact-us {
+    grid-template-rows: 165px auto auto;
+  }
 }
