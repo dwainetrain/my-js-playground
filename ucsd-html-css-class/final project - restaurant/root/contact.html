@@ -8,7 +8,7 @@
     <title>About Us - Oishii Ramen Restaurant</title>
   </head>
   <body>
-    <div class="contact">
+    <div class="contact-us">
       <div class="nav">
         <div class="logo">
           <a href="index.html">
@@ -16,99 +16,154 @@
           /></a>
         </div>
 
-        <ul class="nav-menu">
-          <li class="item"><a href="index.html">Home</a></li>
-          <li class="item"><a href="about-us.html">About</a></li>
-          <li class="item"><a href="menu.html">Menu</a></li>
-          <li class="item active"><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="nav-menu">
+          <ul>
+            <li class="item"><a href="index.html">Home</a></li>
+            <li class="item"><a href="about-us.html">About</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
+            <li class="item active"><a href="contact.html">Contact</a></li>
+          </ul>
 
-        <div class="language">
-          <div class="active english"><a href="#">English</a></div>
-          <div class="japanese"><a href="#">日本語</a></div>
+          <div class="language">
+            <div class="active english"><a href="#">English</a></div>
+            <div class="japanese"><a href="#">日本語</a></div>
+          </div>
         </div>
       </div>
 
       <main class="main">
-
-        <div class="page-nav"><h3>Contact Us</h3>
-        <p>Phone Number | Social Media | Contact Form</p></div>
-        
-        <div class="phone">
-          <h3>Phone Number:</h3>
-          858-555-1212
-        </div>
-        
-        <div class="social">
-          <h3>Social Media</h3>
-          <div class="instagram">Instagram</div>
-          <div class="facebook">
-            Facebook
-          </div>
-          <div class="yelp">
-            Yelp
-          </div>
-          
+        <div class="page-nav">
+          <h2>Contact Us</h2>
         </div>
 
-        <div class="contact-form">  
-          <form id="contact" action="" method="post">
-            <h3>Quick Contact</h3>
-            <h4>Contact us today, and get reply with in 24 hours!</h4>
+        <div class="phone-contact">
+          <h2>
+            Phone Number:
+            <a href="tel:-858-555-1212"><strong>858-555-1212</strong></a>
+          </h2>
+        </div>
+
+        <div class="social-contact">
+          <h2>Social Media</h2>
+          <div class="social-icon instagram">
+            <a href="https://www.instagram.com/explore/tags/ramenshop/">
+              <img src="images/instagram.svg" alt="Instagram" />
+              <p>Insagram</p>
+            </a>
+          </div>
+          <div class="social-icon facebook">
+            <a href="https://www.facebook.com/pages/Harumama/101713524656903">
+              <img src="images/facebook.svg" alt="Instagram" />
+              <p>
+                Facebook
+              </p>
+            </a>
+          </div>
+          <div class="social-icon yelp">
+            <a
+              href="https://www.yelp.com/biz/harumama-noodles-and-buns-la-jolla-la-jolla"
+            >
+              <img src="images/yelp.svg" alt="Instagram" />
+              <p>
+                Yelp
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contact" action="#" method="post">
+            <h2>Send Us a Message</h2>
+
             <fieldset>
-              <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+              <input
+                placeholder="Your Name"
+                type="text"
+                tabindex="1"
+                required
+                autofocus
+                id="name"
+              />
             </fieldset>
             <fieldset>
-              <input placeholder="Your Email Address" type="email" tabindex="2" required>
+              <input
+                placeholder="Your Email Address"
+                type="email"
+                tabindex="2"
+                required
+                id="email"
+              />
             </fieldset>
             <fieldset>
-              <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+              <input
+                placeholder="Your Phone Number"
+                type="tel"
+                tabindex="3"
+                required
+                id="phone"
+              />
             </fieldset>
             <fieldset>
-              <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+              <textarea
+                placeholder="Type your Message Here...."
+                tabindex="5"
+                required
+                id="message"
+              ></textarea>
             </fieldset>
             <fieldset>
-              <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
-            </fieldset>
-            <fieldset>
-              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+              <button
+                name="submit"
+                type="submit"
+                id="contact-submit"
+                data-submit="...Sending"
+              >
+                Submit
+              </button>
             </fieldset>
           </form>
-         
-          
         </div>
-        
-    </main>
+      </main>
 
-      <div class="footer">
-        <a href="index.html"
+      <footer>
+        <a href="index.html" class="footer-logo"
           ><img src="images/logo-v2-1x.png" alt="Oishii-Logo"
         /></a>
         <div class="footer-information">
-          <div class="address">
-          <h3>Address</h3>
-          <p>2345 Prospect St.
-            <br/>
-            La Jolla, CA 92037</p>
+          <div class="foot-item address">
+            <h3>Address</h3>
+            <p>
+              2345 Prospect St.
+              <br />
+              La Jolla, CA 92037
+            </p>
           </div>
-          <div class="hours">
-          <h3>Hours</h3>
-          <p>Mon - Fri: 11am - 10pm ​​<br/>
-            Sat - Sun: 11am - 12am</p>
+          <div class="foot-item  hours">
+            <h3>Hours</h3>
+            <p>
+              Mon - Fri: 11am - 10pm ​​<br />
+              Sat - Sun: 11am - 12am
+            </p>
           </div>
-          <div class="contact">
-          <h3>Contact</h3>
-          <p>123-456-7890 <br/>
-            info@mysite.com</p>
+          <div class="foot-item contact">
+            <h3>Contact</h3>
+            <p>
+              123-456-7890 <br />
+              info@mysite.com
+            </p>
           </div>
-          <div class="follow">
-          <h3>Follow</h3>
-          <p>Facebook, Instagram, Yelp</p>
-          </div></div>
-          <div class="copyright">
-            ©2020 Oishii Ramen Restaurant. Design & Layout, Dwaine Best. View Photo Credits. 
+          <div class="foot-item follow">
+            <h3>Follow</h3>
+            <p>Facebook, Instagram, Yelp</p>
           </div>
-      </div>
+        </div>
+        <div class="copyright">
+          <p>
+            ©2020 Oishii Ramen Restaurant. Design & Layout, Dwaine Best. View
+            Photo Credits.
+          </p>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

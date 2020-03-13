@@ -6,31 +6,35 @@ body {
 
 .menu {
     display: grid;
-    grid-template-columns: repeat(32, 1fr);
+    grid-template-columns: 1fr 6fr 1fr;
     grid-template-rows: 96px auto auto;
+    justify-content: center;
 }
 
 .main {
-    grid-column: 4/-4;
-    grid-row: 2;
-    background-color: rgba(70,51,51, 0.6);
+    grid-column: 2;
+    grid-row: auto;
+    background-color: rgba(70, 51, 51, 0.8);
     padding: 75px 2em 2em 2em;
 }
 
-.main>h2, .main>p {
+.main>h2,
+.main>p {
     text-align: center;
 }
 
 .menu-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: center;
     grid-template-rows: 2em auto;
-    grid-gap: 2em;
+    grid-gap: 3em;
     margin-top: 1em;
-    
+    padding: 1em 3em;
+
 }
 
-.menu-section > h3 {
+.menu-section>h2 {
     grid-column: 1/-1;
     grid-row: 1;
     justify-self: center;
@@ -38,58 +42,32 @@ body {
 
 /* menu item styling */
 .menu-item {
-    padding: 15px;
+    padding: 2em 4em;
     border-radius: 0.35em;
-    border: 1px solid #C7C0C0;
-    background-color: #F4F4F4;
-    margin-bottom: 1.5em;
-    line-height: 3em;
+    border: 1px solid var(--tan);
+    background-color: var(--brown);
+
     text-align: center;
 }
 
-.menu-item > h4 {
+.menu-item>h4 {
     text-transform: uppercase;
-    color: red;
-    font-family: 'Georgia','Times New Roman', Times, serif;
+    color: var(--white);
     font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: .1em;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1em;
 }
 
 .description {
-    color: #333131;
+    color: var(--light);
     line-height: initial;
+    font-weight: 300;
 }
 
-.price {
-    display: inline;
-    color: rgb(80, 75, 75);
-    font-weight: 200;
-    letter-spacing: .08em;
+@media (max-width: 1080px) {
+    .menu {
+        grid-template-rows: 165px auto auto;
+    }
 }
-
-.price::after {
-    content: "|";
-    color: #626060;
-}
-
-.quantity {
-    color: #4F4D4D;
-}
-
-.menu-item select {
-    font-size: 0.85em;
-    border: 1px solid #ccc;
-    background-color: #fcfcfc;
-    margin-bottom: 0.5em;
-    color: #333131;
-    height: 1.5em;
-}
-
-
-hr {
-    border-top: #C7C0C0 1px solid;
-}
-

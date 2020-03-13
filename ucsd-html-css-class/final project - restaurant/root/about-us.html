@@ -16,88 +16,128 @@
           /></a>
         </div>
 
-        <ul class="nav-menu">
-          <li class="item"><a href="index.html">Home</a></li>
-          <li class="item active"><a href="about-us.html">About</a></li>
-          <li class="item"><a href="menu.html">Menu</a></li>
-          <li class="item"><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="nav-menu">
+          <ul>
+            <li class="item"><a href="index.html">Home</a></li>
+            <li class="item active"><a href="about-us.html">About</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
+            <li class="item"><a href="contact.html">Contact</a></li>
+          </ul>
 
-        <div class="language">
-          <div class="active english"><a href="#">English</a></div>
-          <div class="japanese"><a href="#">日本語</a></div>
+          <div class="language">
+            <div class="active english"><a href="#">English</a></div>
+            <div class="japanese"><a href="#">日本語</a></div>
+          </div>
         </div>
       </div>
 
       <main class="main">
+        <div class="page-nav">
+          <h2>About Us</h2>
+          <p>
+            <a href="#hours">Hours</a> | <a href="#map">Location</a> |
+            <a href="#history">Our History </a>
+          </p>
+        </div>
 
-        <div class="page-nav"><h3>About Us</h3>
-        <p>Hours | Map | Our History | Our Chefs</p></div>
-        <div class="hours">
+        <div id="hours" class="about-hours">
           <div class="happy-hour card">
-            <h4>Happy Hour</h4>
-            Everyday 5pm - 7pm
+            <h3>Happy Hour</h3>
+            <p>Everyday <br />5:00pm - 7:00pm</p>
+            <p>50% Off Sake / Beer</p>
+            <p>50% Off Appetizers</p>
           </div>
 
           <div class="shop-hours card">
-            <h4>Shop Hours</h4>
-            Everyday 5pm - 7pm
+            <h3>Shop Hours</h3>
+            <p>Monday - Friday: <br />11:00am - 10:00pm ​</p>
+            <p>
+              Saturday - Sunday:<br />
+              11:00am - 12:00am
+            </p>
           </div>
         </div>
 
-
-
-        <div class="map">
-          <h4>Location: Prospect St. </h4>
-          <img src="images/snazzy-image.png" alt="Map to our restaurant">
+        <div id="map" class="map">
+          <h2>Location</h2>
+          <p>
+            2345 Prospect St. La Jolla, CA 92037
+          </p>
+          <img src="images/snazzy-image.png" alt="Map to our restaurant" />
         </div>
 
-        <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8LUz6Zhud_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="story">
+          <div class="video">
+            <video controls src="videos/video2.mp4"></video>
+          </div>
+          <div id="history" class="history">
+            <h2>Our History</h2>
+            <p>
+              <img
+                src="images/rachael-gorjestani-1qwWLp5rEWM-unsplash.png"
+                alt="Bowl of Chuushuu and Wakame Miso Ramen"
+              />Our history is as rich and complex as our Tonkatsu broth. Lorem
+              ipsum dolor sit amet, consectetur adipisicing elit. Sed
+              perferendis quibusdam autem quasi, omnis ex rem voluptas
+              voluptates ducimus facilis officiis veniam rerum fuga eligendi
+              dolor? Quidem minus facere expedita!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+              tempora provident sint neque ullam, earum nesciunt dicta, ipsam
+              cumque, qui saepe laborum optio repellendus laboriosam sunt cum in
+              molestiae nisi?
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam,
+              placeat consequatur. Nam tempora dolores impedit. Eos quos
+              perspiciatis quisquam recusandae tempore repudiandae culpa
+              exercitationem harum, fugit numquam modi rerum dolorum.
+            </p>
+          </div>
         </div>
+      </main>
 
-        <div class="history">
-          <h2>Our History</h2>
-          <p><img src="images/rachael-gorjestani-1qwWLp5rEWM-unsplash.png" alt="Bowl of Chuushuu and Wakame Miso Ramen">Our history is as rich and complex as our Tonkatsu broth. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perferendis quibusdam autem quasi, omnis ex rem voluptas voluptates ducimus facilis officiis veniam rerum fuga eligendi dolor? Quidem minus facere expedita! </p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempora provident sint neque ullam, earum nesciunt dicta, ipsam cumque, qui saepe laborum optio repellendus laboriosam sunt cum in molestiae nisi?</p>
-
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, placeat consequatur. Nam tempora dolores impedit. Eos quos perspiciatis quisquam recusandae tempore repudiandae culpa exercitationem harum, fugit numquam modi rerum dolorum.</p>
-          
-        </div>
-
-        <div class="staff"></div>
-        
-    </main>
-
-      <div class="footer">
-        <a href="index.html"
+      <footer>
+        <a href="index.html" class="footer-logo"
           ><img src="images/logo-v2-1x.png" alt="Oishii-Logo"
         /></a>
         <div class="footer-information">
-          <div class="address">
-          <h3>Address</h3>
-          <p>2345 Prospect St.
-            <br/>
-            La Jolla, CA 92037</p>
+          <div class="foot-item address">
+            <h3>Address</h3>
+            <p>
+              2345 Prospect St.
+              <br />
+              La Jolla, CA 92037
+            </p>
           </div>
-          <div class="hours">
-          <h3>Hours</h3>
-          <p>Mon - Fri: 11am - 10pm ​​<br/>
-            Sat - Sun: 11am - 12am</p>
+          <div class="foot-item  hours">
+            <h3>Hours</h3>
+            <p>
+              Mon - Fri: 11am - 10pm ​​<br />
+              Sat - Sun: 11am - 12am
+            </p>
           </div>
-          <div class="contact">
-          <h3>Contact</h3>
-          <p>123-456-7890 <br/>
-            info@mysite.com</p>
+          <div class="foot-item contact">
+            <h3>Contact</h3>
+            <p>
+              123-456-7890 <br />
+              info@mysite.com
+            </p>
           </div>
-          <div class="follow">
-          <h3>Follow</h3>
-          <p>Facebook, Instagram, Yelp</p>
-          </div></div>
-          <div class="copyright">
-            ©2020 Oishii Ramen Restaurant. Design & Layout, Dwaine Best. View Photo Credits. 
+          <div class="foot-item follow">
+            <h3>Follow</h3>
+            <p>Facebook, Instagram, Yelp</p>
           </div>
-      </div>
+        </div>
+        <div class="copyright">
+          <p>
+            ©2020 Oishii Ramen Restaurant. Design & Layout, Dwaine Best. View
+            Photo Credits.
+          </p>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
