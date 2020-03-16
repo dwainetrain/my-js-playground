@@ -2,9 +2,9 @@
   box-sizing: border-box;
   --dark-brown: #382828;
   --brown: rgb(70, 51, 51);
-  --tan: #AB724E;
-  --light: #FFD2B6;
-  --white: #F9F9F8;
+  --tan: #ab724e;
+  --light: #ffd2b6;
+  --white: #f9f9f8;
 }
 
 *,
@@ -16,11 +16,10 @@
 }
 
 html {
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: wheat;
 }
 
@@ -30,17 +29,15 @@ body {
 
 .home {
   display: grid;
-  /* grid-template-columns: repeat(32, 1fr); */
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-template-rows: 96px 150px 470px auto 724px auto;
 }
 
 .nav {
   grid-column: 1/-1;
-  background-color: var(--brown);
+  background-color: var(--dark-brown);
   display: grid;
   grid-template-columns: 1fr auto repeat(4, 2fr) 1fr;
-  /* grid-template-columns: repeat(34, 1fr); */
   grid-gap: 2em;
   justify-content: center;
   justify-items: center;
@@ -58,24 +55,23 @@ body {
   align-self: center;
   padding: 25px 10px 30px 10px;
   z-index: 20;
-  background-color: rgba(171, 114, 78, .71);
+  background-color: rgba(171, 114, 78, 0.71);
 }
 
-.logo>a>img {
+.logo > a > img {
   width: 100%;
   align-self: center;
 }
 
 .nav-menu {
   display: flex;
-  grid-column: 3/span 4;
+  grid-column: 3 / span 4;
   grid-row: 1;
   width: 100%;
   justify-self: flex-end;
   display: inline-flex;
   flex-wrap: wrap;
   margin-top: 60px;
-  /* padding: 20px; */
 }
 
 ul {
@@ -86,10 +82,9 @@ ul {
 
 .language {
   display: inline-flex;
-  grid-column: -4/span 2;
+  grid-column: -4 / span 2;
   grid-row: 1;
   margin-left: auto;
-  /* justify-self: flex-end; */
   flex-wrap: wrap;
 }
 
@@ -116,25 +111,28 @@ li.item {
   margin-right: 50px;
 }
 
-
-ul>li>a,
-.language a {
+ul > li > a,
+.language a,
+.copyright a,
+.map a {
   text-decoration: none;
   color: var(--tan);
   padding: 0.3em 0.5em;
   border-radius: 3px;
 }
 
-ul>li>a:hover,
-.language a:hover {
+ul > li > a:hover,
+.language a:hover,
+.copyright a:hover,
+.photo a,
+.map a:hover {
   color: var(--light);
 }
 
-ul>.active>a,
-.language>.active>a {
+ul > .active > a,
+.language > .active > a {
   color: var(--light);
 }
-
 
 .top-image {
   grid-column: 1/-1;
@@ -182,7 +180,7 @@ ul>.active>a,
   background-color: var(--brown);
   border-width: 1px 0 1px 0;
   border-style: solid;
-  border-color: #FFD2B6;
+  border-color: #ffd2b6;
   z-index: 2;
   padding: 2em 2em;
   display: flex;
@@ -223,14 +221,13 @@ footer {
   grid-row: -1;
   display: grid;
   grid-gap: 2em;
-  /* grid-template-columns: 1fr auto 2fr 2fr 2fr 2fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-template-rows: 1fr;
   justify-content: center;
   justify-items: center;
   align-items: center;
   padding: 2em;
-  background-color: var(--brown);
+  background-color: var(--dark-brown);
   border-top: 1px solid var(--tan);
 }
 
@@ -244,12 +241,12 @@ footer {
   align-self: flex-start;
 }
 
-footer>a>img {
+footer > a > img {
   width: 100%;
 }
 
 .footer-information {
-  grid-column: 2/ span 3;
+  grid-column: 2 / span 3;
   width: 100%;
   align-self: end;
   grid-row: 1;
@@ -264,7 +261,7 @@ footer>a>img {
 }
 
 .copyright {
-  grid-column: 2/ span 3;
+  grid-column: 2 / span 3;
   grid-row: 2;
   justify-self: start;
   align-self: baseline;
@@ -276,15 +273,16 @@ footer>a>img {
   text-align: center;
 }
 
-.page-nav>p>a:link {
+.page-nav > p > a:link {
   color: var(--light);
 }
 
-.page-nav>p>a:hover {
+.page-nav > p > a:hover,
+.photo a:hover {
   text-decoration: none;
 }
 
-.page-nav>p>a:visited {
+.page-nav > p > a:visited {
   text-decoration: none;
   color: var(--light);
 }
@@ -293,26 +291,39 @@ footer>a>img {
 .footer-social-icon {
   display: inline-block;
   margin-right: 1em;
+  margin-top: 1em;
 }
 
-.footer-social-icon>a>img {
+.footer-social-icon > a > img {
   filter: invert();
   width: 1.5em;
-  opacity: 0.80;
+  opacity: 0.8;
 }
 
-/* Media Card */
-div.polaroid {
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+/* Media Cards for photo credits */
+
+.photos {
+  grid-column: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-div.container {
+.photo {
+  width: 50%;
+  background-color: var(--brown);
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  border: 1px solid var(--tan);
+}
+
+.container {
   text-align: center;
   padding: 10px 20px;
 }
+
+/* End Media Card */
 
 @media (max-width: 1080px) {
   .language {
@@ -327,7 +338,6 @@ div.container {
 
   ul li {
     padding-bottom: 0.2em;
-
   }
 
   .nav-menu {
@@ -341,5 +351,4 @@ div.container {
   .home {
     grid-template-rows: 165px 150px 470px auto 724px auto;
   }
-
 }
