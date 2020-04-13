@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Examples of Strings</title>
+
+<script language="JavaScript">
+<!-- hide me
+
+// get a name 
+
+var teacher = prompt("What's the teachers's name?","The Teacher");
+
+// declare some short strings
+
+var demanding = " demands, no, insists upon receiving ";
+var requesting = " nicely asks for the benefit of all ";
+var tech = " a computer that won't crash, and a homemade browser!";
+var peace = " love for everyone and peace on earth.";
+
+// construct some longer strings
+
+var techy_teacher = '<p id ="tech">' + teacher + demanding + tech + '</p>';
+var hippy_teacher = teacher + requesting + peace;
+
+// make some fancy strings
+
+var bold_tech = techy_teacher.bold();
+var italic_hippy = hippy_teacher.italics();
+var shouting_hippy= hippy_teacher.toUpperCase();
+//var red_bold_tech = bold_tech.fontcolor('red');
+var red_bold_tech = bold_tech;
+
+// stop hiding me -->
+</script>
+</head>
+
+
+<body>
+
+<h1>Teacher Babbles</h1>
+
+<script language="JavaScript">
+<!-- hide me
+
+document.writeln(bold_tech + "<br>");
+document.writeln(italic_hippy + "<br>");
+document.writeln(shouting_hippy + "<br>");
+document.writeln(red_bold_tech + "<br>");
+document.getElementById("tech").style.color = '#ff0000';
+
+
+
+// show me -->
+</script>
+
+</body>
+</html>
