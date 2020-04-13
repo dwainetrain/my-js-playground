@@ -1,0 +1,40 @@
+<html>
+<head>
+<SCRIPT LANGUAGE="JavaScript">
+function MakePage(name,town,years,roommate,age,favorite) {
+
+var content = '<HTML><HEAD><TITLE>'+name+'\'s Page</title>' +
+'</head><body background="space.gif" text="yellow" link="#FFBBBB" vlink="#FFBBBB">' +
+'<FONT COLOR="4EEA6C"><center><h1>' +
+name + '\'s Page</h1></center></FONT>' +
+'<IMG ALIGN=Left SRC="heart.gif" WIDTH="72" HEIGHT="72">Hello, and welcome to my page. I live in ' + town + ' and I am ' + age + ' years old.' +
+'<p>' + town + ' isn\'t a bad place to live, if you can stand ' + roommate + '\'s cooking or your favorite dish, ' + favorite + '. ' +
+'Imagine that for ' + years + ' years! <br>' +
+'Some people think they\'re so cool just because they created a home page. <br> ' +
+'They have fancy backgrounds and colors, but they just go on and on with nothing to say. <br>' +  
+'<A HREF="http://www.yahoo.com/">Click Here to search Yahoo</A><--Boy, there\'s a link I never' +
+' would have found on my own. Some people\'s pages are so boring I think my computer could do' +
+' a better job with a 10 line program.</p>'
+
+document.open()
+document.write(content)
+document.close()
+
+} 
+</SCRIPT>
+<body>
+<BR><H3>Writing to a document</H3><P>
+
+With just a little creativity, you can have JavaScript create fully formatted web pages on the fly.<P>
+<table bgcolor="beige" border=1><form><tr><td>
+Please enter your first name <input type=text name="fname" size=20><br>
+What city/town do you live in? <input type=text name="town" size=20><br>
+Years you've lived there? <input type=text name="years" size=20><br>
+How old are you? <input type=text name="age" size=4><br>
+Name another person in your house <input type=text name="roommate" size=20><br>
+Name your favorite food <input type="text" name="favorite" size=20><br>
+<input type=button value="Create my Home Page" 
+onClick="MakePage(this.form.fname.value,this.form.town.value,this.form.years.value,this.form.roommate.value,this.form.age.value, this.form.favorite.value)">
+</form></td></tr></table><P>
+</body>
+</html>
