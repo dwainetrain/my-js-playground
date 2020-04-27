@@ -28,5 +28,10 @@ body {
   background-color: lightcyan;
   margin-top: 100px;
   padding: 50px;
-  border-radius: 3em;
+  border-radius: 2em;
+  border: cornflowerblue 1px solid;
+}
+
+p {
+  margin: 1em;
 }
