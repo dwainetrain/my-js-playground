@@ -9,110 +9,117 @@
   <!-- How fun can I make this? -->
   <body>
     <div id="content">
-    <h1>Ski Secor</h1>
-    <h2>Lift Tickets</h2>
-    Please select a time:
-    <p>
+      <h1>Secor Ski Resort</h1>
+      <h2>Lift Tickets</h2>
+
+      Please select a time:
       <form id="prices">
-      <input type="radio" id="morning-tickets" name="price" value="20" checked />
-      <label for="radio1">Before Noon - $20</label>
-      <input type="radio" id="afternoon-tickets" name="price" value="25" />
-      <label for="radio2">Noon to Six - $25</label>
-      <input type="radio" id="night-tickets" name="price" value="15" />
-      <label for="radio3">Night Sking - $15</label>
-    </form>
-      <div id="basePrice"></div>
-      <div id="subtotal"></div>
-    </p>
+        <input type="radio" id="radio1" name="price" value="20" checked />
+        <label for="radio1">Before Noon - $20</label>
 
-    <p>
-      <label for="tickets"
-        >Select the number of tickets you'd like to purchase:</label
-      >
+        <input type="radio" id="radio2" name="price" value="25" />
+        <label for="radio2">Noon to Six - $25</label>
+        <input type="radio" id="radio3" name="price" value="15" />
+        <label for="radio3">Night Sking - $15</label>
+      </form>
 
-      <input type="number" id="tickets" name="tickets" value="1" min="1" max="1000" placaeholder="1"/>
-    </p>
+      <p>
+        <label for="tickets">How many tickets?</label>
 
-    <p>
-      Calculate Tax:
-      <input type="checkbox" id="tax" name="tax" value="all" />
-      <label for="tax">Click Here if you are a California Resident?</label>
-      Rates: 6% for Califonia residents, 8% for all others. Tax Total:
-    </p>
+        <input
+          type="number"
+          id="tickets"
+          name="tickets"
+          placeholder="1"
+          value="1"
+          min="1"
+          max="1000"
+        />
+      </p>
 
-    <div id="taxAmount"></div>
+      <h4>Subtotal: $<span id="subtotal"></span></h4>
 
-    Total: <div id="total"></div>
-    
-    Purchase:
-  </div>
+      <p>
+        <label for="tax">Are you a California Resident?</label>
+        Yes <input type="checkbox" id="tax" name="tax" value="all" />
+      </p>
+
+      <p>
+        Tax Rates: 6% for Califonia residents, 8% for all others.
+      </p>
+
+      <p>Taxes: $<span id="taxAmount"></span></p>
+
+      <h3>Total: $<span id="total"></span></h3>
+
+      <button id="purchase">Purchase</button>
+    </div>
 
     <script>
       "use strict";
-      /* Hi Kristian, I went out of scope for the exercise.
-        I wanted to challenge myself to make an auto-updating version. */
+      /* Hi Kristian, here's the MVP for ticket purchases at your ski resort.
+        Just a note, I went way out of scope for the exercise.
+        I wanted to challenge myself to make a version that updates with any change. */
 
       // There's alot of repetitive code here, which may be a side-effect of DOM manipulation
-      // I'm open to pointers on how to refactor this
+      // I'm open to pointers on how to refactor this, if you ever have the time
       // No doubt, I'm violating some best practice by using values in the html for calculations
-      
-      // TO DO: Provide dollar amounts on everything, symbol and decimals
-      // TO DO: Some minor styling and restructuring just to make it look nice
-      // Give it one more look and think of an update state function
 
       // Get price, quantity, tax and total elements
-      const selectedPrice = document.querySelector('#prices');
-      const selectedQuantity = document.querySelector('#tickets');
-      const taxAmount = document.querySelector('#tax');
+      const selectedPrice = document.querySelector("#prices");
+      const selectedQuantity = document.querySelector("#tickets");
+      const taxAmount = document.querySelector("#tax");
 
       // Set initial price
-      const basePrice = selectedPrice.querySelector('input[name=price]:checked').value;
+      const basePrice = selectedPrice.querySelector("input[name=price]:checked")
+        .value;
       const baseQuantity = selectedQuantity.value;
       getSubtotal(basePrice, baseQuantity);
       getTaxAmount(taxAmount.checked);
       getTotal();
-      
+
       // Listen for changes in price, and update subtotal accordingly
-      selectedPrice.addEventListener('change', (event) => {
+      selectedPrice.addEventListener("change", event => {
         const baseQuantity = selectedQuantity.value;
         const priceChange = event.target.value;
-        
+
         getSubtotal(priceChange, baseQuantity);
         getTaxAmount(taxAmount.checked);
         getTotal();
-      })
+      });
 
       // Listen for changes in quantity, and update subtotal accordingly
-      selectedQuantity.addEventListener('change', (event) => {
+      selectedQuantity.addEventListener("change", event => {
         // const basePrice = document.querySelector('input[name=price]:checked').value;
         // Here I tried using a for loop instead of the method above
         let basePrice;
         for (let i = 0; i < selectedPrice.elements.length; i++) {
-          if(selectedPrice.elements[i].checked) {
-            basePrice = selectedPrice.elements[i].value
-          };
+          if (selectedPrice.elements[i].checked) {
+            basePrice = selectedPrice.elements[i].value;
+          }
         }
-        
+
         const quantityChange = event.target.value;
-        
+
         getSubtotal(basePrice, quantityChange);
         getTaxAmount(taxAmount.checked);
         getTotal();
-      })
+      });
 
       // Listen for changes in taxrate
-      taxAmount.addEventListener('change', (event) => {
-        const basePrice = document.querySelector('input[name=price]:checked').value;
+      taxAmount.addEventListener("change", event => {
+        const basePrice = document.querySelector("input[name=price]:checked")
+          .value;
         const baseQuantity = selectedQuantity.value;
-        
+
         getSubtotal(basePrice, baseQuantity);
         getTaxAmount(taxAmount.checked);
         getTotal();
-      })
+      });
 
       // Calculate Subtotal
       function getSubtotal(price, quantity) {
-        const subtotalAmount = document.querySelector('#subtotal');
+        const subtotalAmount = document.querySelector("#subtotal");
         const subtotal = +price * +quantity;
         subtotalAmount.textContent = subtotal;
       }
@@ -120,25 +127,25 @@
       // Calculate Tax
       function getTaxAmount(checked) {
         let taxRate;
-        if(checked) {
-          taxRate = 0.06
+        if (checked) {
+          taxRate = 0.06;
         } else {
-          taxRate = 0.08
+          taxRate = 0.08;
         }
-        const subtotalValue = document.querySelector('#subtotal').textContent;
-        const taxAmount = document.querySelector('#taxAmount');
+        const subtotalValue = document.querySelector("#subtotal").textContent;
+        const taxAmount = document.querySelector("#taxAmount");
         const taxes = +subtotalValue * taxRate;
         taxAmount.textContent = taxes.toFixed(2);
       }
 
       // Calculate Total
       function getTotal() {
-        const subtotalValue = document.querySelector('#subtotal').textContent;
-        const taxValue = document.querySelector('#taxAmount').textContent;
-        const getTotal = document.querySelector('#total');
-        getTotal.textContent = (+subtotalValue) + (+taxValue);
+        const subtotalValue = document.querySelector("#subtotal").textContent;
+        const taxValue = document.querySelector("#taxAmount").textContent;
+        const getTotal = document.querySelector("#total");
+        const total = +subtotalValue + +taxValue;
+        getTotal.textContent = total.toFixed(2);
       }
-
     </script>
   </body>
 </html>
