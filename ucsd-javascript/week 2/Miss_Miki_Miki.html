@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Miyuki Boulware Week3</title>
+</head>	
+	
+<body onLoad="populate();">
+<!--
+Homework: Week 3
+Lift tickets at my ski resort are $20 before noon, $25 from noon to 6pm and $15 dollars for night skiing. Create a form that allows the user to choose their lift ticket. Upon selection, output the cost of the ticket. The taxes are 6% for Californians and 8% if the user is from out of state.
+
+For full credit, I’ll need to see a conditional and at least one loop. 
+-->
+	
+	
+	
+<form>
+	<div id="hours">
+	Select Time:<input type="number" id="tickets" max="21" min="6" /><br />	
+	</div>
+	
+	<div>
+	<select id="statechosen">
+		<option id="state" value="states">Select State</option>
+	</select>	
+	</div>	
+		<button type="button" id="operator" onClick="callMyNumber();">Add to Cart</button>
+</form>
+	
+	<div id="result"></div>
+	
+<script>
+//IF HOUR IS BETWEEN 6AM AND 12PM: LIFT TICKET PRICE IS $20
+//IF IT IS BETWEEN 12PM AND 6PM: LIFET TICKET PRICE IS $25
+//IF IT IS BETWEEN 6PM AND 10PM: LIFT TICKET PRICE IS $15
+//TAXES FOR CALIFORNIAN: 6%
+//TAXES FOR OUT OF STATE: 8%
+	
+		//--------- ONE FUNCTION ONE THING! ------
+	
+function populate(){
+var select = document.getElementById("statechosen");
+	 	arr =["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+	
+for (var i = 0; i < arr.length; i++){
+		var option = document.createElement("OPTION"),
+			txt = document.createTextNode(arr[i]);
+		option.appendChild(txt);
+		select.insertBefore(option,select.lastChild);
+		}	
+		}
+
+//HOURS	
+function callMyNumber(){
+		var timeofday = 6;
+		var usernum = document.getElementById("tickets").value
+		var cost;	//ADDED: var cost;
+		var tax;	//ADDED var tax;
+	
+		if (usernum == 6){
+			//assign cost here
+			//alert("Morning Lift $20")
+			 cost = 20;
+			 tax = .60;
+		}
+		else if (usernum <=12){
+			//alert("Morning Lift $20")
+			 cost = 20;
+			 tax = .06;
+		}
+		else if (usernum <=18){
+			//alert("Afternoon Lift $25")
+			 cost = 25;
+			 tax = .08;
+		}
+		else if (usernum <=21){
+			//alert("Evening Lift $15")
+			 cost = 15;
+			 tax = .08;
+		}
+		else if (usernum <=6){
+			alert("We open at 6am")
+		}
+		else {
+			//alert("We are closed")
+		}
+
+		// NOTE: Here I've moved your tax calculation inside the function
+		// If it's not inside the function, it can't see the functions variables (for instance, cost).
+		// There are other ways to do this, but I think this is the easiest to
+		// understand for now.
+		var statechosen = document.getElementById("statechosen").value;
+		var calculate;
+		
+		if (statechosen == "California") {
+				tax = .06;
+				calculate = ("cost" + 1) * .06; //NOTE: Your not actually using the cost variable here, can you see why?
+		}
+		else {
+			tax = .08;
+			calculate = ("cost" + 1) * .08;
+		}
+
+		console.log(calculate); //NOTE: Open your console to see what result calculate is producing
+
+		/* NOTE: I've added this line here, because you need to call 
+		the correct cost value from within the function itself */
+		document.querySelector("#result").innerHTML = cost; 
+
+	}
+	
+// NOTE: Let's not worry about getting the correct tax just yet...	
+//STATE
+	// NOTE: var calculate = 0; No necassary for now
+	// var statechosen = document.getElementById("statechosen").value;
+	// console.log(statechosen);
+	
+	// if (statechosen == "California") {
+	// 		tax = .06;
+	// 		//calculate = ("cost" + 1) * .06;
+
+	// 	//tax = .06;
+	// 	//calculate = (20 + 1) * .06;
+	// }
+	// else {
+	// 	tax = .08;
+	// 	calculate = ("cost" + 1) * .08;
+	// 	//tax = .08;
+	// 	//calculate = (20 + 1) * .08;
+	//}
+	
+	// NOTE: document.querySelector("#result").innerHTML = calculate; Not necassary here...
+	
+		
+	</script>
+
+</body>
+</html>

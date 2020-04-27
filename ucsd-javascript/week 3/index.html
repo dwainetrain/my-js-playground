@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <!-- How fun can I make this? -->
+  <body>
+    <div id="content">
+    <h1>Ski Secor</h1>
+    <h2>Lift Tickets</h2>
+    Please select a time:
+    <p>
+      <form id="prices">
+      <input type="radio" id="morning-tickets" name="price" value="20" checked />
+      <label for="radio1">Before Noon - $20</label>
+      <input type="radio" id="afternoon-tickets" name="price" value="25" />
+      <label for="radio2">Noon to Six - $25</label>
+      <input type="radio" id="night-tickets" name="price" value="15" />
+      <label for="radio3">Night Sking - $15</label>
+    </form>
+      <div id="basePrice"></div>
+      <div id="subtotal"></div>
+    </p>
+
+    <p>
+      <label for="tickets"
+        >Select the number of tickets you'd like to purchase:</label
+      >
+
+      <input type="number" id="tickets" name="tickets" value="1" min="1" max="1000" placaeholder="1"/>
+    </p>
+
+    <p>
+      Calculate Tax:
+      <input type="checkbox" id="tax" name="tax" value="all" />
+      <label for="tax">Click Here if you are a California Resident?</label>
+      Rates: 6% for Califonia residents, 8% for all others. Tax Total:
+    </p>
+
+    <div id="taxAmount"></div>
+
+    Total: <div id="total"></div>
+    
+    Purchase:
+  </div>
+
+    <script>
+      "use strict";
+      /* Hi Kristian, I went out of scope for the exercise.
+        I wanted to challenge myself to make an auto-updating version. */
+
+      // There's alot of repetitive code here, which may be a side-effect of DOM manipulation
+      // I'm open to pointers on how to refactor this
+      // No doubt, I'm violating some best practice by using values in the html for calculations
+      
+      // TO DO: Provide dollar amounts on everything, symbol and decimals
+      // TO DO: Some minor styling and restructuring just to make it look nice
+      // Give it one more look and think of an update state function
+
+      // Get price, quantity, tax and total elements
+      const selectedPrice = document.querySelector('#prices');
+      const selectedQuantity = document.querySelector('#tickets');
+      const taxAmount = document.querySelector('#tax');
+
+      // Set initial price
+      const basePrice = selectedPrice.querySelector('input[name=price]:checked').value;
+      const baseQuantity = selectedQuantity.value;
+      getSubtotal(basePrice, baseQuantity);
+      getTaxAmount(taxAmount.checked);
+      getTotal();
+      
+      // Listen for changes in price, and update subtotal accordingly
+      selectedPrice.addEventListener('change', (event) => {
+        const baseQuantity = selectedQuantity.value;
+        const priceChange = event.target.value;
+        
+        getSubtotal(priceChange, baseQuantity);
+        getTaxAmount(taxAmount.checked);
+        getTotal();
+      })
+
+      // Listen for changes in quantity, and update subtotal accordingly
+      selectedQuantity.addEventListener('change', (event) => {
+        // const basePrice = document.querySelector('input[name=price]:checked').value;
+        // Here I tried using a for loop instead of the method above
+        let basePrice;
+        for (let i = 0; i < selectedPrice.elements.length; i++) {
+          if(selectedPrice.elements[i].checked) {
+            basePrice = selectedPrice.elements[i].value
+          };
+        }
+        
+        const quantityChange = event.target.value;
+        
+        getSubtotal(basePrice, quantityChange);
+        getTaxAmount(taxAmount.checked);
+        getTotal();
+      })
+
+      // Listen for changes in taxrate
+      taxAmount.addEventListener('change', (event) => {
+        const basePrice = document.querySelector('input[name=price]:checked').value;
+        const baseQuantity = selectedQuantity.value;
+        
+        getSubtotal(basePrice, baseQuantity);
+        getTaxAmount(taxAmount.checked);
+        getTotal();
+      })
+
+      // Calculate Subtotal
+      function getSubtotal(price, quantity) {
+        const subtotalAmount = document.querySelector('#subtotal');
+        const subtotal = +price * +quantity;
+        subtotalAmount.textContent = subtotal;
+      }
+
+      // Calculate Tax
+      function getTaxAmount(checked) {
+        let taxRate;
+        if(checked) {
+          taxRate = 0.06
+        } else {
+          taxRate = 0.08
+        }
+        const subtotalValue = document.querySelector('#subtotal').textContent;
+        const taxAmount = document.querySelector('#taxAmount');
+        const taxes = +subtotalValue * taxRate;
+        taxAmount.textContent = taxes.toFixed(2);
+      }
+
+      // Calculate Total
+      function getTotal() {
+        const subtotalValue = document.querySelector('#subtotal').textContent;
+        const taxValue = document.querySelector('#taxAmount').textContent;
+        const getTotal = document.querySelector('#total');
+        getTotal.textContent = (+subtotalValue) + (+taxValue);
+      }
+
+    </script>
+  </body>
+</html>
