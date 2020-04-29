@@ -59,14 +59,14 @@ taxAmount.addEventListener("change", event => {
   getTotal();
 });
 
-// Calculate Subtotal
+// Calculate Subtotal, Update DOM
 function getSubtotal(price, quantity) {
   const subtotalAmount = document.querySelector("#subtotal");
   const subtotal = +price * +quantity;
   subtotalAmount.textContent = subtotal;
 }
 
-// Calculate Tax
+// Calculate Tax, Update DOM
 function getTaxAmount(checked) {
   let taxRate;
   if (checked) {
@@ -80,7 +80,7 @@ function getTaxAmount(checked) {
   taxAmount.textContent = taxes.toFixed(2);
 }
 
-// Calculate Total
+// Calculate Total, update DOM
 function getTotal() {
   const subtotalValue = document.querySelector("#subtotal").textContent;
   const taxValue = document.querySelector("#taxAmount").textContent;
