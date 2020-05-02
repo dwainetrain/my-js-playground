@@ -1,12 +1,20 @@
 <!-- 1. Write a form that takes a user’s birthday. If the difference between the
 current year and the users birth year is less than 18, tell them to hit the
 highway…otherwise show them the content -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
+      // Trying to solve creating years dynamically
+      // const select = document.createElement("SELECT");
+      // const body = document.getElementsByTagName("body")[0];
+      // body.appendChild(select);
+      // create select element
+      // loop through from 1910 to current year -1 add them as options
+
       function checkBday() {
         const dobYear = document.querySelector("#DOBYear").value;
 
@@ -16,7 +24,8 @@ highway…otherwise show them the content -->
         let age = currentYear - dobYear;
 
         const content = document.querySelector("#content");
-        if (age < 18) {
+
+        if (dobYear === "- Year -" || age < 18) {
           content.textContent = "Hit the Highway!";
         } else {
           content.innerHTML = `<h1>Get Ready to Roll!</h1><iframe
@@ -84,9 +93,9 @@ highway…otherwise show them the content -->
       <option value="31">31</option>
     </select>
 
-    <select name="DOBYear" id="DOBYear">
-      <option> - Year - </option
-      ><!-- An algo to print this out? -->
+    <select name="DOBYear" id="DOBYear" required="required">
+      <option> - Year - </option>
+      <!-- An algo to print this out? -->
       <option value="2018">2018</option>
       <option value="1993">1993</option>
       <option value="1992">1992</option>
