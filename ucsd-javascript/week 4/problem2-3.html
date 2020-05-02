@@ -1,0 +1,51 @@
+<!-- 2. Write a form that asks the user to input his/her city and his/her email.
+write the JavaScript code that would print out to the screen “User’s town is a
+great town!" with an email link to the users email. 
+
+3. Add form validation to
+insure the user has entered something in the city field and that the email has
+an @ in the email field. 
+
+content.innerHTML =
+            '<a href="mailto:agentavery@sample.com">Click here to send us an email!!!</a>';
+        }
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      name="city"
+      id="city"
+      placeholder="Please enter your city"
+    />
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    />
+    <input type="submit" onclick="ValidateEmail()" />
+
+    <script>
+      function ValidateEmail() {
+        const email = document.querySelector("#email").value;
+
+        // nabbed from https://emailregex.com/
+        const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (null || !emailRegEx.test(email)) {
+          console.log("Please enter a valid email address!");
+        } else {
+          console.log("It's a valid email address");
+        }
+      }
+    </script>
+  </body>
+</html>
