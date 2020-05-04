@@ -4,11 +4,9 @@ great town!" with an email link to the users email.
 
 3. Add form validation to
 insure the user has entered something in the city field and that the email has
-an @ in the email field. 
+an @ in the email field.
 
-content.innerHTML =
-            '<a href="mailto:agentavery@sample.com">Click here to send us an email!!!</a>';
-        }
+DONE
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,32 +16,44 @@ content.innerHTML =
     <title>Document</title>
   </head>
   <body>
+    <div id="content"></div>
+    <p>Input your city:</p>
     <input
       type="text"
       name="city"
       id="city"
       placeholder="Please enter your city"
     />
-    <input
-      type="email"
-      id="email"
-      name="email"
-      required
-      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-    />
-    <input type="submit" onclick="ValidateEmail()" />
+    <p>Input your email:</p>
+    <input type="email" id="email" name="email" required />
+
+    <input type="submit" onclick="requestContent()" />
 
     <script>
-      function ValidateEmail() {
+      function requestContent() {
+        const content = document.querySelector("#content");
+
         const email = document.querySelector("#email").value;
 
+        if (validateEmail(email)) {
+          const city = document.querySelector("#city").value;
+          content.innerHTML = `<h3>${city} is an Awesome City! Keep Rockin'!</h3>
+            <p>
+            <a href="mailto:${email}">Tell Yourself About It!</a>
+            </p>`;
+        } else {
+          content.textContent = "Please enter a valid email address.";
+        }
+      }
+
+      function validateEmail(email) {
         // nabbed from https://emailregex.com/
         const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (null || !emailRegEx.test(email)) {
-          console.log("Please enter a valid email address!");
+          return false;
         } else {
-          console.log("It's a valid email address");
+          return true;
         }
       }
     </script>
