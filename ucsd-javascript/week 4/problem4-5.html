@@ -6,7 +6,11 @@ radio buttons with shipping method, and a buy now button.
 calculator We need a tax calculator. If the price of a product is under $10,
 there is a 10% tax. Greater than $10 or less than $20, there is a 7.25% tax. $20
 or greater there is a 5%. Output the total charge of whatever cost was entered
-after the button is pressed 
+after the button is pressed
+
+TODO: Add Image and Html details
+TODO: Radio Buttons with Shipping method
+TODO: Buy Now button
 -->
 
 <!DOCTYPE html>
@@ -16,5 +20,77 @@ after the button is pressed
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+    <h1>Hip-Shirt - Get it Before it's Cool</h1>
+    <img src="images/js_magic.jpg" alt="Flaming Ball of JS magic"/>
+    <input type="text" name="name" id="name" placeholder="Full Name">
+    <input type="text" name="address" id="address" placeholder="Address">
+    <input type="email" name="email" id="email" placeholder="Email">
+
+    <select id="size" onChange="">
+      <option id="small" value="9">Small - $9</option>
+      <option id="medium" value="15">Medium - $15</option>
+      <option id="large" value="22">Large - $22</option>
+    </select>
+
+    <form id="shipping">
+      <input type="radio" id="radio1" name="shipMethod" value="10" checked />
+      <label for="radio1">USPS - $10</label>
+      <input type="radio" id="radio2" name="shipMethod" value="15" />
+      <label for="radio2">UPS - $15</label>
+      <input type="radio" id="radio3" name="shipMethod" value="17" />
+      <label for="radio3">Fed-Ex - $17</label>
+    </form>
+
+    <div id="tax"></div>
+    <div id="total"></div>
+
+    <button>Buy Now</button>
+    
+    <script>
+      const size = document.querySelector('#size');
+      const tax = document.querySelector('#tax');
+      const shipping = document.querySelector("#shipping");
+      const total = document.querySelector('#total');
+
+
+      // initial tax value based on default size
+      calculateTotal();
+
+      // Listen for changes in size
+      size.addEventListener('change', (event) => {
+        calculateTotal();
+        }
+      )
+
+      // Listen for changes in shipping, and update subtotal accordingly
+      shipping.addEventListener("change", event => {
+        // const baseQuantity = selectedQuantity.value;
+        // const priceChange = event.target.value;
+
+        // getSubtotal(priceChange, baseQuantity);
+        // getTaxAmount(taxAmount.checked);
+        // getTotal();
+        calculateTotal();
+      });
+
+      function calculateTotal() {
+        const subtotal = +size.value + +shipping.value;
+        const taxAmount = calculateTax(subtotal)
+        tax.textContent = taxAmount
+        total.textContent = taxAmount + +size.value
+      }
+
+      function calculateTax(subtotal) {
+        if(subtotal < 10) {
+          return subtotal * 0.10
+        } else if (subtotal >= 10 && subtotal < 20) {
+          return subtotal * 0.0725
+        } else {
+          return subtotal * 0.05
+        }
+      }
+
+    </script>
+  </body>
+
 </html>

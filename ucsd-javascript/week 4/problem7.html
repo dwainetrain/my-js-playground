@@ -1,12 +1,20 @@
 <!-- 7.
 Using the D.O.M and javascript, make every other row in the following table have a background color of #eee
-Here’s your accompanying html code -->
+Here’s your accompanying html code 
+
+DONE
+-->
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Untitled Document</title>
+    <style>
+      .dark {
+        background-color: #eeeeee;
+      }
+    </style>
   </head>
 
   <body>
@@ -66,5 +74,12 @@ Here’s your accompanying html code -->
         <td>512K per processor</td>
       </tr>
     </table>
+
+    <script>
+      let rows = document.querySelectorAll("tr");
+      for (let i = 1; i < rows.length; i += 2) {
+        rows[i].setAttribute("class", "dark");
+      }
+    </script>
   </body>
 </html>
