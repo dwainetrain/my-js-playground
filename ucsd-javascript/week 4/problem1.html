@@ -1,10 +1,6 @@
 <!-- 1. Write a form that takes a user’s birthday. If the difference between the
 current year and the users birth year is less than 18, tell them to hit the
 highway…otherwise show them the content 
-
-TODO: Dynamically create year list
-TODO: Validate based on full birthdate (find mark time figure out number of days)
-
 -->
 
 <!DOCTYPE html>
@@ -12,58 +8,28 @@ TODO: Validate based on full birthdate (find mark time figure out number of days
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      // Trying to solve creating years dynamically
-      // const select = document.createElement("SELECT");
-      // const body = document.getElementsByTagName("body")[0];
-      // body.appendChild(select);
-      // create select element
-      // loop through from 1910 to current year -1 add them as options
 
-      function checkBday() {
-        const dobYear = document.querySelector("#DOBYear").value;
-
-        let date = new Date(); // see screencast to clarify just year or full birthday calculation
-        let currentYear = date.getFullYear();
-
-        let age = currentYear - dobYear;
-
-        const content = document.querySelector("#content");
-
-        if (dobYear === "- Year -" || age < 18) {
-          content.textContent = "Hit the Highway!";
-        } else {
-          content.innerHTML = `<h1>Get Ready to Roll!</h1><iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/xfr64zoBTAQ"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>`;
-        }
-      }
-    </script>
     <title>Raunchy Content Dot Com!</title>
   </head>
   <body>
-    <select name="DOBMonth">
+    <h2>Raunchy Content Dot Com!</h2>
+    <select name="DOBMonth" id="DOBMonth">
       <option> - Month - </option>
-      <option value="January">January</option>
-      <option value="Febuary">Febuary</option>
-      <option value="March">March</option>
-      <option value="April">April</option>
-      <option value="May">May</option>
-      <option value="June">June</option>
-      <option value="July">July</option>
-      <option value="August">August</option>
-      <option value="September">September</option>
-      <option value="October">October</option>
-      <option value="November">November</option>
-      <option value="December">December</option>
+      <option value="00">January</option>
+      <option value="01">Febuary</option>
+      <option value="02">March</option>
+      <option value="03">April</option>
+      <option value="04">May</option>
+      <option value="05">June</option>
+      <option value="06">July</option>
+      <option value="07">August</option>
+      <option value="08">September</option>
+      <option value="09">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
     </select>
 
-    <select name="DOBDay">
+    <select name="DOBDay" id="DOBDay">
       <option> - Day - </option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -100,59 +66,66 @@ TODO: Validate based on full birthdate (find mark time figure out number of days
 
     <select name="DOBYear" id="DOBYear" required="required">
       <option> - Year - </option>
-      <!-- An algo to print this out? -->
-      <option value="2018">2018</option>
-      <option value="1993">1993</option>
-      <option value="1992">1992</option>
-      <option value="1991">1991</option>
-      <option value="1990">1990</option>
-      <option value="1989">1989</option>
-      <option value="1988">1988</option>
-      <option value="1987">1987</option>
-      <option value="1986">1986</option>
-      <option value="1985">1985</option>
-      <option value="1984">1984</option>
-      <option value="1983">1983</option>
-      <option value="1982">1982</option>
-      <option value="1981">1981</option>
-      <option value="1980">1980</option>
-      <option value="1979">1979</option>
-      <option value="1978">1978</option>
-      <option value="1977">1977</option>
-      <option value="1976">1976</option>
-      <option value="1975">1975</option>
-      <option value="1974">1974</option>
-      <option value="1973">1973</option>
-      <option value="1972">1972</option>
-      <option value="1971">1971</option>
-      <option value="1970">1970</option>
-      <option value="1969">1969</option>
-      <option value="1968">1968</option>
-      <option value="1967">1967</option>
-      <option value="1966">1966</option>
-      <option value="1965">1965</option>
-      <option value="1964">1964</option>
-      <option value="1963">1963</option>
-      <option value="1962">1962</option>
-      <option value="1961">1961</option>
-      <option value="1960">1960</option>
-      <option value="1959">1959</option>
-      <option value="1958">1958</option>
-      <option value="1957">1957</option>
-      <option value="1956">1956</option>
-      <option value="1955">1955</option>
-      <option value="1954">1954</option>
-      <option value="1953">1953</option>
-      <option value="1952">1952</option>
-      <option value="1951">1951</option>
-      <option value="1950">1950</option>
-      <option value="1949">1949</option>
-      <option value="1948">1948</option>
-      <option value="1947">1947</option>
     </select>
 
     <button onclick="checkBday()">Access</button>
 
-    <div id="content">Test Content</div>
+    <div id="content"></div>
+
+    <script>
+      // Dynamically add years to page
+
+      createYears();
+
+      function createYears() {
+        const dobYear = document.querySelector("#DOBYear");
+
+        let date = new Date();
+
+        let currentYear = date.getFullYear();
+
+        for (i = currentYear - 1; i > 1901; i--) {
+          const option = document.createElement("option");
+          option.text = i;
+          dobYear.add(option);
+        }
+      }
+
+      // Check age
+
+      function checkBday() {
+        // Get content block
+        const content = document.querySelector("#content");
+        const dobYear = document.querySelector("#DOBYear");
+
+        // Get values from month, day, year fields
+        const birthMonth = document.querySelector("#DOBMonth").value;
+        const birthDate = document.querySelector("#DOBDay").value;
+        const birthYear = document.querySelector("#DOBYear").value;
+
+        // Get the birthday and add 18 to year to calculate age
+        let birthday = new Date(+birthYear + 18, +birthMonth, +birthDate);
+
+        // Some minor form validation
+        if (
+          dobYear === "- Year -" ||
+          birthMonth === "- Month -" ||
+          birthDate === "- Day -"
+        ) {
+          content.textContent = "Please fill out the complete date.";
+        } else if (birthday >= new Date()) {
+          content.textContent = "Hit the Highway!";
+        } else {
+          content.innerHTML = `<h1>Get Ready to Roll!</h1><iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/xfr64zoBTAQ"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>`;
+        }
+      }
+    </script>
   </body>
 </html>

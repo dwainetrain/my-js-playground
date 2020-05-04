@@ -8,9 +8,7 @@ there is a 10% tax. Greater than $10 or less than $20, there is a 7.25% tax. $20
 or greater there is a 5%. Output the total charge of whatever cost was entered
 after the button is pressed
 
-TODO: Add Image and Html details
-TODO: Radio Buttons with Shipping method
-TODO: Buy Now button
+DONE
 -->
 
 <!DOCTYPE html>
@@ -18,31 +16,54 @@ TODO: Buy Now button
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        padding: 0.4em;
+      }
+    </style>
     <title>Document</title>
   </head>
-    <h1>Hip-Shirt - Get it Before it's Cool</h1>
-    <img src="images/js_magic.jpg" alt="Flaming Ball of JS magic"/>
+    <h1>HipShirt - Get it Before it's Cool</h1>
+    <img src="images/js_magic.jpg" alt="Flaming Ball of JS magic" width="400"/>
+    
+  <div id="contact">
     <input type="text" name="name" id="name" placeholder="Full Name">
     <input type="text" name="address" id="address" placeholder="Address">
     <input type="email" name="email" id="email" placeholder="Email">
+  </div>
 
+  <div id="sizeSelect">
+    Size:
     <select id="size" onChange="">
+      
       <option id="small" value="9">Small - $9</option>
       <option id="medium" value="15">Medium - $15</option>
       <option id="large" value="22">Large - $22</option>
     </select>
+  </div>
 
-    <form id="shipping">
-      <input type="radio" id="radio1" name="shipMethod" value="10" checked />
-      <label for="radio1">USPS - $10</label>
-      <input type="radio" id="radio2" name="shipMethod" value="15" />
-      <label for="radio2">UPS - $15</label>
-      <input type="radio" id="radio3" name="shipMethod" value="17" />
-      <label for="radio3">Fed-Ex - $17</label>
-    </form>
+  
+    <div>
+      Shipping Method: 
+      <form id="shipping">
+        <input type="radio" id="radio1" name="shipMethod" value="10" checked />
+        <label for="radio1">USPS - $10</label>
+        <input type="radio" id="radio2" name="shipMethod" value="15" />
+        <label for="radio2">UPS - $15</label>
+        <input type="radio" id="radio3" name="shipMethod" value="17" />
+        <label for="radio3">Fed-Ex - $17</label>
+      </form>
+    </div>
 
-    <div id="tax"></div>
-    <div id="total"></div>
+    <h4>Subtotal:
+      $<span id="subtotal"></span>
+    </h4>
+    <h4>
+      Taxes: $<span id="tax"></span>
+    </h4>
+    <h4>
+      Total: $<span id="total"></span>
+    </h4>
 
     <button>Buy Now</button>
     
@@ -50,6 +71,7 @@ TODO: Buy Now button
       const size = document.querySelector('#size');
       const tax = document.querySelector('#tax');
       const shipping = document.querySelector("#shipping");
+      const subtotal = document.querySelector("#subtotal");
       const total = document.querySelector('#total');
 
 
@@ -59,25 +81,20 @@ TODO: Buy Now button
       // Listen for changes in size
       size.addEventListener('change', (event) => {
         calculateTotal();
-        }
-      )
+        });
 
       // Listen for changes in shipping, and update subtotal accordingly
       shipping.addEventListener("change", event => {
-        // const baseQuantity = selectedQuantity.value;
-        // const priceChange = event.target.value;
-
-        // getSubtotal(priceChange, baseQuantity);
-        // getTaxAmount(taxAmount.checked);
-        // getTotal();
         calculateTotal();
       });
 
       function calculateTotal() {
-        const subtotal = +size.value + +shipping.value;
-        const taxAmount = calculateTax(subtotal)
-        tax.textContent = taxAmount
-        total.textContent = taxAmount + +size.value
+        const shipCost = shipping.querySelector("input[name=shipMethod]:checked").value
+        const sub = +size.value + +shipCost;
+        const taxAmount = calculateTax(sub)
+        subtotal.textContent = sub;
+        tax.textContent = taxAmount.toFixed(2);
+        total.textContent = (taxAmount + sub).toFixed(2);
       }
 
       function calculateTax(subtotal) {
