@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Validate me</title>
+</head>
+<body>
+At lease one piece of data has to come in from every input type.
+<form action = "form.html" method = "get"><br/>
+Name:<input type = "text" name = "fullname" value="Enter Full Name"/><br/>
+Gender:<br/>
+Male<input type = "radio" name = "gender" value="male"/>Female<input type = "radio" name = "gender" value="female"/><br/>
+Hobbies<br/>
+Baseball <input type = "checkbox" name = "hobbies[]" value = "baseball" />  
+Football <input type = "checkbox" name = "hobbies[]" value = "football" />  
+Hockey <input type = "checkbox" name = "hobbies[]" value = "hockey" /><br/>
+Favorite Show <select name = "show">
+<option value = "">Choose Below</option>
+<option value = "ATHF">Aqua Teen Hunger Force</option>
+<option value = "Family Guy">Family Guy</option>
+<option value = "Simpsons">Simpsons</option>
+</select><br/>
+Comments<br/>
+<textarea cols = "50" rows = "6" name = "comments">Enter Comments</textarea><br/>
+<input type = "submit" name = "submit" value = "enter me" />
+</form>
+
+<script>
+// Here's some rudimentary js validation
+// No idea how to find out if this code works IE 6
+// I started research but found myself digging through stackoverflow from 2010!
+  function validateForm(e){
+    validateName();
+    validateGender();
+    validateHobbies();
+    validateFavShow();
+    validateComments();
+
+    // I ws going to abstract this further, but ran out of time...
+    // function validateTextField(fieldName){
+    //   var name = document.getElementsByName(fieldName");
+    //   if (name[0].value === name[0].defaultValue){
+    //     e.preventDefault();
+    //     let field = document.createTextNode('Please enter your name. ' + fieldName)
+    //     document.body.appendChild(field)};
+    // }
+
+    function validateName(){
+      var name = document.getElementsByName("fullname");
+      if (name[0].value === name[0].defaultValue){
+        e.preventDefault();
+        let field = document.createTextNode('Please enter your name. ')
+        document.body.appendChild(field)};
+    }
+
+    function validateGender(){
+      var check = function (){
+        var gender = document.getElementsByName("gender");
+        for(var i = 0; i < gender.length; i++) {
+          if(gender[i].checked){
+            return true;
+          }
+        }
+        return false;
+      }
+
+      if(!check()){
+      e.preventDefault();
+      var field = document.createTextNode('Please enter your gender. ');
+      document.body.appendChild(field)};
+    }
+
+    function validateHobbies(){
+      var check = function (){
+        var hobbies = document.getElementsByName("hobbies[]");
+        for(var i = 0; i < hobbies.length; i++) {
+          if(hobbies[i].checked){
+            return true;
+          }
+        }
+        return false;
+      }
+
+      if(!check()){
+      e.preventDefault();
+      var field = document.createTextNode('Please pick your hobbies. ')
+      document.body.appendChild(field)};
+    }
+
+    function validateFavShow(){
+      var show = document.getElementsByName("show");
+      if (show[0].value === ""){
+        e.preventDefault();
+        var field = document.createTextNode('Please pick a favorite show. ')
+        document.body.appendChild(field)};
+    }
+
+    function validateComments(){
+      var comment = document.getElementsByName("comments");
+      if (comment[0].value === comment[0].defaultValue){
+        e.preventDefault();
+        var field = document.createTextNode('Please add a comment. ')
+        document.body.appendChild(field)};
+    }
+
+  }
+
+  const button = document.querySelector('input[name=submit]');
+  button.addEventListener('click', function(e){
+    validateForm(e);
+  });
+  </script>
+</form>
+</body>
+</html>
