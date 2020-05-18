@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>San Diego Weather</title>
+  </head>
+  <body></body>
+  <script>
+    const newReq = new XMLHttpRequest();
+
+    newReq.addEventListener("load", function() {
+      const data = JSON.parse(this.responseText);
+      const temp = kelvinToFahrenheit(data.main.temp);
+      document.write(`<h1>Weather Report for ${data.name}</h1>
+        <p>Temperature: ${temp}&deg;F</p>
+        <p>Condition: ${data.weather[0].description}</p>
+      `);
+    });
+
+    newReq.addEventListener("error", () => {
+      document.write("Request Failed. Status: " + newReq.status);
+    });
+
+    newReq.open("GET", "https://mm214.com/demo.php");
+    newReq.send();
+
+    function kelvinToFahrenheit(f) {
+      f = parseFloat(f);
+      const newTemp = (f - 273.15) * 1.8 + 32;
+      return newTemp.toFixed(0);
+    }
+  </script>
+</html>
