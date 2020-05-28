@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Just a test file -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,7 +10,7 @@
   <script>
     const newReq = new XMLHttpRequest();
 
-    newReq.addEventListener("load", function() {
+    newReq.addEventListener("load", function () {
       const data = JSON.parse(this.responseText);
       const temp = kelvinToFahrenheit(data.main.temp);
       document.write(`<h1>Weather Report for ${data.name}</h1>
