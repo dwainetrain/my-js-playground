@@ -14,10 +14,9 @@
       const data = JSON.parse(this.responseText);
       const temp = kelvinToFahrenheit(data.main.temp);
       document.write(`<h1>Weather Report for ${data.name}</h1>
-        <p>Temperature: ${temp}&deg;F</p>
-        <p>Condition: ${data.weather[0].description}</p>
-        "Hello World"
-      `);
+            <p>Temperature: ${temp}&deg;F</p>
+            <p>Condition: ${data.weather[0].description}</p>
+          `);
     });
 
     newReq.addEventListener("error", () => {
