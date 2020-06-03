@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Validate me</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <br />
+      Name:<input
+        type="text"
+        name="fullname"
+        placeholder="Enter Full Name"
+      /><br />
+      Gender:<br />
+      Male<input type="radio" name="gender" value="male" />Female<input
+        type="radio"
+        name="gender"
+        value="female"
+      /><br />
+      Hobbies<br />
+      Baseball
+      <input type="checkbox" name="hobbies[]" value="baseball" /> Football
+      <input type="checkbox" name="hobbies[]" value="football" /> Hockey
+      <input type="checkbox" name="hobbies[]" value="hockey" /><br />
+      Favorite Show
+      <select name="show">
+        <option value="">Choose Below</option>
+        <option value="ATHF">Aqua Teen Hunger Force</option>
+        <option value="Family Guy">Family Guy</option>
+        <option value="Simpsons">Simpsons</option> </select
+      ><br />
+      Comments<br />
+      <textarea cols="50" rows="6" placeholder="comments">
+Enter Comments</textarea
+      ><br />
+      <input
+        type="submit"
+        name="submit"
+        value="enter me"
+        onclick="return validateForm();"
+      />
+    </form>
+    <script>
+      function validateForm() {
+        for (var i = 0; i < document.forms[0].length; i++) {
+          if (document.forms[0].elements[i].type == "text") {
+
+            if (document.forms[0].elements[i].value == "") {
+              alert(
+                "You must fill in your " + document.forms[0].elements[i].name
+              );
+              return false;
+          }
+
+        }
+
+
+        var chkGroup = false;
+        if (document.forms[0].elements[i].type == "checkbox") {
+          var chkName = document.forms[0].elements[i].name;
+          var numberElements = document.getElementsByName(chkName).length;
+          var elements = document.getElementByName(chkName);
+
+          for (var k = 0; k < numberElements; k++) {
+            if (elements[k].checked == true) {
+              chkGroup = true;
+            }
+          }
+
+          if (chkGroup == false) {
+            alert("Please select your " + chkName);
+            return false;
+          }
+        }
+        if (document.forms[0].elements[i].type == "select") {
+          if (document.forms[0].elements[i].value == "") {
+            alert(
+              "You must fill in your " + document.forms[0].elements[i].name
+            );
+            return false;
+          }
+        }
+        if (document.forms[0].elements[i].type == "textarea") {
+          if (document.forms[0].elements[i].value == "") {
+            alert(
+              "You must fill in your " + document.forms[0].elements[i].name
+            );
+            return false;
+          }
+        }
+      }
+    </script>
+    ​
+  </body>
+</html>
