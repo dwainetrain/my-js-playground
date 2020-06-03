@@ -1,0 +1,130 @@
+
+<span id="order"></span>
+<span id = "menuOutput"></span>
+<button id="submitOrder">Your Order</button>
+
+<script type="text/javascript">
+
+//get menu from api
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+    xhr.send();
+};
+/*
+{
+  "menu": {
+    "slice of pizza": "2.00",
+    qty_slice of pizza
+    "toppings": {
+      "pepperoni": ".25",
+      "meatballs": ".35",
+      "mushrooms": ".40",
+      "olives": ".20"
+    },
+    "sides": {
+      "potato salad": "1.25",
+      "hummus": "2.50",
+      "caesar salad": "3.50",
+      "garden salad": "2.25"
+    },
+    "drinks": {
+      "soda": {
+        "small": "1.95",
+        "medium": "2.20",
+        "large": "2.50"
+      },
+      "juice": "2.00",
+      "water": "1.25"
+    }
+  }
+}
+*/
+
+getJSON('https://mm214.com/menu.php', function(err, data) {
+  if (err != null) {
+    alert('Something went wrong: ' + err);
+  } else {
+
+    var content = '';
+
+   for (x in data.menu){
+     if (typeof(data.menu[x]) == 'object'){
+        for (y in data.menu[x]) {
+            if (typeof(data.menu[x][y]) == 'object'){
+                for (z in data.menu[x][y]) {
+          content +=  z + ':' + data.menu[x][y][z] + '<input type="number" id = "qty_' + z + '"><br>';
+                }
+              }
+                else {
+          content += y + ':' + data.menu[x][y] + '<input type="number" id = "qty_' + y + '"><br>';
+                }
+            }//closes y in data
+
+     }
+     else 
+     {
+   content += x + ':' + data.menu[x] + '<input type="number" id = "qty_' + x + '"><br>';
+
+     }//else for data.menu[x] if not an object
+     }
+  }//closes outer for loop
+
+
+//localStorage only stores strings! Stringify turns objects into strings!
+//parse converts JSON strings to objects that can be looped around
+
+document.getElementById("menuOutput").innerHTML = content;
+localStorage.setItem('order',JSON.stringify(data));
+  console.log(a + ':' + order[a]);
+
+var order = JSON.parse(localStorage.getItem('order'));
+console.log(typeof(order));
+for (a in order){
+}
+
+});
+
+
+function storeOrder(){
+  var pizzaqty = document.getElementById('qty_slice of pizza').value;
+  localStorage.setItem('pizza',pizzaqty);
+  var price  = pizzaqty * 2;
+
+
+}
+
+
+function retrieveOrder(){
+  var pizzaordered = localStorage.getItem('pizza');
+
+
+}
+
+//output html
+//
+//document.getElementById("menuOutput").innerHTML = "Here is the menu: <br>" + data.menu;
+//why in't this working?
+
+//style menu for ordering
+//save order as json string
+//save in local storage
+//your order button
+
+//onclick: show order	
+document.getElementById('order').innerHTML = localStorage.getItem('order1');
+
+
+
+</script>
+
+
