@@ -37,40 +37,47 @@ const menuBuild = (data) => {
 
     /*
     I spent an exorbitant amount of time on structuring the html
-    only to find out that figure and figcaption don't validate when nested.
-    Curses! Well, I'll save the restructuring for Version 2.0
+    only to find out that figure and figcaption don't validate when nested. CURSES!!!
+     Well, I'll save the restructuring for Version 2.0
     */
 
     for(header in data) {
-
+        // create needed elements
         h2 = document.createElement('h2');
-        h2.innerHTML = header;
-        container.appendChild(h2);
         figure = document.createElement('figure');
+        // insert data
+        h2.innerHTML = header;
+        // append nodes
+        container.appendChild(h2);
         container.appendChild(figure); // main figure
-
         if(typeof data[header] === 'object'){
-            for(subheadOne in data[header]) { 
+            for(subheadOne in data[header]) {
+                // create needed elements
                 figcaption = document.createElement('figcaption');
-                figcaption.innerHTML = subheadOne;
-                figure.appendChild(figcaption) // subheading first level attach to main figure
                 ul = document.createElement('ul');
-                ul.className = "Where am I also?"
                 ul2 = document.createElement('ul');
+                // assign classes
+                ul.className = "first level list"
+                ul2.className="second level list"
+                // insert data
+                figcaption.innerHTML = subheadOne;
+                // append nodes
+                figure.appendChild(figcaption) // subheading first level attach to main figure
                 figure.appendChild(ul)
                 if(typeof data[header][subheadOne] === 'object'){ // if clouse 2
                     for(subheadTwo in data[header][subheadOne]) {
                         if(typeof data[header][subheadOne][subheadTwo] === 'object'){
-                           
+                            // create needed elements
                             figureTwo = document.createElement('figure');
                             figcaption = document.createElement('figcaption');
+                            // assign classes
                             figureTwo.className = "Figure Two";
+                            // insert data
                             figcaption.innerHTML = subheadTwo;
+                            // append nodes
                             figureTwo.appendChild(figcaption);
                             figureTwo.appendChild(ul2);
-                            ul2.className="Where am I?"
                             figure.appendChild(figureTwo);
-                            
                             for(item in data[header][subheadOne][subheadTwo]) {
                                 
                                 li = document.createElement('li');
@@ -98,5 +105,6 @@ const menuBuild = (data) => {
             }
         } 
     }
+
     document.body.appendChild(container)
 }
