@@ -9,7 +9,7 @@ const testData = { "menu": { "slice of pizza": "2.00", "pizza pie": "25.00", "to
 const newReq = new XMLHttpRequest();
 newReq.addEventListener("load", function () {
     const data = JSON.parse(this.responseText);
-    menuBuild(testData);
+    menuBuild(data);
 });
 
 newReq.addEventListener("error", () => {
@@ -26,87 +26,75 @@ const menuBuild = (data) => {
     // but this seemed to work the best and fit the overall data
     // I tested it adding new items and it seems to work at each level
 
-    // now that I have the basics working, time to put in the work
-    // of creating valid html, and outfitting with a form
-    // which means using the DOM
     let container = document.createElement('div')
     let h2;
     let figcaption;
     let figure;
+    let figureTwo;
     let li;
     let ul;
+    let ul2;
 
     /*
-    Use css to capitalize
-    // Just style this in the CSS to be pretty...do a little designing first and then go all out
-    <h1>menu</h1>
-        <figure>
-            <figcaption>sides</figcaption> 
-            <ul>
-                <li value="2.00"> Potatoe Salad.........Price: $2.00...........Quantity:
-                <input type="number" /></li> pull value from json
-                <li>Fries</li>
-                <li>Moz Balls</li>
-            </ul>
-        </figure>
-
+    I spent an exorbitant amount of time on structuring the html
+    only to find out that figure and figcaption don't validate when nested.
+    Curses! Well, I'll save the restructuring for Version 2.0
     */
 
-    for(i in data) {
+    for(header in data) {
 
         h2 = document.createElement('h2');
-        h2.innerHTML = i;
-        console.log(h2)
-        container.appendChild(h2); // head level
+        h2.innerHTML = header;
+        container.appendChild(h2);
         figure = document.createElement('figure');
-        container.appendChild(figure);
-        
-        if(typeof data[i] === 'object'){
-            
-            for(j in data[i]) { // subhead level 1
-                // okay, you need to work your way down the structure to get
-                // valid html, so plan it out first and make sure it stays dynamic
+        container.appendChild(figure); // main figure
+
+        if(typeof data[header] === 'object'){
+            for(subheadOne in data[header]) { 
                 figcaption = document.createElement('figcaption');
-                figcaption.innerHTML = j;
-                container.appendChild(figcaption);
-                if(typeof data[i][j] === 'object'){
-                    for(k in data[i][j]) {
-                        
-                        if(typeof data[i][j][k] === 'object'){
-                            // subhead level 2
-                            figure = document.createElement('figure');
+                figcaption.innerHTML = subheadOne;
+                figure.appendChild(figcaption) // subheading first level attach to main figure
+                ul = document.createElement('ul');
+                ul.className = "Where am I also?"
+                ul2 = document.createElement('ul');
+                figure.appendChild(ul)
+                if(typeof data[header][subheadOne] === 'object'){ // if clouse 2
+                    for(subheadTwo in data[header][subheadOne]) {
+                        if(typeof data[header][subheadOne][subheadTwo] === 'object'){
+                           
+                            figureTwo = document.createElement('figure');
                             figcaption = document.createElement('figcaption');
-                            figcaption.innerHTML = k;
-                            figure.appendChild(figcaption);
-                            container.appendChild(figure);
-                            ul = document.createElement('ul');
-                            for(l in data[i][j][k]) {
+                            figureTwo.className = "Figure Two";
+                            figcaption.innerHTML = subheadTwo;
+                            figureTwo.appendChild(figcaption);
+                            figureTwo.appendChild(ul2);
+                            ul2.className="Where am I?"
+                            figure.appendChild(figureTwo);
+                            
+                            for(item in data[header][subheadOne][subheadTwo]) {
                                 
                                 li = document.createElement('li');
-                                li.innerHTML = l;
-                                ul.appendChild(li)
-                                figure.appendChild(ul);
-                                //document.write(`<ul><li>${l}, Cost: ${data[i][j][k][l]}</li></ul>`) // item level 2
-                            }} else { // subhead level 2
-                                ul = document.createElement('ul');
-                                console.log(figcaption)
-                                // figure = document.createElement('figure');
-                                li = document.createElement('li'); //figcaption
-                                li.innerHTML = k;
+                                li.className="I'm soda sizes"
+                                li.innerHTML = `${item}, Price: ${data[header][subheadOne][subheadTwo][item]}`;
+                                ul2.appendChild(li)
+                                
+                            }} else { // if clause 2
+                               
+                                li = document.createElement('li');
+                                li.className="I'm general items, salad, meatballs, hummus, etc"
+                                li.innerHTML = `${subheadTwo}, Price: ${data[header][subheadOne][subheadTwo]}`;
                                 ul.appendChild(li);
-                                container.appendChild(ul);
-                                // ul = document.createElement('ul');
-                                //document.write(`<li>${k}, Cost: ${data[i][j][k]}</li>`)
+                                figure.appendChild(ul);
                             }
                     }
-                } else {
-                    ul = document.createElement('ul');
-                    li = document.createElement('li'); //figcaption
-                    li.innerHTML = j;
+                } else { // if clause 1
+                    
+                    li = document.createElement('li');
+                    li.className="Very Top of Menu Item, ie slice of pizza"
+                    li.innerHTML = `${subheadOne}, Price: ${data[header][subheadOne]}`;
                     ul.appendChild(li);
-                    container.appendChild(ul);
-                    //document.write(`${j}, Cost: ${data[i][j]}</br>` )
-                } //subhead level 1
+                    
+                }
             }
         } 
     }
