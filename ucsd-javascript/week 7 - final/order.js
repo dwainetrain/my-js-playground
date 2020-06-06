@@ -1,15 +1,10 @@
 /*
-It's gonna be a mess!
+Menu Order Form - UCSD Ext. Javascript Course - Final
+Code by Dwaine Best
 */
 
-// Just a little test data to verify the elasticity of the menu building function
+// Just a little test data to verify the robustness of the menu building function
 const testData = { "menu": { "slice of pizza": "2.00", "pizza pie": "25.00", "toppings": { "pepperoni": ".25", "meatballs": ".35", "mushrooms": ".40", "olives": ".20", "vegan":{"brocolli": "3.00"} }, "sides": { "potato salad": "1.25", "hummus": "2.50", "caesar salad": "3.50", "garden salad": "2.25" }, "drinks": { "soda": { "small": "1.95", "medium": "2.20", "large": "2.50" }, "juice": "2.00", "water": "1.25" } }, "Kids menu":{"hamburger":"3.00"}}
-
-/* Food Order Object */
-// Collect item and cost, add up all costs.
-let order = {
-    "item": "cost"
-}
 
 /* Data Retieval */
 const newReq = new XMLHttpRequest();
@@ -30,7 +25,14 @@ const menuBuild = (data) => {
     // Many affordances had to be made due to the structure of the JSON
     // I tried plenty of algorythmic ways to approach it
     // but this seemed to work the best and fit the overall data
-    // I tested it adding new items and it seems to work at each level
+    // I tested it adding new items and it seems to work on any data up to this depth
+
+    /*
+    Also,
+    I spent an exorbitant amount of time on structuring the html of this
+    only to find out that figure and figcaption don't validate when nested. CURSES!!!
+     Well, I'll save the valid html restructuring for Version 2.0
+    */
 
     let container = document.createElement('div')
     let button = document.createElement('button')
@@ -41,12 +43,6 @@ const menuBuild = (data) => {
     let li;
     let ul;
     let ul2;
-
-    /*
-    I spent an exorbitant amount of time on structuring the html
-    only to find out that figure and figcaption don't validate when nested. CURSES!!!
-     Well, I'll save the restructuring for Version 2.0
-    */
 
     for(header in data) {
         // create needed elements
@@ -93,10 +89,8 @@ const menuBuild = (data) => {
                                 let price = data[header][subheadOne][subheadTwo][item]
                                 li.dataset.parent = subheadTwo
                                 li.dataset.item = item
-                                // this is the key, send the structure down the line and use that to return the
-                                // to the next page
                                 li.innerHTML = `${subheadTwo}, ${item}, 
-                                <span class="price" data-price="${price}">Price: ${price},</span> 
+                                <span class="price" data-price="${price}">price: ${price},</span> 
                                 <span class="quantity">Quantity: <input type="number" value="0" name="quantity" min="0"></span>`;
                                 ul2.appendChild(li)
                                 
@@ -123,7 +117,7 @@ const menuBuild = (data) => {
     
     // Setup the button
     button.setAttribute("name", "submit-order")
-    button.innerHTML = "Review Order"
+    button.innerHTML = "Submit Order"
     container.appendChild(button)
 
     // Append Menu
@@ -132,13 +126,17 @@ const menuBuild = (data) => {
     // Handle Order Submit
     document.querySelector('button').addEventListener('click', e => {
 
+        // get all items
         let items = document.querySelectorAll(".soda");
+        // convert to array for data manipulation
         items = Array.from(items)
 
+        // Filter out all items that have 0 quantity
         let selections = items.filter(i => {
             let qty = i.querySelector("input[name='quantity']").value;
             return qty > 0
         })
+            // map the selected items to an array that has parent node, price and quantity information
             .map(i => {
             let parent = i.dataset.parent
             let item = i.dataset.item
@@ -147,13 +145,26 @@ const menuBuild = (data) => {
             return [parent, item, price, qty]
         })
 
+        // create an object from selected items array
         let order = {};
-
         for(i in selections){
             order[i] = selections[i];
         }
 
         console.log(order)
+
+        // Store order in local storage
+        localStorage.setItem('customerOrder', JSON.stringify(order))
+
+        // Retrieve from local stoage and display to customer
+        getOrder = JSON.parse(localStorage.getItem('customerOrder'));
+        console.log(getOrder)
+        // container.innerHTML = "Haha!" // USE THIS TO CLEAR CONTAINER AND ADD INFO
+        for (i in getOrder) {
+            let item = getOrder[i]
+            
+            document.write(item[0], item[1], item[2], item[3])
+        }
 
     })
 }
