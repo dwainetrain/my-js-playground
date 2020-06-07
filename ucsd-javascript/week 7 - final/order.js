@@ -10,7 +10,7 @@ const testData = { "menu": { "slice of pizza": "2.00", "pizza pie": "25.00", "to
 const newReq = new XMLHttpRequest();
 newReq.addEventListener("load", function () {
     const data = JSON.parse(this.responseText);
-    menuBuild(data);
+    menuBuild(testData);
 });
 
 newReq.addEventListener("error", () => {
