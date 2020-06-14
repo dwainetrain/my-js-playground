@@ -1,4 +1,3 @@
-'use strict';
 /*
 Menu Order Form - UCSD Ext. Javascript Course - Final
 Code by Dwaine Best
@@ -46,7 +45,7 @@ const menuBuild = (data) => {
     let ul;
     let ul2;
 
-    for(let header in data) {
+    for(header in data) {
         // create needed elements
         h2 = document.createElement('h2');
         figure = document.createElement('figure');
@@ -56,7 +55,7 @@ const menuBuild = (data) => {
         container.appendChild(h2);
         container.appendChild(figure); // main figure
         if(typeof data[header] === 'object'){
-            for(let subheadOne in data[header]) {
+            for(subheadOne in data[header]) {
                 // create needed elements
                 figcaption = document.createElement('figcaption');
                 ul = document.createElement('ul');
@@ -70,7 +69,7 @@ const menuBuild = (data) => {
                 figure.appendChild(figcaption) // subheading first level attach to main figure
                 figure.appendChild(ul)
                 if(typeof data[header][subheadOne] === 'object'){ // if clouse 2
-                    for(let subheadTwo in data[header][subheadOne]) {
+                    for(subheadTwo in data[header][subheadOne]) {
                         if(typeof data[header][subheadOne][subheadTwo] === 'object'){
                             // create needed elements
                             figureTwo = document.createElement('figure');
@@ -83,7 +82,7 @@ const menuBuild = (data) => {
                             figureTwo.appendChild(figcaption);
                             figureTwo.appendChild(ul2);
                             figure.appendChild(figureTwo);
-                            for(let item in data[header][subheadOne][subheadTwo]) {
+                            for(item in data[header][subheadOne][subheadTwo]) {
                                 
                                 li = document.createElement('li');
                                 li.className="item" // 3rd level item // ie. soda
@@ -171,7 +170,7 @@ const menuBuild = (data) => {
 
         // create an object from selected items array
         let order = {};
-        for(let i in selections){
+        for(i in selections){
             order[i] = selections[i];
         }
 
@@ -182,12 +181,12 @@ const menuBuild = (data) => {
     // Handle Order Review
     document.querySelector("button[name='submit-order']").addEventListener('click', e => {
         // Retrieve from local stoage and display to customer
-        let getOrder = JSON.parse(localStorage.getItem('customerOrder'));
+        getOrder = JSON.parse(localStorage.getItem('customerOrder'));
 
         // Create order review
         let div = document.createElement('div')
         let total = 0;
-        for (let i in getOrder) {
+        for (i in getOrder) {
             let item = getOrder[i]
             let p = document.createElement('p')
             let itemTotal = times(item[2], item[3])
