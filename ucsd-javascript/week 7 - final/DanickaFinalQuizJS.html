@@ -1,0 +1,143 @@
+<head>
+
+  <title>Restaurant Order </title>
+
+
+</head>
+
+<body>
+
+  <span id ="menu"></span>
+  <span id ="order"></span>
+  <form id ="menuoutput"></form>
+  <script>
+  
+  //alert your order is?
+  //localStorage.setItem('order1', 'Your order is' + );
+  //alert (document.getElementById('order').innerHTML = localStorage.getItem('order1'));
+  
+  var getJSON = function(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('get', url, true);
+  xhr.responseType = 'json';
+  xhr.onload = function() {
+    var status = xhr.status;
+    if (status == 200) {
+      callback(null, xhr.response);
+      } else {
+      callback(status);
+      }
+  };
+  xhr.send();
+  };
+  
+  getJSON ('https://mm214.com/menu.php', function(err, data) {
+    if (err != null) {
+    alert( 'Something went wrong: ' + err);
+    } else {
+
+      var content = '';
+
+      for (x in data.menu){
+        if (typeof(data.menu[x]) == 'object'){
+          for (y in data.menu[x]) {
+            if (typeof(data.menu[x][y]) == 'object'){
+              for (z in data.menu[x][y]) {
+                content += z + ':' + data.menu[x][y][z] + '<input type="number" id = "qty_ ' + z + '" ><br>'
+              }
+            }
+            else{
+              content += y + ':' + data.menu[x][y] + '<input type="number" id = "qty_ ' + y + '"><br>';
+            }
+                
+          }
+        }
+        else {
+          content += x + ':' + data.menu[x] + '<input type="number" id = "qty_ ' + x + '"><br>'; 
+        }
+      }
+    }
+  
+  document.getElementById("menuoutput").innerHTML = content;
+  
+  //console.log(a + ':' + order[a]);
+
+console.log(data)
+  
+});
+
+function storeOrder(){
+  var orderedItems = {};
+    for (var i =0;i<document.forms[0].length;i++){
+      if (document.forms[0].elements[i].type == 'number'){
+        if (document.forms[0].elements[i].value > 0){
+          // orderedItems.push(document.forms[0].elements[i])
+          // console.log(orderedItems)
+          orderedItems[document.forms[0].elements[i].id] = document.forms[0].elements[i].value
+          console.log(orderedItems)
+          
+        }
+      }
+    }
+    localStorage.setItem('order',JSON.stringify(orderedItems));
+}
+  // function storeOrder(){
+  //     var pizzacount = document.getElementById('quantity_slice of pizza').value;
+  //     localStorage.setItem('pizza',pizzacount);
+  //     var price = pizzacount * 2;
+  //   }
+
+  function retrieveOrder(){
+    var order = JSON.parse(localStorage.getItem('order'));
+    console.log(order);
+    for (a in order){
+      document.write('<p>' + a + '</p>', order[a]) // <p>slice of pizza</p>
+    }
+  }
+    // function retrieveOrder(){
+    //   var pizzaordered = localStorage.getItem('pizza');
+    // }
+    //localStorage.setItem('order1', 'Your order is' + );
+    //<button onclick='getElementById("order1").innerHTML = order'>Your order is</button>;
+    //alert (document.getElementById('order').innerHTML = localStorage.getItem('order1'));
+
+// How is the order saved and stored...
+      
+    //Get the data
+    //Display the data
+    //Add html data types
+    //Allow the user to order
+    //Store the order
+
+     
+    
+
+    
+
+  
+  
+
+  
+  
+    
+    
+  //  document.getElementById('order').innerHTML = localStorage.getItem('order1');
+
+   
+
+    
+    //localStorage.setItem('order1', 'Your order is' + );
+    
+    //alert (document.getElementById('order').innerHTML = localStorage.getItem('order1'));
+    storeOrder();
+  
+ 
+
+</script>
+
+<button onclick='storeOrder()'>Order Food</button>
+//<button onclick='retrieveOrder()'>Show Order</button>
+
+</body>
+
+</html>
