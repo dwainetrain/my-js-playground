@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Validate me</title>
+  </head>
+  <body>
+    At lease one piece of data has to come in from every input type.<br /><br />
+    <span id="err"></span>
+    <form action="dynamic.html" method="post" onsubmit="return validateAll();">
+      <br />
+      Name:<input
+        type="text"
+        name="fullname"
+        placeholder="Enter Full Name"
+      /><br />
+      Gender:<br />
+      Male<input type="radio" name="gender" value="male" />Female<input
+        type="radio"
+        name="gender"
+        value="female"
+      /><br />
+      Hobbies<br />
+      Baseball
+      <input type="checkbox" name="hobbies[]" value="baseball" /> Football
+      <input type="checkbox" name="hobbies[]" value="football" /> Hockey
+      <input type="checkbox" name="hobbies[]" value="hockey" /><br />
+      Favorite Show
+      <select name="show">
+        <option value="">Choose Below</option>
+        <option value="ATHF">Aqua Teen Hunger Force</option>
+        <option value="Family Guy">Family Guy</option>
+        <option value="Simpsons">Simpsons</option> </select
+      ><br />
+      Comments<br />
+      <textarea cols="50" rows="6" name="comments"></textarea><br />
+      <input type="submit" name="submit" value="enter me" />
+    </form>
+
+    <script type="text/javascript">
+      "use strict";
+      const validateAll = () => {
+        const formdata = document.forms[0].elements;
+        let checkboxelem = false;
+        let radioelem = false;
+        let msg = "";
+        let radmsg = "";
+        let checkmsg = "";
+        let textmsg = "";
+        let checker = true;
+        console.log(formdata);
+        for (let i in formdata) {
+          if (formdata[i].type == "text" && formdata[i].value === "") {
+            msg += `<br>please enter your ${formdata[i].name}`;
+            checker = false;
+          }
+
+          if (formdata[i].type == "radio") {
+            const radname = formdata[i].name;
+            const radgrp = formdata[radname];
+            for (let rad in radgrp) {
+              if (radgrp[rad].checked === true) {
+                radioelem = true;
+              }
+            }
+            if (radioelem === false) {
+              radmsg = `<br>please select a ${radname}`;
+              checker = false;
+            }
+          }
+
+          if (formdata[i].type == "checkbox") {
+            let grpname = formdata[i].name;
+            let chkgrp = formdata[grpname];
+            for (let chk in chkgrp) {
+              if (chkgrp[chk].checked === true) {
+                checkboxelem = true;
+              }
+            }
+            if (checkboxelem === false) {
+              checkmsg = `<br>please check a ${formdata[i].name}`;
+              checker = false;
+            }
+          }
+
+          if (formdata[i].type == "select-one" && formdata[i].value === "") {
+            msg += `<br>please select your ${formdata[i].name}`;
+            checker = false;
+          }
+
+          if (formdata[i].type == "textarea" && formdata[i].value === "") {
+            textmsg += `<br>please enter your ${formdata[i].name}`;
+            checker = false;
+          }
+        }
+
+        document.getElementById("err").innerHTML =
+          msg + radmsg + checkmsg + textmsg;
+        return checker;
+      };
+
+      let submit = document.querySelector('input[name="submit"]');
+      console.log(submit);
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        validateAll();
+      });
+    </script>
+  </body>
+</html>
