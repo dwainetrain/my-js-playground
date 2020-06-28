@@ -1,0 +1,19 @@
+<p id="demo">Click the button to call the new myMet() method, and display the number 55 half value, using the new myProp property.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script type="text/javascript">
+Number.prototype.myMet=function()
+{
+this.myProp=this.valueOf()/2;
+}
+
+function myFunction()
+{
+var d = new Number(55);
+d.myMet();
+var x=document.getElementById("demo");
+x.innerHTML=d.myProp;
+}
+</script>
+
