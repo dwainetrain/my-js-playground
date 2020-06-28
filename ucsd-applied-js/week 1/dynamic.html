@@ -48,15 +48,14 @@
         let checkmsg = "";
         let textmsg = "";
         let checker = true;
-        console.log(formdata);
-        for (let i in formdata) {
-          if (formdata[i].type == "text" && formdata[i].value === "") {
-            msg += `<br>please enter your ${formdata[i].name}`;
+        for (let field of formdata) {
+          if (field.type == "text" && field.value === "") {
+            msg += `<br>please enter your ${field.name}`;
             checker = false;
           }
 
-          if (formdata[i].type == "radio") {
-            const radname = formdata[i].name;
+          if (field.type == "radio") {
+            const radname = field.name;
             const radgrp = formdata[radname];
             for (let rad in radgrp) {
               if (radgrp[rad].checked === true) {
@@ -69,27 +68,27 @@
             }
           }
 
-          if (formdata[i].type == "checkbox") {
-            let grpname = formdata[i].name;
-            let chkgrp = formdata[grpname];
+          if (field.type == "checkbox") {
+            const grpname = field.name;
+            const chkgrp = formdata[grpname];
             for (let chk in chkgrp) {
               if (chkgrp[chk].checked === true) {
                 checkboxelem = true;
               }
             }
             if (checkboxelem === false) {
-              checkmsg = `<br>please check a ${formdata[i].name}`;
+              checkmsg = `<br>please check a ${field.name}`;
               checker = false;
             }
           }
 
-          if (formdata[i].type == "select-one" && formdata[i].value === "") {
-            msg += `<br>please select your ${formdata[i].name}`;
+          if (field.type == "select-one" && field.value === "") {
+            msg += `<br>please select your ${field.name}`;
             checker = false;
           }
 
-          if (formdata[i].type == "textarea" && formdata[i].value === "") {
-            textmsg += `<br>please enter your ${formdata[i].name}`;
+          if (field.type == "textarea" && field.value === "") {
+            textmsg += `<br>please enter your ${field.name}`;
             checker = false;
           }
         }
@@ -100,9 +99,7 @@
       };
 
       let submit = document.querySelector('input[name="submit"]');
-      console.log(submit);
       submit.addEventListener("click", (e) => {
-        e.preventDefault();
         validateAll();
       });
     </script>
