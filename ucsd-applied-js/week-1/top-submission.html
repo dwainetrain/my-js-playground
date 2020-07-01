@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Grant Olson - 148629 Applied JavaScript I - Assignment #1 ES6 -->
+    <title>Validate me</title>
+    <script type="text/javascript">
+      // from Grant
+      let validateAll = () => {
+        const formdata = document.forms[0].elements;
+        const messages = new Set();
+
+        [...formdata].forEach((elem) => {
+          if (elem.type == "text" && elem.value === "") {
+            messages.add("<br>please enter your " + elem.name);
+          }
+
+          if (elem.type == "radio") {
+            let radioelem = false;
+            formdata[elem.name].forEach((rad) => {
+              if (rad.checked === true) {
+                radioelem = true;
+              }
+            });
+            if (radioelem === false) {
+              messages.add("<br>please select a " + elem.name);
+            }
+          }
+
+          if (elem.type == "checkbox") {
+            let checkboxelem = false;
+            formdata[elem.name].forEach((chk) => {
+              if (chk.checked === true) {
+                checkboxelem = true;
+              }
+            });
+            if (checkboxelem === false) {
+              messages.add("<br>please select a " + elem.name);
+            }
+          }
+
+          if (elem.type == "select-one" && elem.value === "") {
+            messages.add("<br>please select your " + elem.name);
+          }
+
+          if (elem.type == "textarea" && elem.value === "") {
+            messages.add("<br>please enter your " + elem.name);
+          }
+        });
+        document.getElementById("err").innerHTML = [...messages].reduce(
+          (nextMessage, accumlator) => nextMessage + accumlator
+        );
+        return messages.size === 0;
+      };
+    </script>
+  </head>
+  <body>
+    At lease one piece of data has to come in from every input type.<br /><br />
+    <span id="err"></span>
+    <form action="dynamic.html" method="post" onsubmit="return validateAll();">
+      <br />
+      Name:<input
+        type="text"
+        name="fullname"
+        placeholder="Enter Full Name"
+      /><br />
+      Gender:<br />
+      Male<input type="radio" name="gender" value="male" />Female<input
+        type="radio"
+        name="gender"
+        value="female"
+      /><br />
+      Hobbies<br />
+      Baseball
+      <input type="checkbox" name="hobbies[]" value="baseball" /> Football
+      <input type="checkbox" name="hobbies[]" value="football" /> Hockey
+      <input type="checkbox" name="hobbies[]" value="hockey" /><br />
+      Favorite Show
+      <select name="show">
+        <option value="">Choose Below</option>
+        <option value="ATHF">Aqua Teen Hunger Force</option>
+        <option value="Family Guy">Family Guy</option>
+        <option value="Simpsons">Simpsons</option> </select
+      ><br />
+      Comments<br />
+      <textarea cols="50" rows="6" name="comments"></textarea><br />
+      <input type="submit" name="submit" value="enter me" />
+    </form>
+  </body>
+</html>

@@ -3,7 +3,7 @@ import React from 'react';
 function NavList() {
     return React.createElement(
         'ul',
-        {},
+        {className: "nav navbar-nav"},
         React.createElement(
             'li',
             {className: 'active'},
