@@ -1,5 +1,5 @@
 import React from 'react';
-import NavList from './navlist'
+import NavList from './Navlist'
 
 const Nav = React.createElement(
     'nav',
