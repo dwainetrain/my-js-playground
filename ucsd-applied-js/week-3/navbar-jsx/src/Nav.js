@@ -18,7 +18,7 @@ const Nav = (props) => {
     // store the links, pull in active page from App state
     const linksList = [...linksMap]
                     .map(link => (    
-                    <NavItem className={props.active === link[1] ? 'active' : null} key={link[1]}>
+                    <NavItem className={props.active === link[1] && ('active')} key={link[1]}>
                         <NavLink href={link[1]}>{link[0]}</NavLink>
                     </NavItem>
                     ));
@@ -26,7 +26,7 @@ const Nav = (props) => {
     return(
         // the npm version of bootstrap uses version 4.
         // To get things looking the same as the bootstrap 3 version, I needed to restructure the html 
-        // as a bonus, this added a collapsing hamburger menu. Mainly copied from reactstrap docs.
+        // as a bonus, this added a collapsing hamburger menu. Code structure pulled from reactstrap docs.
         <Navbar color="light" light expand="md">
             
             <NavbarBrand href="">WebSiteName</NavbarBrand>
