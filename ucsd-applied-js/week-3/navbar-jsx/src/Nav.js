@@ -18,7 +18,7 @@ const Nav = (props) => {
     // store the links, pull in active page from App state
     const linksList = [...linksMap]
                     .map(link => (    
-                    <NavItem className={props.active === link[1] && ('active')} key={link[1]}>
+                    <NavItem className={props.active === link[1] ? 'active' : ''} key={link[1]}>
                         <NavLink href={link[1]}>{link[0]}</NavLink>
                     </NavItem>
                     ));
