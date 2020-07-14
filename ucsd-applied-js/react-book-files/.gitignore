@@ -1,0 +1,17 @@
+composer.lock
+/node_modules/
+/vendor/
+/logs/
+/reports/
+play.js
+node_modules/
+.vscode
+.vscode/
+.netlify/
+.netlify
+
+# You want to have .DS_Store and other environment files/packages in your .gitignore_global configuration.
+# @see https://knowthecode.io/labs/local-development-environment-setup-mac/install-configure-git
+# I'll include it here to help out.
+.DS_Store
+.DS_Store?
