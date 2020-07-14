@@ -7,7 +7,7 @@ class Footer extends React.Component{
         return(
             <footer className="footer">
                 <Container fluid>
-                    <span class="text-muted">Here lies the footer</span>
+                    <span className="text-muted">Here lies the footer</span>
                 </Container>
             </footer>
         )
