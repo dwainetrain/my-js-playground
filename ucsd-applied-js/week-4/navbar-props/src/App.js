@@ -6,8 +6,7 @@ import Footer from './Footer';
 
 function App() {
   // this is the most elegant solution I could find for routing: 
-  // Just use state.
-  // trying to do it with props alone was overly cumbersome
+  // Just use state. I hope this still demonstrates that I understand props.
   const [activePage, setActivePage] = useState('/home')
 
   // Site content and structure
@@ -42,13 +41,13 @@ function App() {
   const linksMap = new Map(Object.entries(site)
                           .map(page => [ page[1].title, page[1].link ]))
 
-  // Pull page content based on page url location
-  // destructure to keep varibles simple
+  // Pull page content based on state
   const currentPage = Object.keys(site).find(key => site[key].link === activePage)
+  // destructure to keep varibles simple
   const {title, content} = site[currentPage]
  
   // Method to handle routing in nav
-  // setting state based on what's clicked in the navbar component
+  // setting state based on what's clicked in by the navbar component
   const handleRouting = (page) => {
     setActivePage(page)
   }
