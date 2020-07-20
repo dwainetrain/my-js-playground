@@ -1,0 +1,62 @@
+wes-bos-beginner/exercises (1)/16 - Debugging/debugging (1).html
+wes-bos-beginner/exercises (1)/16 - Debugging/debugging-FINISHED (1).js
+wes-bos-beginner/exercises (1)/29 - Events/events (1).html
+wes-bos-beginner/exercises (1)/29 - Events/events (1).js
+wes-bos-beginner/exercises (1)/29 - Events/forms (1).html
+wes-bos-beginner/exercises (1)/29 - Events/forms (1).js
+wes-bos-beginner/exercises (1)/29 - Events/forms-FINISHED (1).js
+wes-bos-beginner/exercises (1)/33 - Etch-a-Sketch/etch-a-sketch (1).js
+wes-bos-beginner/exercises (1)/34 - Click Outside/click-outside (1).html
+wes-bos-beginner/exercises (1)/34 - Click Outside/click-outside (1).js
+wes-bos-beginner/exercises (1)/46 - Arrays/array-loopings-methods (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/array-loopings-methods-START (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/array-methods (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/array-methods-START (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/for-loops (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/reduce-challenge (1).html
+wes-bos-beginner/exercises (1)/46 - Arrays/reduce-challenge-START (1).html
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/ae/2d2aec0524bfb1d0845a316230d8eb (1).blob
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/ae/a23452e6dcc3d3bb3a2dc2367fd899 (1).v8
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/c0/6a8663bae0582986748f58dbd267f6 (1).v8
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/c0/6f00d2d29994c976a0a4dc961eabeb (1).blob
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/fb/abd6de0f02138f70d3ee6a00864cc6 (1).v8
+wes-bos-beginner/exercises (1)/55 - Face Detection Censorship/.parcel-cache/fb/dd6bcd3802738f60a4931a3333287e (1).blob
+wes-bos-beginner/exercises (1)/57 - Shopping List/index (1).html
+wes-bos-beginner/exercises (1)/57 - Shopping List/shopping (1).css
+wes-bos-beginner/exercises (1)/57 - Shopping List/shopping (1).js
+wes-bos-beginner/exercises (1)/57 - Shopping List/shopping-FINISHED (1).js
+wes-bos-beginner/exercises (1)/58 - Gallery/images/patagonia black hole (1).jpg
+wes-bos-beginner/exercises (1)/59 - Slider/index (1).html
+wes-bos-beginner/exercises (1)/59 - Slider/package (1).json
+wes-bos-beginner/exercises (1)/59 - Slider/src/index (1).js
+wes-bos-beginner/exercises (1)/59 - Slider/src/index-FINISHED (1).js
+wes-bos-beginner/exercises (1)/59 - Slider/src/index-prototype-FINISHED (1).js
+wes-bos-beginner/exercises (1)/73 - Async Typer/index (1).html
+wes-bos-beginner/exercises (1)/73 - Async Typer/scripts (1).js
+wes-bos-beginner/exercises (1)/73 - Async Typer/scripts-FINISHED (1).js
+wes-bos-beginner/exercises (1)/76 - Dad Jokes/index (1).html
+wes-bos-beginner/exercises (1)/76 - Dad Jokes/jokes-FINISHED (1).js
+wes-bos-beginner/exercises (1)/77 - Dad Jokes Modules - FINISHED/package (1).json
+wes-bos-beginner/exercises (1)/77 - Dad Jokes Modules - FINISHED/data/buttonText (1).js
+wes-bos-beginner/exercises (1)/77 - Dad Jokes Modules - FINISHED/lib/elements (1).js
+wes-bos-beginner/exercises (1)/77 - Dad Jokes Modules - FINISHED/lib/handlers (1).js
+wes-bos-beginner/exercises (1)/77 - Dad Jokes Modules - FINISHED/lib/utils (1).js
+wes-bos-beginner/exercises (1)/83 - Security/index (1).html
+wes-bos-beginner/exercises (1)/83 - Security/nasty (1).js
+wes-bos-beginner/exercises (1)/83 - Security/package (1).json
+wes-bos-beginner/exercises (1)/83 - Security/package-lock (1).json
+wes-bos-beginner/exercises (1)/84 - Web Speech Colour Game/handlers (1).js
+wes-bos-beginner/exercises (1)/84 - Web Speech Colour Game/package-lock (1).json
+wes-bos-beginner/exercises (1)/84 - Web Speech Colour Game/speech (1).js
+wes-bos-beginner/exercises (1)/84 - Web Speech Colour Game/style (1).css
+wes-bos-beginner/exercises (1)/85 - Audio Visualizer Oscilloscope/package (1).json
+wes-bos-beginner/exercises (1)/85 - Audio Visualizer Oscilloscope/package-lock (1).json
+wes-bos-beginner/exercises (1)/85 - Audio Visualizer Oscilloscope/sound (1).js
+node_modules
+.cache/
+dist/
+.env
+.DS_Store
+coverage/
+.vscode/
+key-ignore
