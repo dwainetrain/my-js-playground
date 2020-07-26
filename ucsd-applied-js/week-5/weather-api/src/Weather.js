@@ -2,27 +2,46 @@ import React, { Component } from 'react';
 
 class Weather extends Component{
 
-    constructor(){
-        super();
-        this.state = { data:{main:{temp:''}} }
+    constructor(props){
+        super(props);
+        this.state = {isLoaded:false}
     }
 
-    // The basic structure
-    // pull other information from your assignment last quarter...
-    // add a choose your own city api
+    kelvinToFahrenheit(f) {
+        f = parseFloat(f);
+        const newTemp = (f - 273.15) * 1.8 + 32;
+        return newTemp.toFixed(0);
+      }
+    
     async componentDidMount() {
+        try{
         const response = await fetch("https://mm214.com/demo.php")
         const json = await response.json()
-        this.setState({ data: json })
-        // console.log(this.state.data.main.temp)
+        console.log(json)
+        this.setState({
+            location: json.name,
+            temp: this.kelvinToFahrenheit(json.main.temp),
+            condition: json.weather[0].description,
+            isLoaded: true
+        })} catch(error) {
+            console.log(error)
+        }
+        
     }
 
     render(){
-        const temp = this.state.data.main.temp
 
         return(
             <div>
-                <p>The temperature is {temp}</p>
+                {this.state.isLoaded ? (
+                    <div>
+                        <h1>Weather Report for {this.state.location}</h1>
+                        <p>Temperature: {this.state.temp}&deg;F</p>
+                        <p>Condition: {this.state.condition}</p>
+                    </div>
+                ) : (
+                <h3>Loading...</h3>)
+                }
             </div>
         )
     }
