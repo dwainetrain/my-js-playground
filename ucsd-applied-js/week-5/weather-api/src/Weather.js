@@ -17,13 +17,13 @@ class Weather extends Component{
         try{
         const response = await fetch("https://mm214.com/demo.php")
         const json = await response.json()
-        console.log(json)
         this.setState({
             location: json.name,
             temp: this.kelvinToFahrenheit(json.main.temp),
             condition: json.weather[0].description,
             isLoaded: true
-        })} catch(error) {
+        })}
+        catch(error) {
             console.log(error)
         }
         
